@@ -8,7 +8,7 @@ PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 .PHONY: go
 go:
 	for f in proto/*.proto; do \
-		protoc --proto_path=proto --go_out=pkg/golang --go-grpc_out=pkg/golang $$f; \
+		protoc --proto_path=proto --go_out=pkg --go-grpc_out=pkg $$f; \
 		echo compiled: $$f; \
 	done
 
