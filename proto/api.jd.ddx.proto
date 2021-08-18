@@ -1,0 +1,179 @@
+syntax = "proto3";
+package pb;
+
+option go_package = "/pb";
+
+/*
+{
+    "code":200,
+    "msg":"请求成功【success】",
+    "data":{
+        "shortURL":"https://u.jd.com/1wuqfzc",
+        "note":"",
+        "is_coupon":1,
+        "couponInfo":[
+            {
+                "beginTime":1627747200000,
+                "discount":5,
+                "endTime":1630425599000,
+                "link":"https://coupon.m.jd.com/coupons/show.action?linkKey=AAROH_xIpeffAs_-naABEFoejvv98AOl18umToGZ9-Roa3SvZpv1g9EceRPWEb_VYMyQUWt0-KhI8IOur4cUedbwnI_qkA",
+                "num":500000,
+                "platform":"全平台",
+                "quota":6,
+                "remainNum":147100,
+                "takeBeginTime":1627747200000,
+                "takeEndTime":1630425599000,
+                "yn":"1"
+            }
+        ],
+        "commissionInfo":{
+            "commission":0.6,
+            "commissionShare":1,
+            "couponCommission":0.55,
+            "endTime":32472201599000,
+            "isLock":0,
+            "plusCommissionShare":1,
+            "startTime":1621353600000
+        },
+        "priceInfo":{
+            "historyPriceDay":60,
+            "lowestCouponPrice":54.9,
+            "lowestPrice":59.9,
+            "lowestPriceType":1,
+            "price":59.9
+        },
+        "pinGouInfo":[
+        ],
+        "shopInfo":{
+            "shopId":1000001694,
+            "shopLabel":"0",
+            "shopLevel":4.9,
+            "shopName":"清风京东自营旗舰店"
+        },
+        "skuName":"清风 抽纸 原木金装 纸抽 面巾纸 360张*24包（加韧 可湿水 120抽每包）无香 母婴可用（整箱销售）",
+        "skuId":100015114144,
+        "owner":"g",
+        "imageInfo":{
+            "imageList":[
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/196551/16/18448/157319/6119bb05Ed3d8bf96/f1d1f99ddd5bc6d8.jpg"
+                },
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/134258/28/9284/151225/5f51d353Ea0906b4e/ce68ccdf5e79c41d.jpg"
+                },
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/133328/21/8948/109301/5f51d354E00ee08d0/99c2f21e51f3ad1c.jpg"
+                },
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/118362/26/17007/87241/5f51d354E3baed4f6/f62175ed4a477051.jpg"
+                },
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/111686/21/16927/55295/5f51d354Eb5af5725/4f1518d77bfeefa0.jpg"
+                },
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/141517/17/7543/52533/5f51d354E67ffa418/620201d85eb865e9.jpg"
+                },
+                {
+                    "url":"https://img14.360buyimg.com/pop/jfs/t1/135203/16/9136/44450/5f51d353E8d50cb17/f73999e5f8e8e73d.jpg"
+                }
+            ],
+            "whiteImage":"https://img14.360buyimg.com/pop/jfs/t1/145678/6/7521/509117/5f51d36fE045c50aa/932e5f64af45e7ae.png"
+        }
+    }
+}
+*/
+message CouponInfo {
+    uint64 takeEndTime = 1;   // 券领取结束时间(时间戳，毫秒) e.g.: 1532966460000
+    uint64 takeBeginTime = 2; // 券领取结束时间(时间戳，毫秒) e.g.: 1531065600000
+    uint64 remainNum = 3;     // 券剩余张数 e.g.: 9990
+    string yn = 4;            // 券有效状态 e.g.: 1
+    uint64 num = 5;           // 券总张数 e.g.: 10000
+    double quota = 6;         // 券消费限额 e.g.: 15
+    string link = 7;          // 券链接 e.g.: http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXXXXXX
+    double discount = 8;      // 券面额 e.g.: 10
+    uint64 beginTime = 9;     // 券有效使用开始时间(时间戳，毫秒) e.g.: 1531065600000
+    uint64 endTime = 10;      // 券有效使用结束时间(时间戳，毫秒) e.g.: 1533052799000
+    string platform = 11;     // 券使用平台 e.g.: 全平台
+}
+
+message CommissionInfo {
+    double commission = 1;          // 佣金 e.g.: 22.68
+    double commissionShare = 2;     // 佣金比例 e.g.: 50
+    double couponCommission = 3;    // 券后佣金 e.g.: 12.68
+    double plusCommissionShare = 4; // plus佣金比例券 e.g.: 50
+    uint64 endTime = 5;
+    uint64 startTime = 6;
+    string isLock = 7;
+}
+
+message ImageURL {
+    string url = 1;
+}
+
+message ImageInfo {
+    repeated ImageURL imageList = 1;
+    string whiteImage = 2;
+}
+
+message PriceInfo {
+    double price = 1; // 无线价格
+    int32 historyPriceDay = 2; // 历史最低价天数
+    optional double lowestCouponPrice = 3; // 最低价后的优惠券价(当商品无最优券时，不返回该字段
+    double lowestPrice = 4; // 无线价格
+    int32 lowestPriceType = 5; // 最低价格类型，1：无线价格；2：拼购价格； 3：秒杀价格
+}
+
+message PinGouInfo {
+    double pingouPrice = 1;     // 拼购价格
+    uint64 pingouTmCount = 2;   // 拼购成团所需人数
+    string pingouUrl = 3;       // 拼购落地页url，请勿直接使用，请用转链后的shortURL链接
+    uint64 pingouStartTime = 4; // 拼购开始时间(时间戳，毫秒) e.g.: 1546444800000
+    uint64 pingouEndTime = 5;   // 拼购结束时间(时间戳，毫秒) e.g.: 1546444800000
+}
+
+message ShopInfo {
+    uint64 shopId = 1;    // 店铺Id
+    string shopLabel = 2; // 
+    double shopLevel = 3; // 店铺等级
+    string shopName = 4;  // 店铺名称（或供应商名称）
+}
+
+message PromotedData {
+    string shortURL = 1;               // 生成的推广目标链接，以短链接形式，有效期为半年 https://union-click.jd.com/jdc?d=XXXXXX
+    string clickURL = 2;               // 生成推广目标的长链，长期有效 https://union-click.jd.com/jdc?e=XXXXXX%26p=XXXXXXXXXXX
+    optional string jCommand = 3;      // 京口令（匹配到红包活动有效配置才会返回京口令）
+    string note = 4;                   // 优惠券错误提示
+    int32 is_coupon = 5;               // 是否有券 1-有 0-无
+    CouponInfo couponInfo = 6;         // 优惠券券信息
+    CommissionInfo commissionInfo = 7; // 佣金信息
+    ImageInfo imageInfo = 8;           // 图片信息
+    PriceInfo priceInfo = 9;           // 价格信息
+    PinGouInfo pinGouInfo = 10;        // 拼购信息
+    ShopInfo shopInfo = 11;            // 店铺信息
+    uint64 skuId = 12;                 // 商品ID
+    string skuName = 13;               // 商品名称
+    string owner = 14;                 // g=自营，p=pop 可来判断最终分成比例 g =100％,p=90%，非自营商品官方会扣10%服务费
+}
+
+message PromotionByUnionIDRequest {
+    string materialId = 1;                // mandatory 商品链接、活动链接、店铺链接。如https://item.jd.com/100007926326.html
+    uint64 unionId = 2;                   // mandatory 如果不传会走后台默认设置的，目标推客的联盟ID ，请填写自己的联盟ID
+    optional bool autoSearch = 3;         // optional  是否启用优惠券自动搜索功能，如启用且优惠券链接未传入时，系统会自动查询优惠券，并转成二合一链接,启用之后并不是所有商品都有券（注：最好填true）
+    optional int32 type = 4;              // optional  是否保留原来券，1-默认重新查券 2-保留原来券（保留原券，不能在开启自动查券，也不会返回其他信息）
+    optional uint64 positionId = 5;       // optional  推广位ID，可自定义参数，必须为数字，不能带有特殊符合
+    optional string couponUrl = 6;        // optional  优惠券领取链接，在使用优惠券、商品二合一功能时入参，且materialId须为商品详情页链接，需要Urlencode
+    optional int32 chainType = 7;         // optional  转链类型，1：长链， 2 ：短链 ，3： 长链+短链，默认2短链
+    optional string subUnionId = 8;       // optional  子渠道标识，您可自定义传入字母、数字或下划线，最多支持80个字符，该参数会在订单行查询接口中展示
+    optional string giftCouponKey = 9;    // optional  礼金批次号
+}
+
+message PromotionByUnionIDResponse {
+    int32 code = 1;
+    string msg = 2;
+    PromotedData data = 3;
+}
+
+// RPC service
+service JdApiService {
+    rpc PromotionByUnionID(PromotionByUnionIDRequest) returns (PromotionByUnionIDResponse) {}
+}
