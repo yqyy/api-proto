@@ -1,0 +1,228 @@
+syntax = "proto3";
+package tbpb;
+
+option go_package = "/tbpb";
+
+message SmallImages {
+    repeated string string = 1;
+}
+
+message GoodsDetail {
+    uint64 category_id = 1;
+    string category_name = 2;
+    string commission_rate = 3;
+    string commission_type = 4;
+    string coupon_amount = 5;
+    string coupon_end_time = 6;
+    string coupon_id = 7;
+    string coupon_info = 8;
+    int32  coupon_remain_count = 9;
+    string coupon_share_url = 10;
+    string coupon_start_fee = 11;
+    string coupon_start_time = 12;
+    int32 coupon_total_count = 13;
+    string include_dxjh = 14;
+    string include_mkt = 15;
+    string info_dxjh = 16;
+    string item_description = 17;
+    uint64 item_id = 18;
+    string item_url = 19;
+    uint64 level_one_category_id = 20;
+    string level_one_category_name = 21;
+    string nick = 22;
+    uint64 num_iid = 23;
+    string pict_url = 24;
+    string presale_deposit = 25;
+    uint64 presale_end_time = 26;
+    uint64 presale_start_time = 27;
+    uint64 presale_tail_end_time = 28;
+    uint64 presale_tail_start_time = 29;
+    string presale_discount_fee_text = 30;
+    string provcity = 31;
+    string real_post_fee = 32;
+    string reserve_price = 33;
+    uint64 seller_id = 34;
+    uint64 shop_dsr = 35;
+    string short_title = 36;
+    SmallImages small_images = 37;
+    string superior_brand = 38;
+    string title = 39;
+    string tk_total_commi = 40;
+    string tk_total_sales = 41;
+    string url = 42;
+    int32 user_type = 43;
+    int32 volume = 44;
+    string white_image = 45;
+    string x_id = 46;
+    string zk_final_price = 47;
+    string shop_title = 48;
+    string oetime = 49;
+    string ostime = 50;
+    int32 jdd_num = 51;
+    string jdd_price = 52;
+    string coupon = 53;
+    string uv_sum_pre_sale = 54;
+    string orig_price = 55;
+    int32 total_stock = 56;
+    int32 sell_num = 57;
+    int32 stock = 58;
+    string tmall_play_activity_info = 59;
+    uint64 lock_rate_end_time   = 60;
+    uint64 lock_rate_start_time = 61;
+    string lock_rate = 62;
+    string ysyl_tlj_send_time = 63;
+    string ysyl_click_url = 64;
+    string ysyl_commission_rate = 65;
+    string ysyl_tlj_face = 66;
+    string ysyl_tlj_use_end_time = 67;
+    string ysyl_tlj_use_start_time = 68;
+    string sale_price = 69;
+    string kuadian_promotion_info = 70;
+    string commi_score = 71;
+    string match_score = 72;
+}
+
+message SearchGoodsRequest {
+    string          keyword              = 1;
+    optional string category             = 2;
+    optional bool   has_coupon           = 3; 
+    optional string sort                 = 4;
+    optional string platform             = 5;
+    optional int32  page_size            = 6;
+    optional int32  page_no              = 7;
+    optional int32  start_dsr            = 8;
+    optional int32  end_tk_rate          = 9;
+    optional int32  start_tk_rate        = 10;
+    optional int32  end_price            = 11;
+    optional int32  start_price          = 12;
+    optional bool   is_overseas          = 13;
+    optional bool   is_tmall             = 14;
+    optional string item_loc             = 15;
+    optional int32  material_id          = 16;
+    optional string ip                   = 17;
+    optional bool   include_rfd_rate     = 18;
+    optional bool   include_good_rate    = 19;
+    optional bool   include_pay_rate     = 20;
+    optional bool   need_prepay          = 21;
+    optional bool   need_free_shipment   = 22;
+    optional int32  npx_level            = 23;
+    optional int32  end_ka_tk_rate       = 24;
+    optional int32  start_ka_tk_rate     = 25;
+    optional uint64 lock_rate_end_time   = 26;
+    optional uint64 lock_rate_start_time = 27;
+    optional string relation_id          = 28;
+    optional string special_id           = 29;
+}
+
+message SearchGoodsMsgData {
+    int32 total_results = 1;
+    repeated GoodsDetail data = 2;
+}
+
+message SearchGoodsResponse {
+    int32 code = 1;
+    string msg = 2;
+    SearchGoodsMsgData data = 3;
+}
+
+message DdxTbApiSearchGoodsRes {
+    int32 code = 1;
+    string msg = 2;
+    int32 total_results = 3;
+    repeated GoodsDetail data = 4;
+}
+
+message PromoteURLByIDRequest {
+    string id = 2;                        // mandatory 商品id
+    optional string signature = 3;        // optional  接口签名，查看创建规则，（可在后台开启或关闭，关闭状态可不需要此参数）
+    optional string pid = 4;              // ptional   淘宝联盟推广位pid，必须为在本平台授权淘宝账号下的pid，否则无效。如不传该参数则默认走后台填写的pid
+    optional string relation_id = 5;      // optional  渠道关系ID，即备案到该合作方下面的唯一的渠道关系ID，通过此关系ID进行转链即可实现订单的数据追踪，查看渠道订单数据; 注意：转链时候所传pid参数必须是您“渠道专属推广位”内的专属pid才可以，否则订单接口中无法返回渠道id信息。
+    optional bool tpwd = 6;               // optional  是否生成淘口令，true 或false, 默认不生成，可生成优惠券口令和商品链接口令
+    optional string activity_id = 7;      // optional  阿里妈妈推广券ID，如果传该参数，则高佣链接将展现此券信息，不传会自动查找其它券。
+    optional string logo = 8;             // optional  要生成口令的图片, 默认使用商品主图
+    optional string text = 9;             // optional  要生成口令的标题，默认使用商品标题
+    optional bool item_info = 10;         // optional  true或false，是否返回商品信息，包含标题、一口价、折扣价、券后价、券后佣金，是否天猫, 默认false
+    optional bool extspk = 11;            // optional  true或false，是否同时去查私有券、猫超券，默认false不开启，开启后可能稍微增加转链响应速度，请合理使用。
+    optional string left_symbol = 12;     // optional  淘口令左边符号，默认￥
+    optional string right_symbol = 13;    // optional  淘口令右边符号，默认￥
+    optional bool short_url = 14;         // optional  coupon_click_url 和 item_url 是否生成短连接（默认生成的链接为长链接）
+}
+
+message PromoteURLByTKLRequest {
+    string tkl = 2;                       // mandatory 商品TKL
+    optional string signature = 3;        // optional  接口签名，查看创建规则，（可在后台开启或关闭，关闭状态可不需要此参数）
+    optional string pid = 4;              // ptional   淘宝联盟推广位pid，必须为在本平台授权淘宝账号下的pid，否则无效。如不传该参数则默认走后台填写的pid
+    optional string relation_id = 5;      // optional  渠道关系ID，即备案到该合作方下面的唯一的渠道关系ID，通过此关系ID进行转链即可实现订单的数据追踪，查看渠道订单数据; 注意：转链时候所传pid参数必须是您“渠道专属推广位”内的专属pid才可以，否则订单接口中无法返回渠道id信息。
+    optional bool tpwd = 6;               // optional  是否生成淘口令，true 或false, 默认不生成，可生成优惠券口令和商品链接口令
+    optional string activity_id = 7;      // optional  阿里妈妈推广券ID，如果传该参数，则高佣链接将展现此券信息，不传会自动查找其它券。
+    optional string logo = 8;             // optional  要生成口令的图片, 默认使用商品主图
+    optional string text = 9;             // optional  要生成口令的标题，默认使用商品标题
+    optional bool item_info = 10;         // optional  true或false，是否返回商品信息，包含标题、一口价、折扣价、券后价、券后佣金，是否天猫, 默认false
+    optional bool extspk = 11;            // optional  true或false，是否同时去查私有券、猫超券，默认false不开启，开启后可能稍微增加转链响应速度，请合理使用。
+    optional string left_symbol = 12;     // optional  淘口令左边符号，默认￥
+    optional string right_symbol = 13;    // optional  淘口令右边符号，默认￥
+    optional bool short_url = 14;         // optional  coupon_click_url 和 item_url 是否生成短连接（默认生成的链接为长链接）
+}
+
+message ItemInfo {
+    string title                  = 1;
+    string pict_url               = 2;
+    SmallImages small_images      = 3;
+    int32  reserve_price          = 4;
+    int32  zk_final_price         = 5;
+    int32  qh_final_price         = 6;
+    float  qh_final_commission    = 7;
+    string activity_id            = 8;
+    int32  user_type              = 9;
+    int32  volume                 = 10;
+    uint64 seller_id              = 11;
+    string nick                   = 12;
+    string material_lib_type      = 13;
+}
+
+message PromotedURLData {
+    uint64   category_id = 1;
+    string   coupon_click_url = 2;
+    string   coupon_start_time = 3;
+    string   coupon_end_time = 4;
+    string   coupon_info = 5;
+    string   coupon = 6;
+    uint64   item_id = 7;
+    string   max_commission_rate = 8;
+    int32    coupon_total_count = 9;
+    string    coupon_remain_count = 10;
+    int32    mm_coupon_remain_count = 11;
+    int32    mm_coupon_total_count = 12;
+    string   mm_coupon_click_url = 13;
+    string   mm_coupon_start_time = 14;
+    string   mm_coupon_end_time = 15;
+    string   mm_coupon_info = 16;
+    int32    coupon_type = 17;
+    string   item_url = 18;
+    string   coupon_tpwd = 19;
+    string   long_coupon_tpwd = 20;
+    string   item_tpwd = 21;
+    string   long_item_tpwd = 22;
+    ItemInfo itemInfo = 23;
+    string   ysyl_click_url = 24;
+    string   ysyl_tlj_face = 25;
+    string   ysyl_tlj_send_time = 26;
+    string   ysyl_commission_rate = 27;
+    string   ysyl_tlj_use_start_time = 28;
+    string   ysyl_tlj_use_end_time = 29;
+    string   min_commission_rate = 30;
+    int32    reward_info = 31;
+}
+
+message PromoteURLResponse {
+    int32 code = 1;
+    string msg = 2;
+    PromotedURLData data = 3;
+}
+
+// RPC service
+service TbApiService {
+    rpc SearchGoods(SearchGoodsRequest) returns (SearchGoodsResponse) {}
+    rpc PromoteByID(PromoteURLByIDRequest) returns (PromoteURLResponse) {}
+    rpc PromoteByTKL(PromoteURLByTKLRequest) returns (PromoteURLResponse) {}
+}
