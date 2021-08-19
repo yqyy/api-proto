@@ -7,4 +7,7 @@ require (
 	google.golang.org/protobuf v1.27.1
 )
 
-retract v0.1.1
+retract (
+	v0.1.2
+	v0.1.1
+)
