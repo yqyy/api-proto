@@ -1,7 +1,9 @@
 syntax = "proto3";
-package pb;
+package jdpb;
 
-option go_package = "/pb";
+option go_package = "/jdpb";
+
+// ----- The definitions of JD ddx APIs ----
 
 /*
 {
@@ -116,11 +118,11 @@ message ImageInfo {
 }
 
 message PriceInfo {
-    double price = 1; // 无线价格
-    int32 historyPriceDay = 2; // 历史最低价天数
+    double price = 1;                      // 无线价格
+    int32 historyPriceDay = 2;             // 历史最低价天数
     optional double lowestCouponPrice = 3; // 最低价后的优惠券价(当商品无最优券时，不返回该字段
-    double lowestPrice = 4; // 无线价格
-    int32 lowestPriceType = 5; // 最低价格类型，1：无线价格；2：拼购价格； 3：秒杀价格
+    double lowestPrice = 4;                // 无线价格
+    int32 lowestPriceType = 5;             // 最低价格类型，1：无线价格；2：拼购价格； 3：秒杀价格
 }
 
 message PinGouInfo {

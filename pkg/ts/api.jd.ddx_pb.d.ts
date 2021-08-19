@@ -1,4 +1,4 @@
-// package: pb
+// package: jdpb
 // file: api.jd.ddx.proto
 
 import * as jspb from "google-protobuf";

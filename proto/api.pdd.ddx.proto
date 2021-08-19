@@ -1,0 +1,134 @@
+syntax = "proto3";
+package pddxpb;
+
+option go_package = "/pddxpb";
+
+// ----- The definitions of PDD ddx APIs ----
+
+// API: http://api.tbk.dingdanxia.com/pdd/authority_query
+message AuthorityQueryData {
+    string bind = 1; // 1-已绑定；0-未绑定
+}
+
+message AuthorityQueryRequest {
+    string pid = 1;                 // 推广位id
+    optional string custom_parameters = 2;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
+    optional string pdd_auth_id = 3;         // 切换授权参数
+}
+
+message AuthorityQueryResponse {
+    int32 code = 1;
+    string msg = 2;
+    AuthorityQueryData data = 3;
+}
+
+// API: http://api.tbk.dingdanxia.com/pdd/prom_url_generate
+message Resource {
+    string desc = 1;  // 活动描述
+    string url = 2;   // 活动地址
+}
+
+message QQAppInfo {
+    string app_id = 1;
+    string banner_url = 2;
+    string desc = 3;
+    string page_path = 4;
+    string qq_app_icon_url = 5;
+    string source_display_name = 6;
+    string title = 7;
+    string user_name = 8;
+}
+
+message WeAppInfo {
+    string app_id = 1;
+    string banner_url = 2;
+    string desc = 3;
+    string page_path = 4;
+    string we_app_icon_url = 5;
+    string source_display_name = 6;
+    string title = 7;
+    string user_name = 8;
+}
+
+message URLInfo {
+    string mobile_short_url = 1;
+    string mobile_url = 2;
+    string multi_group_mobile_short_url = 3;
+    string multi_group_mobile_url = 4;
+    string multi_group_short_url = 5;
+    string multi_group_url = 6;
+    QQAppInfo qq_app_info = 7;
+    string schema_url = 8;
+    string short_url = 9;
+    string url = 10;
+    WeAppInfo we_app_info = 11; 
+}
+
+message MarketingURLData {
+    repeated Resource resource_list = 1;
+    repeated URLInfo url_list = 2;
+}
+
+message CreateMarketingURLRequest {
+    string p_id_list = 1;                       // 推广位，例如：8735184_70977074
+    optional string custom_parameters = 2;      // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；
+    optional bool generate_qq_app = 3;          // 是否生成qq小程序
+    optional bool generate_schema_url = 4;      // 是否返回 schema URL
+    optional bool generate_short_url = 5;       // 是否生成短链接。true-是，false-否，默认false
+    optional bool generate_we_app = 6;          // 是否生成小程序推广
+    int32 channel_type = 7;                     // 营销工具类型，必填：-1-活动列表，0-红包(需申请推广权限)，2–新人红包，3-刮刮卡，5-员工内购，6-购物车，10-生成绑定备案链接，12-砸金蛋，13-一元购，14-千万补贴B端页面，15-充值中心B端页面
+    optional uint64 scratch_card_amount = 8;    // 刮刮卡指定金额（单位分），可指定2-100元间数值，即有效区间为：[200,10000]
+    optional string pdd_auth_id = 9;            // 切换授权参数
+}
+
+message CreateMarketingURLResponse {
+    int32 code = 1;
+    string msg = 2;
+    MarketingURLData data = 3;
+}
+
+// API: http://api.tbk.dingdanxia.com/pdd/url_convert
+message ItemInfo {
+    string goods_name = 1;              // 商品名称
+    uint64 goods_id = 2;                // 商品ID
+    uint64 min_normal_price = 3;        // 最小单买价格（单位为分）
+    uint64 min_group_price = 4;         // 最小拼团价（单位为分）
+    uint64 promotion_rate = 5;          // 佣金比例，千分比
+    uint64 predict_promotion_rate = 6;  // 比价行为预判定佣金，需要用户备案
+    uint64 coupon_min_order_amount = 7; // 优惠券门槛价格，单位为分
+    uint64 coupon_discount = 8;         // 优惠券面额，单位为分
+    uint64 coupon_total_quantity = 9;   // 优惠券总数量
+    uint64 coupon_remain_quantity = 10; // 优惠券剩余数量
+    uint64 coupon_start_time = 11;      // 优惠券生效时间，UNIX时间戳
+    uint64 coupon_end_time = 12;        // 优惠券失效时间，UNIX时间戳
+    bool has_coupon = 13;               // 商品是否有优惠券 true-有，false-没有
+}
+
+message URLConvertRequest {
+    string source_url = 1;                   // 需转链/解析ID的链
+    string pid = 2;                          // 渠道ID
+    optional string custom_parameters = 3;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
+    optional string generate_schema_url = 4; // 是否返回 schema URL
+    optional bool itemInfo = 5;              // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
+}
+
+message URLConvertResponse {
+    string mobile_short_url = 1;             // 推广短链接（可唤起拼多多app）
+    string mobile_url = 2;                   // 推广长链接（唤起拼多多app）
+    string multi_group_mobile_short_url = 3; // 推广短链接（唤起拼多多app）
+    string multi_group_mobile_url = 4;       // 推广长链接（可唤起拼多多app）
+    string multi_group_short_url = 5;        // 双人团推广短链接
+    string multi_group_url = 6;              // 双人团推广长链接
+    string schema_url = 7;                   // schema的链接
+    string short_url = 8;                    // 单人团推广短链接
+    string url = 9;                          // 单人团推广长链接
+    string goods_id = 10;                    // 商品ID
+    optional ItemInfo itemInfo = 11;         // 商品基本信息 itemInfo＝true 才会出
+}
+
+// RPC service
+service PddApiService {
+    rpc AuthorityQuery(AuthorityQueryRequest) returns (AuthorityQueryResponse) {}
+    rpc CreateMarketingURL(CreateMarketingURLRequest) returns (CreateMarketingURLResponse) {}
+    rpc URLConvert(URLConvertRequest) returns (URLConvertResponse) {}
+}

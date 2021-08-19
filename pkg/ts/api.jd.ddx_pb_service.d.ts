@@ -1,4 +1,4 @@
-// package: pb
+// package: jdpb
 // file: api.jd.ddx.proto
 
 import * as api_jd_ddx_pb from "./api.jd.ddx_pb";

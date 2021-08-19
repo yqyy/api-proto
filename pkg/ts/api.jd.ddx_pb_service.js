@@ -1,4 +1,4 @@
-// package: pb
+// package: jdpb
 // file: api.jd.ddx.proto
 
 var api_jd_ddx_pb = require("./api.jd.ddx_pb");
@@ -6,7 +6,7 @@ var grpc = require("@improbable-eng/grpc-web").grpc;
 
 var JdApiService = (function () {
   function JdApiService() {}
-  JdApiService.serviceName = "pb.JdApiService";
+  JdApiService.serviceName = "jdpb.JdApiService";
   return JdApiService;
 }());
 
