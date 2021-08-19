@@ -475,8 +475,8 @@ export class URLConvertRequest extends jspb.Message {
 
   hasGenerateSchemaUrl(): boolean;
   clearGenerateSchemaUrl(): void;
-  getGenerateSchemaUrl(): string;
-  setGenerateSchemaUrl(value: string): void;
+  getGenerateSchemaUrl(): boolean;
+  setGenerateSchemaUrl(value: boolean): void;
 
   hasIteminfo(): boolean;
   clearIteminfo(): void;
@@ -498,7 +498,7 @@ export namespace URLConvertRequest {
     sourceUrl: string,
     pid: string,
     customParameters: string,
-    generateSchemaUrl: string,
+    generateSchemaUrl: boolean,
     iteminfo: boolean,
   }
 }

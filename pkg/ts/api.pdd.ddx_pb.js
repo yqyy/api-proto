@@ -3625,7 +3625,7 @@ proto.pddxpb.URLConvertRequest.toObject = function(includeInstance, msg) {
     sourceUrl: jspb.Message.getFieldWithDefault(msg, 1, ""),
     pid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     customParameters: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    generateSchemaUrl: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    generateSchemaUrl: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
     iteminfo: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
   };
 
@@ -3676,7 +3676,7 @@ proto.pddxpb.URLConvertRequest.deserializeBinaryFromReader = function(msg, reade
       msg.setCustomParameters(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {boolean} */ (reader.readBool());
       msg.setGenerateSchemaUrl(value);
       break;
     case 5:
@@ -3733,9 +3733,9 @@ proto.pddxpb.URLConvertRequest.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = /** @type {string} */ (jspb.Message.getField(message, 4));
+  f = /** @type {boolean} */ (jspb.Message.getField(message, 4));
   if (f != null) {
-    writer.writeString(
+    writer.writeBool(
       4,
       f
     );
@@ -3823,16 +3823,16 @@ proto.pddxpb.URLConvertRequest.prototype.hasCustomParameters = function() {
 
 
 /**
- * optional string generate_schema_url = 4;
- * @return {string}
+ * optional bool generate_schema_url = 4;
+ * @return {boolean}
  */
 proto.pddxpb.URLConvertRequest.prototype.getGenerateSchemaUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
 };
 
 
 /**
- * @param {string} value
+ * @param {boolean} value
  * @return {!proto.pddxpb.URLConvertRequest} returns this
  */
 proto.pddxpb.URLConvertRequest.prototype.setGenerateSchemaUrl = function(value) {

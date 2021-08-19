@@ -961,11 +961,11 @@ type URLConvertRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SourceUrl         string  `protobuf:"bytes,1,opt,name=source_url,json=sourceUrl,proto3" json:"source_url,omitempty"`                                 // 需转链/解析ID的链
-	Pid               string  `protobuf:"bytes,2,opt,name=pid,proto3" json:"pid,omitempty"`                                                              // 渠道ID
-	CustomParameters  *string `protobuf:"bytes,3,opt,name=custom_parameters,json=customParameters,proto3,oneof" json:"custom_parameters,omitempty"`      // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
-	GenerateSchemaUrl *string `protobuf:"bytes,4,opt,name=generate_schema_url,json=generateSchemaUrl,proto3,oneof" json:"generate_schema_url,omitempty"` // 是否返回 schema URL
-	ItemInfo          *bool   `protobuf:"varint,5,opt,name=itemInfo,proto3,oneof" json:"itemInfo,omitempty"`                                             // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
+	SourceUrl         string  `protobuf:"bytes,1,opt,name=source_url,json=sourceUrl,proto3" json:"source_url,omitempty"`                                  // 需转链/解析ID的链
+	Pid               string  `protobuf:"bytes,2,opt,name=pid,proto3" json:"pid,omitempty"`                                                               // 渠道ID
+	CustomParameters  *string `protobuf:"bytes,3,opt,name=custom_parameters,json=customParameters,proto3,oneof" json:"custom_parameters,omitempty"`       // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
+	GenerateSchemaUrl *bool   `protobuf:"varint,4,opt,name=generate_schema_url,json=generateSchemaUrl,proto3,oneof" json:"generate_schema_url,omitempty"` // 是否返回 schema URL
+	ItemInfo          *bool   `protobuf:"varint,5,opt,name=itemInfo,proto3,oneof" json:"itemInfo,omitempty"`                                              // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
 }
 
 func (x *URLConvertRequest) Reset() {
@@ -1021,11 +1021,11 @@ func (x *URLConvertRequest) GetCustomParameters() string {
 	return ""
 }
 
-func (x *URLConvertRequest) GetGenerateSchemaUrl() string {
+func (x *URLConvertRequest) GetGenerateSchemaUrl() bool {
 	if x != nil && x.GenerateSchemaUrl != nil {
 		return *x.GenerateSchemaUrl
 	}
-	return ""
+	return false
 }
 
 func (x *URLConvertRequest) GetItemInfo() bool {
@@ -1346,7 +1346,7 @@ var file_api_pdd_ddx_proto_rawDesc = []byte{
 	0x03, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x10, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x50,
 	0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x73, 0x88, 0x01, 0x01, 0x12, 0x33, 0x0a, 0x13,
 	0x67, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x5f, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x5f,
-	0x75, 0x72, 0x6c, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x48, 0x01, 0x52, 0x11, 0x67, 0x65, 0x6e,
+	0x75, 0x72, 0x6c, 0x18, 0x04, 0x20, 0x01, 0x28, 0x08, 0x48, 0x01, 0x52, 0x11, 0x67, 0x65, 0x6e,
 	0x65, 0x72, 0x61, 0x74, 0x65, 0x53, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x55, 0x72, 0x6c, 0x88, 0x01,
 	0x01, 0x12, 0x1f, 0x0a, 0x08, 0x69, 0x74, 0x65, 0x6d, 0x49, 0x6e, 0x66, 0x6f, 0x18, 0x05, 0x20,
 	0x01, 0x28, 0x08, 0x48, 0x02, 0x52, 0x08, 0x69, 0x74, 0x65, 0x6d, 0x49, 0x6e, 0x66, 0x6f, 0x88,
