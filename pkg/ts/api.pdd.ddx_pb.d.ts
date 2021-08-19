@@ -461,6 +461,68 @@ export namespace ItemInfo {
   }
 }
 
+export class URLConvertData extends jspb.Message {
+  getMobileShortUrl(): string;
+  setMobileShortUrl(value: string): void;
+
+  getMobileUrl(): string;
+  setMobileUrl(value: string): void;
+
+  getMultiGroupMobileShortUrl(): string;
+  setMultiGroupMobileShortUrl(value: string): void;
+
+  getMultiGroupMobileUrl(): string;
+  setMultiGroupMobileUrl(value: string): void;
+
+  getMultiGroupShortUrl(): string;
+  setMultiGroupShortUrl(value: string): void;
+
+  getMultiGroupUrl(): string;
+  setMultiGroupUrl(value: string): void;
+
+  getSchemaUrl(): string;
+  setSchemaUrl(value: string): void;
+
+  getShortUrl(): string;
+  setShortUrl(value: string): void;
+
+  getUrl(): string;
+  setUrl(value: string): void;
+
+  getGoodsId(): string;
+  setGoodsId(value: string): void;
+
+  hasIteminfo(): boolean;
+  clearIteminfo(): void;
+  getIteminfo(): ItemInfo | undefined;
+  setIteminfo(value?: ItemInfo): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): URLConvertData.AsObject;
+  static toObject(includeInstance: boolean, msg: URLConvertData): URLConvertData.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: URLConvertData, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): URLConvertData;
+  static deserializeBinaryFromReader(message: URLConvertData, reader: jspb.BinaryReader): URLConvertData;
+}
+
+export namespace URLConvertData {
+  export type AsObject = {
+    mobileShortUrl: string,
+    mobileUrl: string,
+    multiGroupMobileShortUrl: string,
+    multiGroupMobileUrl: string,
+    multiGroupShortUrl: string,
+    multiGroupUrl: string,
+    schemaUrl: string,
+    shortUrl: string,
+    url: string,
+    goodsId: string,
+    iteminfo?: ItemInfo.AsObject,
+  }
+}
+
 export class URLConvertRequest extends jspb.Message {
   getSourceUrl(): string;
   setSourceUrl(value: string): void;
@@ -504,40 +566,16 @@ export namespace URLConvertRequest {
 }
 
 export class URLConvertResponse extends jspb.Message {
-  getMobileShortUrl(): string;
-  setMobileShortUrl(value: string): void;
+  getCode(): number;
+  setCode(value: number): void;
 
-  getMobileUrl(): string;
-  setMobileUrl(value: string): void;
+  getMsg(): string;
+  setMsg(value: string): void;
 
-  getMultiGroupMobileShortUrl(): string;
-  setMultiGroupMobileShortUrl(value: string): void;
-
-  getMultiGroupMobileUrl(): string;
-  setMultiGroupMobileUrl(value: string): void;
-
-  getMultiGroupShortUrl(): string;
-  setMultiGroupShortUrl(value: string): void;
-
-  getMultiGroupUrl(): string;
-  setMultiGroupUrl(value: string): void;
-
-  getSchemaUrl(): string;
-  setSchemaUrl(value: string): void;
-
-  getShortUrl(): string;
-  setShortUrl(value: string): void;
-
-  getUrl(): string;
-  setUrl(value: string): void;
-
-  getGoodsId(): string;
-  setGoodsId(value: string): void;
-
-  hasIteminfo(): boolean;
-  clearIteminfo(): void;
-  getIteminfo(): ItemInfo | undefined;
-  setIteminfo(value?: ItemInfo): void;
+  hasData(): boolean;
+  clearData(): void;
+  getData(): URLConvertData | undefined;
+  setData(value?: URLConvertData): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): URLConvertResponse.AsObject;
@@ -551,17 +589,9 @@ export class URLConvertResponse extends jspb.Message {
 
 export namespace URLConvertResponse {
   export type AsObject = {
-    mobileShortUrl: string,
-    mobileUrl: string,
-    multiGroupMobileShortUrl: string,
-    multiGroupMobileUrl: string,
-    multiGroupShortUrl: string,
-    multiGroupUrl: string,
-    schemaUrl: string,
-    shortUrl: string,
-    url: string,
-    goodsId: string,
-    iteminfo?: ItemInfo.AsObject,
+    code: number,
+    msg: string,
+    data?: URLConvertData.AsObject,
   }
 }
 

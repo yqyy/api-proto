@@ -104,15 +104,7 @@ message ItemInfo {
     bool has_coupon = 13;               // 商品是否有优惠券 true-有，false-没有
 }
 
-message URLConvertRequest {
-    string source_url = 1;                   // 需转链/解析ID的链
-    string pid = 2;                          // 渠道ID
-    optional string custom_parameters = 3;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
-    optional bool generate_schema_url = 4;   // 是否返回 schema URL
-    optional bool itemInfo = 5;              // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
-}
-
-message URLConvertResponse {
+message URLConvertData {
     string mobile_short_url = 1;             // 推广短链接（可唤起拼多多app）
     string mobile_url = 2;                   // 推广长链接（唤起拼多多app）
     string multi_group_mobile_short_url = 3; // 推广短链接（唤起拼多多app）
@@ -124,6 +116,20 @@ message URLConvertResponse {
     string url = 9;                          // 单人团推广长链接
     string goods_id = 10;                    // 商品ID
     optional ItemInfo itemInfo = 11;         // 商品基本信息 itemInfo＝true 才会出
+}
+
+message URLConvertRequest {
+    string source_url = 1;                   // 需转链/解析ID的链
+    string pid = 2;                          // 渠道ID
+    optional string custom_parameters = 3;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
+    optional bool generate_schema_url = 4;   // 是否返回 schema URL
+    optional bool itemInfo = 5;              // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
+}
+
+message URLConvertResponse {
+    int32 code = 1;
+    string msg = 2;
+    URLConvertData data = 3;
 }
 
 // RPC service
