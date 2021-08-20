@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.26.0
 // 	protoc        v3.15.8
-// source: vendor.proto
+// source: vendors.proto
 
-package vendor
+package vendors
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -56,11 +56,11 @@ func (x Vendor) String() string {
 }
 
 func (Vendor) Descriptor() protoreflect.EnumDescriptor {
-	return file_vendor_proto_enumTypes[0].Descriptor()
+	return file_vendors_proto_enumTypes[0].Descriptor()
 }
 
 func (Vendor) Type() protoreflect.EnumType {
-	return &file_vendor_proto_enumTypes[0]
+	return &file_vendors_proto_enumTypes[0]
 }
 
 func (x Vendor) Number() protoreflect.EnumNumber {
@@ -69,37 +69,37 @@ func (x Vendor) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Vendor.Descriptor instead.
 func (Vendor) EnumDescriptor() ([]byte, []int) {
-	return file_vendor_proto_rawDescGZIP(), []int{0}
+	return file_vendors_proto_rawDescGZIP(), []int{0}
 }
 
-var File_vendor_proto protoreflect.FileDescriptor
+var File_vendors_proto protoreflect.FileDescriptor
 
-var file_vendor_proto_rawDesc = []byte{
-	0x0a, 0x0c, 0x76, 0x65, 0x6e, 0x64, 0x6f, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06,
-	0x76, 0x65, 0x6e, 0x64, 0x6f, 0x72, 0x2a, 0x2e, 0x0a, 0x06, 0x56, 0x65, 0x6e, 0x64, 0x6f, 0x72,
-	0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x06, 0x0a,
-	0x02, 0x54, 0x42, 0x10, 0x01, 0x12, 0x06, 0x0a, 0x02, 0x4a, 0x44, 0x10, 0x02, 0x12, 0x07, 0x0a,
-	0x03, 0x50, 0x44, 0x44, 0x10, 0x03, 0x42, 0x09, 0x5a, 0x07, 0x2f, 0x76, 0x65, 0x6e, 0x64, 0x6f,
-	0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_vendors_proto_rawDesc = []byte{
+	0x0a, 0x0d, 0x76, 0x65, 0x6e, 0x64, 0x6f, 0x72, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
+	0x07, 0x76, 0x65, 0x6e, 0x64, 0x6f, 0x72, 0x73, 0x2a, 0x2e, 0x0a, 0x06, 0x56, 0x65, 0x6e, 0x64,
+	0x6f, 0x72, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12,
+	0x06, 0x0a, 0x02, 0x54, 0x42, 0x10, 0x01, 0x12, 0x06, 0x0a, 0x02, 0x4a, 0x44, 0x10, 0x02, 0x12,
+	0x07, 0x0a, 0x03, 0x50, 0x44, 0x44, 0x10, 0x03, 0x42, 0x0a, 0x5a, 0x08, 0x2f, 0x76, 0x65, 0x6e,
+	0x64, 0x6f, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_vendor_proto_rawDescOnce sync.Once
-	file_vendor_proto_rawDescData = file_vendor_proto_rawDesc
+	file_vendors_proto_rawDescOnce sync.Once
+	file_vendors_proto_rawDescData = file_vendors_proto_rawDesc
 )
 
-func file_vendor_proto_rawDescGZIP() []byte {
-	file_vendor_proto_rawDescOnce.Do(func() {
-		file_vendor_proto_rawDescData = protoimpl.X.CompressGZIP(file_vendor_proto_rawDescData)
+func file_vendors_proto_rawDescGZIP() []byte {
+	file_vendors_proto_rawDescOnce.Do(func() {
+		file_vendors_proto_rawDescData = protoimpl.X.CompressGZIP(file_vendors_proto_rawDescData)
 	})
-	return file_vendor_proto_rawDescData
+	return file_vendors_proto_rawDescData
 }
 
-var file_vendor_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_vendor_proto_goTypes = []interface{}{
-	(Vendor)(0), // 0: vendor.Vendor
+var file_vendors_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_vendors_proto_goTypes = []interface{}{
+	(Vendor)(0), // 0: vendors.Vendor
 }
-var file_vendor_proto_depIdxs = []int32{
+var file_vendors_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -107,27 +107,27 @@ var file_vendor_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_vendor_proto_init() }
-func file_vendor_proto_init() {
-	if File_vendor_proto != nil {
+func init() { file_vendors_proto_init() }
+func file_vendors_proto_init() {
+	if File_vendors_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_vendor_proto_rawDesc,
+			RawDescriptor: file_vendors_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_vendor_proto_goTypes,
-		DependencyIndexes: file_vendor_proto_depIdxs,
-		EnumInfos:         file_vendor_proto_enumTypes,
+		GoTypes:           file_vendors_proto_goTypes,
+		DependencyIndexes: file_vendors_proto_depIdxs,
+		EnumInfos:         file_vendors_proto_enumTypes,
 	}.Build()
-	File_vendor_proto = out.File
-	file_vendor_proto_rawDesc = nil
-	file_vendor_proto_goTypes = nil
-	file_vendor_proto_depIdxs = nil
+	File_vendors_proto = out.File
+	file_vendors_proto_rawDesc = nil
+	file_vendors_proto_goTypes = nil
+	file_vendors_proto_depIdxs = nil
 }

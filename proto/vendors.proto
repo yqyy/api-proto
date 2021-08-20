@@ -1,7 +1,7 @@
 syntax = "proto3";
-package vendor;
+package vendors;
 
-option go_package = "/vendor";
+option go_package = "/vendors";
 
 enum Vendor {
     UNKNOWN = 0;

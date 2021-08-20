@@ -1,5 +1,5 @@
-// package: vendor
-// file: vendor.proto
+// package: vendors
+// file: vendors.proto
 
 import * as jspb from "google-protobuf";
 

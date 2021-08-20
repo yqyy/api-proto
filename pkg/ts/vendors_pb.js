@@ -1,4 +1,4 @@
-// source: vendor.proto
+// source: vendors.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -15,15 +15,15 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.vendor.Vendor', null, global);
+goog.exportSymbol('proto.vendors.Vendor', null, global);
 /**
  * @enum {number}
  */
-proto.vendor.Vendor = {
+proto.vendors.Vendor = {
   UNKNOWN: 0,
   TB: 1,
   JD: 2,
   PDD: 3
 };
 
-goog.object.extend(exports, proto.vendor);
+goog.object.extend(exports, proto.vendors);
