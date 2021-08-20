@@ -1,0 +1,11 @@
+syntax = "proto3";
+package vendor;
+
+option go_package = "/vendor";
+
+enum Vendor {
+    UNKNOWN = 0;
+    TB = 1;
+    JD = 2;
+    PDD = 3;
+}
