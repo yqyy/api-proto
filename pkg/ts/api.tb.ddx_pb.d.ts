@@ -891,8 +891,8 @@ export class PromotedURLData extends jspb.Message {
   getCouponTotalCount(): number;
   setCouponTotalCount(value: number): void;
 
-  getCouponRemainCount(): string;
-  setCouponRemainCount(value: string): void;
+  getCouponRemainCount(): number;
+  setCouponRemainCount(value: number): void;
 
   getMmCouponRemainCount(): number;
   setMmCouponRemainCount(value: number): void;
@@ -980,7 +980,7 @@ export namespace PromotedURLData {
     itemId: number,
     maxCommissionRate: string,
     couponTotalCount: number,
-    couponRemainCount: string,
+    couponRemainCount: number,
     mmCouponRemainCount: number,
     mmCouponTotalCount: number,
     mmCouponClickUrl: string,

@@ -6783,7 +6783,7 @@ proto.tbpb.PromotedURLData.toObject = function(includeInstance, msg) {
     itemId: jspb.Message.getFieldWithDefault(msg, 7, 0),
     maxCommissionRate: jspb.Message.getFieldWithDefault(msg, 8, ""),
     couponTotalCount: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    couponRemainCount: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    couponRemainCount: jspb.Message.getFieldWithDefault(msg, 10, 0),
     mmCouponRemainCount: jspb.Message.getFieldWithDefault(msg, 11, 0),
     mmCouponTotalCount: jspb.Message.getFieldWithDefault(msg, 12, 0),
     mmCouponClickUrl: jspb.Message.getFieldWithDefault(msg, 13, ""),
@@ -6878,7 +6878,7 @@ proto.tbpb.PromotedURLData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCouponTotalCount(value);
       break;
     case 10:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setCouponRemainCount(value);
       break;
     case 11:
@@ -7059,8 +7059,8 @@ proto.tbpb.PromotedURLData.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getCouponRemainCount();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       10,
       f
     );
@@ -7379,20 +7379,20 @@ proto.tbpb.PromotedURLData.prototype.setCouponTotalCount = function(value) {
 
 
 /**
- * optional string coupon_remain_count = 10;
- * @return {string}
+ * optional int32 coupon_remain_count = 10;
+ * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getCouponRemainCount = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.tbpb.PromotedURLData} returns this
  */
 proto.tbpb.PromotedURLData.prototype.setCouponRemainCount = function(value) {
-  return jspb.Message.setProto3StringField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 

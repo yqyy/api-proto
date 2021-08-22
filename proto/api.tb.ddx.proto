@@ -190,7 +190,7 @@ message PromotedURLData {
     uint64   item_id = 7;
     string   max_commission_rate = 8;
     int32    coupon_total_count = 9;
-    string    coupon_remain_count = 10;
+    int32    coupon_remain_count = 10;
     int32    mm_coupon_remain_count = 11;
     int32    mm_coupon_total_count = 12;
     string   mm_coupon_click_url = 13;
