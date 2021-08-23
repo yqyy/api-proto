@@ -277,10 +277,10 @@ export class PromotedData extends jspb.Message {
   getIsCoupon(): number;
   setIsCoupon(value: number): void;
 
-  hasCouponinfo(): boolean;
-  clearCouponinfo(): void;
-  getCouponinfo(): CouponInfo | undefined;
-  setCouponinfo(value?: CouponInfo): void;
+  clearCouponinfoList(): void;
+  getCouponinfoList(): Array<CouponInfo>;
+  setCouponinfoList(value: Array<CouponInfo>): void;
+  addCouponinfo(value?: CouponInfo, index?: number): CouponInfo;
 
   hasCommissioninfo(): boolean;
   clearCommissioninfo(): void;
@@ -333,7 +333,7 @@ export namespace PromotedData {
     jcommand: string,
     note: string,
     isCoupon: number,
-    couponinfo?: CouponInfo.AsObject,
+    couponinfoList: Array<CouponInfo.AsObject>,
     commissioninfo?: CommissionInfo.AsObject,
     imageinfo?: ImageInfo.AsObject,
     priceinfo?: PriceInfo.AsObject,

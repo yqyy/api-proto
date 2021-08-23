@@ -183,7 +183,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.jdpb.PromotedData = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.jdpb.PromotedData.repeatedFields_, null);
 };
 goog.inherits(proto.jdpb.PromotedData, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -2034,6 +2034,13 @@ proto.jdpb.ShopInfo.prototype.setShopname = function(value) {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.jdpb.PromotedData.repeatedFields_ = [6];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -2070,7 +2077,8 @@ proto.jdpb.PromotedData.toObject = function(includeInstance, msg) {
     jcommand: jspb.Message.getFieldWithDefault(msg, 3, ""),
     note: jspb.Message.getFieldWithDefault(msg, 4, ""),
     isCoupon: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    couponinfo: (f = msg.getCouponinfo()) && proto.jdpb.CouponInfo.toObject(includeInstance, f),
+    couponinfoList: jspb.Message.toObjectList(msg.getCouponinfoList(),
+    proto.jdpb.CouponInfo.toObject, includeInstance),
     commissioninfo: (f = msg.getCommissioninfo()) && proto.jdpb.CommissionInfo.toObject(includeInstance, f),
     imageinfo: (f = msg.getImageinfo()) && proto.jdpb.ImageInfo.toObject(includeInstance, f),
     priceinfo: (f = msg.getPriceinfo()) && proto.jdpb.PriceInfo.toObject(includeInstance, f),
@@ -2138,7 +2146,7 @@ proto.jdpb.PromotedData.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = new proto.jdpb.CouponInfo;
       reader.readMessage(value,proto.jdpb.CouponInfo.deserializeBinaryFromReader);
-      msg.setCouponinfo(value);
+      msg.addCouponinfo(value);
       break;
     case 7:
       var value = new proto.jdpb.CommissionInfo;
@@ -2241,9 +2249,9 @@ proto.jdpb.PromotedData.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCouponinfo();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getCouponinfoList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       6,
       f,
       proto.jdpb.CouponInfo.serializeBinaryToWriter
@@ -2422,39 +2430,40 @@ proto.jdpb.PromotedData.prototype.setIsCoupon = function(value) {
 
 
 /**
- * optional CouponInfo couponInfo = 6;
- * @return {?proto.jdpb.CouponInfo}
+ * repeated CouponInfo couponInfo = 6;
+ * @return {!Array<!proto.jdpb.CouponInfo>}
  */
-proto.jdpb.PromotedData.prototype.getCouponinfo = function() {
-  return /** @type{?proto.jdpb.CouponInfo} */ (
-    jspb.Message.getWrapperField(this, proto.jdpb.CouponInfo, 6));
+proto.jdpb.PromotedData.prototype.getCouponinfoList = function() {
+  return /** @type{!Array<!proto.jdpb.CouponInfo>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.jdpb.CouponInfo, 6));
 };
 
 
 /**
- * @param {?proto.jdpb.CouponInfo|undefined} value
+ * @param {!Array<!proto.jdpb.CouponInfo>} value
  * @return {!proto.jdpb.PromotedData} returns this
 */
-proto.jdpb.PromotedData.prototype.setCouponinfo = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+proto.jdpb.PromotedData.prototype.setCouponinfoList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 6, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.jdpb.CouponInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.jdpb.CouponInfo}
+ */
+proto.jdpb.PromotedData.prototype.addCouponinfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.jdpb.CouponInfo, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.jdpb.PromotedData} returns this
  */
-proto.jdpb.PromotedData.prototype.clearCouponinfo = function() {
-  return this.setCouponinfo(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.jdpb.PromotedData.prototype.hasCouponinfo = function() {
-  return jspb.Message.getField(this, 6) != null;
+proto.jdpb.PromotedData.prototype.clearCouponinfoList = function() {
+  return this.setCouponinfoList([]);
 };
 
 
