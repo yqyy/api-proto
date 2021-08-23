@@ -2039,7 +2039,7 @@ proto.jdpb.ShopInfo.prototype.setShopname = function(value) {
  * @private {!Array<number>}
  * @const
  */
-proto.jdpb.PromotedData.repeatedFields_ = [6];
+proto.jdpb.PromotedData.repeatedFields_ = [6,10];
 
 
 
@@ -2082,7 +2082,8 @@ proto.jdpb.PromotedData.toObject = function(includeInstance, msg) {
     commissioninfo: (f = msg.getCommissioninfo()) && proto.jdpb.CommissionInfo.toObject(includeInstance, f),
     imageinfo: (f = msg.getImageinfo()) && proto.jdpb.ImageInfo.toObject(includeInstance, f),
     priceinfo: (f = msg.getPriceinfo()) && proto.jdpb.PriceInfo.toObject(includeInstance, f),
-    pingouinfo: (f = msg.getPingouinfo()) && proto.jdpb.PinGouInfo.toObject(includeInstance, f),
+    pingouinfoList: jspb.Message.toObjectList(msg.getPingouinfoList(),
+    proto.jdpb.PinGouInfo.toObject, includeInstance),
     shopinfo: (f = msg.getShopinfo()) && proto.jdpb.ShopInfo.toObject(includeInstance, f),
     skuid: jspb.Message.getFieldWithDefault(msg, 12, 0),
     skuname: jspb.Message.getFieldWithDefault(msg, 13, ""),
@@ -2166,7 +2167,7 @@ proto.jdpb.PromotedData.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = new proto.jdpb.PinGouInfo;
       reader.readMessage(value,proto.jdpb.PinGouInfo.deserializeBinaryFromReader);
-      msg.setPingouinfo(value);
+      msg.addPingouinfo(value);
       break;
     case 11:
       var value = new proto.jdpb.ShopInfo;
@@ -2281,9 +2282,9 @@ proto.jdpb.PromotedData.serializeBinaryToWriter = function(message, writer) {
       proto.jdpb.PriceInfo.serializeBinaryToWriter
     );
   }
-  f = message.getPingouinfo();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getPingouinfoList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       10,
       f,
       proto.jdpb.PinGouInfo.serializeBinaryToWriter
@@ -2579,39 +2580,40 @@ proto.jdpb.PromotedData.prototype.hasPriceinfo = function() {
 
 
 /**
- * optional PinGouInfo pinGouInfo = 10;
- * @return {?proto.jdpb.PinGouInfo}
+ * repeated PinGouInfo pinGouInfo = 10;
+ * @return {!Array<!proto.jdpb.PinGouInfo>}
  */
-proto.jdpb.PromotedData.prototype.getPingouinfo = function() {
-  return /** @type{?proto.jdpb.PinGouInfo} */ (
-    jspb.Message.getWrapperField(this, proto.jdpb.PinGouInfo, 10));
+proto.jdpb.PromotedData.prototype.getPingouinfoList = function() {
+  return /** @type{!Array<!proto.jdpb.PinGouInfo>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.jdpb.PinGouInfo, 10));
 };
 
 
 /**
- * @param {?proto.jdpb.PinGouInfo|undefined} value
+ * @param {!Array<!proto.jdpb.PinGouInfo>} value
  * @return {!proto.jdpb.PromotedData} returns this
 */
-proto.jdpb.PromotedData.prototype.setPingouinfo = function(value) {
-  return jspb.Message.setWrapperField(this, 10, value);
+proto.jdpb.PromotedData.prototype.setPingouinfoList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 10, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.jdpb.PinGouInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.jdpb.PinGouInfo}
+ */
+proto.jdpb.PromotedData.prototype.addPingouinfo = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 10, opt_value, proto.jdpb.PinGouInfo, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.jdpb.PromotedData} returns this
  */
-proto.jdpb.PromotedData.prototype.clearPingouinfo = function() {
-  return this.setPingouinfo(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.jdpb.PromotedData.prototype.hasPingouinfo = function() {
-  return jspb.Message.getField(this, 10) != null;
+proto.jdpb.PromotedData.prototype.clearPingouinfoList = function() {
+  return this.setPingouinfoList([]);
 };
 
 

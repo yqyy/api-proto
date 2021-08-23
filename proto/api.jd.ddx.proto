@@ -141,20 +141,20 @@ message ShopInfo {
 }
 
 message PromotedData {
-    string shortURL = 1;                // 生成的推广目标链接，以短链接形式，有效期为半年 https://union-click.jd.com/jdc?d=XXXXXX
-    string clickURL = 2;                // 生成推广目标的长链，长期有效 https://union-click.jd.com/jdc?e=XXXXXX%26p=XXXXXXXXXXX
-    optional string jCommand = 3;       // 京口令（匹配到红包活动有效配置才会返回京口令）
-    string note = 4;                    // 优惠券错误提示
-    int32 is_coupon = 5;                // 是否有券 1-有 0-无
-    repeated CouponInfo couponInfo = 6; // 优惠券券信息
-    CommissionInfo commissionInfo = 7;  // 佣金信息
-    ImageInfo imageInfo = 8;            // 图片信息
-    PriceInfo priceInfo = 9;            // 价格信息
-    PinGouInfo pinGouInfo = 10;         // 拼购信息
-    ShopInfo shopInfo = 11;             // 店铺信息
-    uint64 skuId = 12;                  // 商品ID
-    string skuName = 13;                // 商品名称
-    string owner = 14;                  // g=自营，p=pop 可来判断最终分成比例 g =100％,p=90%，非自营商品官方会扣10%服务费
+    string shortURL = 1;                 // 生成的推广目标链接，以短链接形式，有效期为半年 https://union-click.jd.com/jdc?d=XXXXXX
+    string clickURL = 2;                 // 生成推广目标的长链，长期有效 https://union-click.jd.com/jdc?e=XXXXXX%26p=XXXXXXXXXXX
+    optional string jCommand = 3;        // 京口令（匹配到红包活动有效配置才会返回京口令）
+    string note = 4;                     // 优惠券错误提示
+    int32 is_coupon = 5;                 // 是否有券 1-有 0-无
+    repeated CouponInfo couponInfo = 6;  // 优惠券券信息
+    CommissionInfo commissionInfo = 7;   // 佣金信息
+    ImageInfo imageInfo = 8;             // 图片信息
+    PriceInfo priceInfo = 9;             // 价格信息
+    repeated PinGouInfo pinGouInfo = 10; // 拼购信息
+    ShopInfo shopInfo = 11;              // 店铺信息
+    uint64 skuId = 12;                   // 商品ID
+    string skuName = 13;                 // 商品名称
+    string owner = 14;                   // g=自营，p=pop 可来判断最终分成比例 g =100％,p=90%，非自营商品官方会扣10%服务费
 }
 
 message PromotionByUnionIDRequest {

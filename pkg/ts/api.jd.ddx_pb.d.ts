@@ -297,10 +297,10 @@ export class PromotedData extends jspb.Message {
   getPriceinfo(): PriceInfo | undefined;
   setPriceinfo(value?: PriceInfo): void;
 
-  hasPingouinfo(): boolean;
-  clearPingouinfo(): void;
-  getPingouinfo(): PinGouInfo | undefined;
-  setPingouinfo(value?: PinGouInfo): void;
+  clearPingouinfoList(): void;
+  getPingouinfoList(): Array<PinGouInfo>;
+  setPingouinfoList(value: Array<PinGouInfo>): void;
+  addPingouinfo(value?: PinGouInfo, index?: number): PinGouInfo;
 
   hasShopinfo(): boolean;
   clearShopinfo(): void;
@@ -337,7 +337,7 @@ export namespace PromotedData {
     commissioninfo?: CommissionInfo.AsObject,
     imageinfo?: ImageInfo.AsObject,
     priceinfo?: PriceInfo.AsObject,
-    pingouinfo?: PinGouInfo.AsObject,
+    pingouinfoList: Array<PinGouInfo.AsObject>,
     shopinfo?: ShopInfo.AsObject,
     skuid: number,
     skuname: string,
