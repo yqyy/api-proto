@@ -105,7 +105,7 @@ message CommissionInfo {
     double plusCommissionShare = 4; // plus佣金比例券 e.g.: 50
     uint64 endTime = 5;
     uint64 startTime = 6;
-    string isLock = 7;
+    int32 isLock = 7;
 }
 
 message ImageURL {

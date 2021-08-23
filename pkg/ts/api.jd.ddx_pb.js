@@ -703,7 +703,7 @@ proto.jdpb.CommissionInfo.toObject = function(includeInstance, msg) {
     pluscommissionshare: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
     endtime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     starttime: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    islock: jspb.Message.getFieldWithDefault(msg, 7, "")
+    islock: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -765,7 +765,7 @@ proto.jdpb.CommissionInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setStarttime(value);
       break;
     case 7:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setIslock(value);
       break;
     default:
@@ -840,8 +840,8 @@ proto.jdpb.CommissionInfo.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getIslock();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       7,
       f
     );
@@ -958,20 +958,20 @@ proto.jdpb.CommissionInfo.prototype.setStarttime = function(value) {
 
 
 /**
- * optional string isLock = 7;
- * @return {string}
+ * optional int32 isLock = 7;
+ * @return {number}
  */
 proto.jdpb.CommissionInfo.prototype.getIslock = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.jdpb.CommissionInfo} returns this
  */
 proto.jdpb.CommissionInfo.prototype.setIslock = function(value) {
-  return jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 

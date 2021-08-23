@@ -82,8 +82,8 @@ export class CommissionInfo extends jspb.Message {
   getStarttime(): number;
   setStarttime(value: number): void;
 
-  getIslock(): string;
-  setIslock(value: string): void;
+  getIslock(): number;
+  setIslock(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CommissionInfo.AsObject;
@@ -103,7 +103,7 @@ export namespace CommissionInfo {
     pluscommissionshare: number,
     endtime: number,
     starttime: number,
-    islock: string,
+    islock: number,
   }
 }
 
