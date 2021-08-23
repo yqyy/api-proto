@@ -6779,7 +6779,7 @@ proto.tbpb.PromotedURLData.toObject = function(includeInstance, msg) {
     couponStartTime: jspb.Message.getFieldWithDefault(msg, 3, ""),
     couponEndTime: jspb.Message.getFieldWithDefault(msg, 4, ""),
     couponInfo: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    coupon: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    coupon: jspb.Message.getFieldWithDefault(msg, 6, 0),
     itemId: jspb.Message.getFieldWithDefault(msg, 7, 0),
     maxCommissionRate: jspb.Message.getFieldWithDefault(msg, 8, ""),
     couponTotalCount: jspb.Message.getFieldWithDefault(msg, 9, 0),
@@ -6862,7 +6862,7 @@ proto.tbpb.PromotedURLData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCouponInfo(value);
       break;
     case 6:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setCoupon(value);
       break;
     case 7:
@@ -7031,8 +7031,8 @@ proto.tbpb.PromotedURLData.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getCoupon();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       6,
       f
     );
@@ -7307,20 +7307,20 @@ proto.tbpb.PromotedURLData.prototype.setCouponInfo = function(value) {
 
 
 /**
- * optional string coupon = 6;
- * @return {string}
+ * optional int32 coupon = 6;
+ * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getCoupon = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.tbpb.PromotedURLData} returns this
  */
 proto.tbpb.PromotedURLData.prototype.setCoupon = function(value) {
-  return jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 

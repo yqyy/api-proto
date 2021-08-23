@@ -186,7 +186,7 @@ message PromotedURLData {
     string   coupon_start_time = 3;
     string   coupon_end_time = 4;
     string   coupon_info = 5;
-    string   coupon = 6;
+    int32   coupon = 6;
     uint64   item_id = 7;
     string   max_commission_rate = 8;
     int32    coupon_total_count = 9;
