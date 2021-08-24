@@ -282,7 +282,7 @@ message PromotedData {
     WeAppInfo we_app_info = 10;              // 小程序信息
     ItemInfo itemInfo = 11;                  // 商品基本信息 itemInfo＝true 才会出
 }
-message PromoteRequest {
+message PromotionRequest {
     string goods_sign = 1;                           // 商品goodsSign，推荐使用，可走最优计划
     optional string pid = 2;                         // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
     optional string custom_parameters = 3;           // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
@@ -304,7 +304,7 @@ message PromoteRequest {
     optional string goods_id_list = 19;              // 商品ID，不建议使用，请优先使用goods_sign
     optional string pdd_auth_id = 20;                // 切换授权参数
 }
-message PromoteResponse {
+message PromotionResponse {
     int32 code = 1;
     string msg = 2;
     PromotedData data = 3;
@@ -315,6 +315,6 @@ service PddApiService {
     rpc AuthorityQuery(AuthorityQueryRequest) returns (AuthorityQueryResponse) {}
     rpc CreateMarketingURL(CreateMarketingURLRequest) returns (CreateMarketingURLResponse) {}
     rpc URLConvert(URLConvertRequest) returns (URLConvertResponse) {}
-    rpc Promote(PromoteRequest) returns (PromoteResponse) {}
+    rpc Promotion(PromotionRequest) returns (PromotionResponse) {}
     rpc GoodsSearch(SearchRequest) returns (SearchResponse) {}
 }
