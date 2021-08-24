@@ -1045,7 +1045,7 @@ export namespace PromotedData {
   }
 }
 
-export class PromoteRequest extends jspb.Message {
+export class PromotionRequest extends jspb.Message {
   getGoodsSign(): string;
   setGoodsSign(value: string): void;
 
@@ -1145,16 +1145,16 @@ export class PromoteRequest extends jspb.Message {
   setPddAuthId(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): PromoteRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: PromoteRequest): PromoteRequest.AsObject;
+  toObject(includeInstance?: boolean): PromotionRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: PromotionRequest): PromotionRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: PromoteRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): PromoteRequest;
-  static deserializeBinaryFromReader(message: PromoteRequest, reader: jspb.BinaryReader): PromoteRequest;
+  static serializeBinaryToWriter(message: PromotionRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PromotionRequest;
+  static deserializeBinaryFromReader(message: PromotionRequest, reader: jspb.BinaryReader): PromotionRequest;
 }
 
-export namespace PromoteRequest {
+export namespace PromotionRequest {
   export type AsObject = {
     goodsSign: string,
     pid: string,
@@ -1179,7 +1179,7 @@ export namespace PromoteRequest {
   }
 }
 
-export class PromoteResponse extends jspb.Message {
+export class PromotionResponse extends jspb.Message {
   getCode(): number;
   setCode(value: number): void;
 
@@ -1192,16 +1192,16 @@ export class PromoteResponse extends jspb.Message {
   setData(value?: PromotedData): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): PromoteResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: PromoteResponse): PromoteResponse.AsObject;
+  toObject(includeInstance?: boolean): PromotionResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: PromotionResponse): PromotionResponse.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: PromoteResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): PromoteResponse;
-  static deserializeBinaryFromReader(message: PromoteResponse, reader: jspb.BinaryReader): PromoteResponse;
+  static serializeBinaryToWriter(message: PromotionResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PromotionResponse;
+  static deserializeBinaryFromReader(message: PromotionResponse, reader: jspb.BinaryReader): PromotionResponse;
 }
 
-export namespace PromoteResponse {
+export namespace PromotionResponse {
   export type AsObject = {
     code: number,
     msg: string,

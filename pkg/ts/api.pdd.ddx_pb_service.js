@@ -37,13 +37,13 @@ PddApiService.URLConvert = {
   responseType: api_pdd_ddx_pb.URLConvertResponse
 };
 
-PddApiService.Promote = {
-  methodName: "Promote",
+PddApiService.Promotion = {
+  methodName: "Promotion",
   service: PddApiService,
   requestStream: false,
   responseStream: false,
-  requestType: api_pdd_ddx_pb.PromoteRequest,
-  responseType: api_pdd_ddx_pb.PromoteResponse
+  requestType: api_pdd_ddx_pb.PromotionRequest,
+  responseType: api_pdd_ddx_pb.PromotionResponse
 };
 
 PddApiService.GoodsSearch = {
@@ -155,11 +155,11 @@ PddApiServiceClient.prototype.uRLConvert = function uRLConvert(requestMessage, m
   };
 };
 
-PddApiServiceClient.prototype.promote = function promote(requestMessage, metadata, callback) {
+PddApiServiceClient.prototype.promotion = function promotion(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
-  var client = grpc.unary(PddApiService.Promote, {
+  var client = grpc.unary(PddApiService.Promotion, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,

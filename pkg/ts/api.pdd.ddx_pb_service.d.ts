@@ -31,13 +31,13 @@ type PddApiServiceURLConvert = {
   readonly responseType: typeof api_pdd_ddx_pb.URLConvertResponse;
 };
 
-type PddApiServicePromote = {
+type PddApiServicePromotion = {
   readonly methodName: string;
   readonly service: typeof PddApiService;
   readonly requestStream: false;
   readonly responseStream: false;
-  readonly requestType: typeof api_pdd_ddx_pb.PromoteRequest;
-  readonly responseType: typeof api_pdd_ddx_pb.PromoteResponse;
+  readonly requestType: typeof api_pdd_ddx_pb.PromotionRequest;
+  readonly responseType: typeof api_pdd_ddx_pb.PromotionResponse;
 };
 
 type PddApiServiceGoodsSearch = {
@@ -54,7 +54,7 @@ export class PddApiService {
   static readonly AuthorityQuery: PddApiServiceAuthorityQuery;
   static readonly CreateMarketingURL: PddApiServiceCreateMarketingURL;
   static readonly URLConvert: PddApiServiceURLConvert;
-  static readonly Promote: PddApiServicePromote;
+  static readonly Promotion: PddApiServicePromotion;
   static readonly GoodsSearch: PddApiServiceGoodsSearch;
 }
 
@@ -117,14 +117,14 @@ export class PddApiServiceClient {
     requestMessage: api_pdd_ddx_pb.URLConvertRequest,
     callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.URLConvertResponse|null) => void
   ): UnaryResponse;
-  promote(
-    requestMessage: api_pdd_ddx_pb.PromoteRequest,
+  promotion(
+    requestMessage: api_pdd_ddx_pb.PromotionRequest,
     metadata: grpc.Metadata,
-    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.PromoteResponse|null) => void
+    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.PromotionResponse|null) => void
   ): UnaryResponse;
-  promote(
-    requestMessage: api_pdd_ddx_pb.PromoteRequest,
-    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.PromoteResponse|null) => void
+  promotion(
+    requestMessage: api_pdd_ddx_pb.PromotionRequest,
+    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.PromotionResponse|null) => void
   ): UnaryResponse;
   goodsSearch(
     requestMessage: api_pdd_ddx_pb.SearchRequest,
