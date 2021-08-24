@@ -355,7 +355,7 @@ proto.pddxpb.AuthorityQueryData.prototype.toObject = function(opt_includeInstanc
  */
 proto.pddxpb.AuthorityQueryData.toObject = function(includeInstance, msg) {
   var f, obj = {
-    bind: jspb.Message.getFieldWithDefault(msg, 1, "")
+    bind: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -393,7 +393,7 @@ proto.pddxpb.AuthorityQueryData.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setBind(value);
       break;
     default:
@@ -426,8 +426,8 @@ proto.pddxpb.AuthorityQueryData.prototype.serializeBinary = function() {
 proto.pddxpb.AuthorityQueryData.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getBind();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       1,
       f
     );
@@ -436,20 +436,20 @@ proto.pddxpb.AuthorityQueryData.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional string bind = 1;
- * @return {string}
+ * optional int32 bind = 1;
+ * @return {number}
  */
 proto.pddxpb.AuthorityQueryData.prototype.getBind = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.pddxpb.AuthorityQueryData} returns this
  */
 proto.pddxpb.AuthorityQueryData.prototype.setBind = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 

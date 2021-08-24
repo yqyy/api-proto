@@ -7,7 +7,7 @@ option go_package = "/pddxpb";
 
 // API: http://api.tbk.dingdanxia.com/pdd/authority_query
 message AuthorityQueryData {
-    string bind = 1; // 1-已绑定；0-未绑定
+    int32 bind = 1; // 1-已绑定；0-未绑定
 }
 
 message AuthorityQueryRequest {

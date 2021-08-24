@@ -4,8 +4,8 @@
 import * as jspb from "google-protobuf";
 
 export class AuthorityQueryData extends jspb.Message {
-  getBind(): string;
-  setBind(value: string): void;
+  getBind(): number;
+  setBind(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AuthorityQueryData.AsObject;
@@ -19,7 +19,7 @@ export class AuthorityQueryData extends jspb.Message {
 
 export namespace AuthorityQueryData {
   export type AsObject = {
-    bind: string,
+    bind: number,
   }
 }
 
