@@ -565,8 +565,8 @@ proto.pddxpb.AuthorityQueryRequest.prototype.serializeBinary = function() {
  */
 proto.pddxpb.AuthorityQueryRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getPid();
-  if (f.length > 0) {
+  f = /** @type {string} */ (jspb.Message.getField(message, 1));
+  if (f != null) {
     writer.writeString(
       1,
       f
@@ -603,7 +603,25 @@ proto.pddxpb.AuthorityQueryRequest.prototype.getPid = function() {
  * @return {!proto.pddxpb.AuthorityQueryRequest} returns this
  */
 proto.pddxpb.AuthorityQueryRequest.prototype.setPid = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.pddxpb.AuthorityQueryRequest} returns this
+ */
+proto.pddxpb.AuthorityQueryRequest.prototype.clearPid = function() {
+  return jspb.Message.setField(this, 1, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.pddxpb.AuthorityQueryRequest.prototype.hasPid = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 
@@ -2557,8 +2575,8 @@ proto.pddxpb.CreateMarketingURLRequest.prototype.serializeBinary = function() {
  */
 proto.pddxpb.CreateMarketingURLRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getPIdList();
-  if (f.length > 0) {
+  f = /** @type {string} */ (jspb.Message.getField(message, 1));
+  if (f != null) {
     writer.writeString(
       1,
       f
@@ -2637,7 +2655,25 @@ proto.pddxpb.CreateMarketingURLRequest.prototype.getPIdList = function() {
  * @return {!proto.pddxpb.CreateMarketingURLRequest} returns this
  */
 proto.pddxpb.CreateMarketingURLRequest.prototype.setPIdList = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.pddxpb.CreateMarketingURLRequest} returns this
+ */
+proto.pddxpb.CreateMarketingURLRequest.prototype.clearPIdList = function() {
+  return jspb.Message.setField(this, 1, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.pddxpb.CreateMarketingURLRequest.prototype.hasPIdList = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 
@@ -4192,8 +4228,8 @@ proto.pddxpb.URLConvertRequest.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getPid();
-  if (f.length > 0) {
+  f = /** @type {string} */ (jspb.Message.getField(message, 2));
+  if (f != null) {
     writer.writeString(
       2,
       f
@@ -4255,7 +4291,25 @@ proto.pddxpb.URLConvertRequest.prototype.getPid = function() {
  * @return {!proto.pddxpb.URLConvertRequest} returns this
  */
 proto.pddxpb.URLConvertRequest.prototype.setPid = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.pddxpb.URLConvertRequest} returns this
+ */
+proto.pddxpb.URLConvertRequest.prototype.clearPid = function() {
+  return jspb.Message.setField(this, 2, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.pddxpb.URLConvertRequest.prototype.hasPid = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 

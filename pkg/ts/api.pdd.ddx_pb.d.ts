@@ -24,6 +24,8 @@ export namespace AuthorityQueryData {
 }
 
 export class AuthorityQueryRequest extends jspb.Message {
+  hasPid(): boolean;
+  clearPid(): void;
   getPid(): string;
   setPid(value: string): void;
 
@@ -298,6 +300,8 @@ export namespace MarketingURLData {
 }
 
 export class CreateMarketingURLRequest extends jspb.Message {
+  hasPIdList(): boolean;
+  clearPIdList(): void;
   getPIdList(): string;
   setPIdList(value: string): void;
 
@@ -527,6 +531,8 @@ export class URLConvertRequest extends jspb.Message {
   getSourceUrl(): string;
   setSourceUrl(value: string): void;
 
+  hasPid(): boolean;
+  clearPid(): void;
   getPid(): string;
   setPid(value: string): void;
 

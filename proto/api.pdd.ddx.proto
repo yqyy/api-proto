@@ -11,7 +11,7 @@ message AuthorityQueryData {
 }
 
 message AuthorityQueryRequest {
-    string pid = 1;                 // 推广位id
+    optional string pid = 1;                 // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
     optional string custom_parameters = 2;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
     optional string pdd_auth_id = 3;         // 切换授权参数
 }
@@ -70,7 +70,7 @@ message MarketingURLData {
 }
 
 message CreateMarketingURLRequest {
-    string p_id_list = 1;                       // 推广位，例如：8735184_70977074
+    optional string p_id_list = 1;              // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
     optional string custom_parameters = 2;      // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；
     optional bool generate_qq_app = 3;          // 是否生成qq小程序
     optional bool generate_schema_url = 4;      // 是否返回 schema URL
@@ -120,7 +120,7 @@ message URLConvertData {
 
 message URLConvertRequest {
     string source_url = 1;                   // 需转链/解析ID的链
-    string pid = 2;                          // 渠道ID
+    optional string pid = 2;                 // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
     optional string custom_parameters = 3;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
     optional bool generate_schema_url = 4;   // 是否返回 schema URL
     optional bool itemInfo = 5;              // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
