@@ -21,6 +21,8 @@ type PddApiServiceClient interface {
 	AuthorityQuery(ctx context.Context, in *AuthorityQueryRequest, opts ...grpc.CallOption) (*AuthorityQueryResponse, error)
 	CreateMarketingURL(ctx context.Context, in *CreateMarketingURLRequest, opts ...grpc.CallOption) (*CreateMarketingURLResponse, error)
 	URLConvert(ctx context.Context, in *URLConvertRequest, opts ...grpc.CallOption) (*URLConvertResponse, error)
+	Promote(ctx context.Context, in *PromoteRequest, opts ...grpc.CallOption) (*PromoteResponse, error)
+	GoodsSearch(ctx context.Context, in *SearchRequest, opts ...grpc.CallOption) (*SearchResponse, error)
 }
 
 type pddApiServiceClient struct {
@@ -58,6 +60,24 @@ func (c *pddApiServiceClient) URLConvert(ctx context.Context, in *URLConvertRequ
 	return out, nil
 }
 
+func (c *pddApiServiceClient) Promote(ctx context.Context, in *PromoteRequest, opts ...grpc.CallOption) (*PromoteResponse, error) {
+	out := new(PromoteResponse)
+	err := c.cc.Invoke(ctx, "/pddxpb.PddApiService/Promote", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pddApiServiceClient) GoodsSearch(ctx context.Context, in *SearchRequest, opts ...grpc.CallOption) (*SearchResponse, error) {
+	out := new(SearchResponse)
+	err := c.cc.Invoke(ctx, "/pddxpb.PddApiService/GoodsSearch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PddApiServiceServer is the server API for PddApiService service.
 // All implementations must embed UnimplementedPddApiServiceServer
 // for forward compatibility
@@ -65,6 +85,8 @@ type PddApiServiceServer interface {
 	AuthorityQuery(context.Context, *AuthorityQueryRequest) (*AuthorityQueryResponse, error)
 	CreateMarketingURL(context.Context, *CreateMarketingURLRequest) (*CreateMarketingURLResponse, error)
 	URLConvert(context.Context, *URLConvertRequest) (*URLConvertResponse, error)
+	Promote(context.Context, *PromoteRequest) (*PromoteResponse, error)
+	GoodsSearch(context.Context, *SearchRequest) (*SearchResponse, error)
 	mustEmbedUnimplementedPddApiServiceServer()
 }
 
@@ -80,6 +102,12 @@ func (UnimplementedPddApiServiceServer) CreateMarketingURL(context.Context, *Cre
 }
 func (UnimplementedPddApiServiceServer) URLConvert(context.Context, *URLConvertRequest) (*URLConvertResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method URLConvert not implemented")
+}
+func (UnimplementedPddApiServiceServer) Promote(context.Context, *PromoteRequest) (*PromoteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Promote not implemented")
+}
+func (UnimplementedPddApiServiceServer) GoodsSearch(context.Context, *SearchRequest) (*SearchResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GoodsSearch not implemented")
 }
 func (UnimplementedPddApiServiceServer) mustEmbedUnimplementedPddApiServiceServer() {}
 
@@ -148,6 +176,42 @@ func _PddApiService_URLConvert_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PddApiService_Promote_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PromoteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PddApiServiceServer).Promote(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pddxpb.PddApiService/Promote",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PddApiServiceServer).Promote(ctx, req.(*PromoteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PddApiService_GoodsSearch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PddApiServiceServer).GoodsSearch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pddxpb.PddApiService/GoodsSearch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PddApiServiceServer).GoodsSearch(ctx, req.(*SearchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PddApiService_ServiceDesc is the grpc.ServiceDesc for PddApiService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -166,6 +230,14 @@ var PddApiService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "URLConvert",
 			Handler:    _PddApiService_URLConvert_Handler,
+		},
+		{
+			MethodName: "Promote",
+			Handler:    _PddApiService_Promote_Handler,
+		},
+		{
+			MethodName: "GoodsSearch",
+			Handler:    _PddApiService_GoodsSearch_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

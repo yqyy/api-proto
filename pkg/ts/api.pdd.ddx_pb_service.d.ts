@@ -31,11 +31,31 @@ type PddApiServiceURLConvert = {
   readonly responseType: typeof api_pdd_ddx_pb.URLConvertResponse;
 };
 
+type PddApiServicePromote = {
+  readonly methodName: string;
+  readonly service: typeof PddApiService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof api_pdd_ddx_pb.PromoteRequest;
+  readonly responseType: typeof api_pdd_ddx_pb.PromoteResponse;
+};
+
+type PddApiServiceGoodsSearch = {
+  readonly methodName: string;
+  readonly service: typeof PddApiService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof api_pdd_ddx_pb.SearchRequest;
+  readonly responseType: typeof api_pdd_ddx_pb.SearchResponse;
+};
+
 export class PddApiService {
   static readonly serviceName: string;
   static readonly AuthorityQuery: PddApiServiceAuthorityQuery;
   static readonly CreateMarketingURL: PddApiServiceCreateMarketingURL;
   static readonly URLConvert: PddApiServiceURLConvert;
+  static readonly Promote: PddApiServicePromote;
+  static readonly GoodsSearch: PddApiServiceGoodsSearch;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -96,6 +116,24 @@ export class PddApiServiceClient {
   uRLConvert(
     requestMessage: api_pdd_ddx_pb.URLConvertRequest,
     callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.URLConvertResponse|null) => void
+  ): UnaryResponse;
+  promote(
+    requestMessage: api_pdd_ddx_pb.PromoteRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.PromoteResponse|null) => void
+  ): UnaryResponse;
+  promote(
+    requestMessage: api_pdd_ddx_pb.PromoteRequest,
+    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.PromoteResponse|null) => void
+  ): UnaryResponse;
+  goodsSearch(
+    requestMessage: api_pdd_ddx_pb.SearchRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.SearchResponse|null) => void
+  ): UnaryResponse;
+  goodsSearch(
+    requestMessage: api_pdd_ddx_pb.SearchRequest,
+    callback: (error: ServiceError|null, responseMessage: api_pdd_ddx_pb.SearchResponse|null) => void
   ): UnaryResponse;
 }
 

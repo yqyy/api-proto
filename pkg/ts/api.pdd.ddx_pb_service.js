@@ -37,6 +37,24 @@ PddApiService.URLConvert = {
   responseType: api_pdd_ddx_pb.URLConvertResponse
 };
 
+PddApiService.Promote = {
+  methodName: "Promote",
+  service: PddApiService,
+  requestStream: false,
+  responseStream: false,
+  requestType: api_pdd_ddx_pb.PromoteRequest,
+  responseType: api_pdd_ddx_pb.PromoteResponse
+};
+
+PddApiService.GoodsSearch = {
+  methodName: "GoodsSearch",
+  service: PddApiService,
+  requestStream: false,
+  responseStream: false,
+  requestType: api_pdd_ddx_pb.SearchRequest,
+  responseType: api_pdd_ddx_pb.SearchResponse
+};
+
 exports.PddApiService = PddApiService;
 
 function PddApiServiceClient(serviceHost, options) {
@@ -111,6 +129,68 @@ PddApiServiceClient.prototype.uRLConvert = function uRLConvert(requestMessage, m
     callback = arguments[1];
   }
   var client = grpc.unary(PddApiService.URLConvert, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+PddApiServiceClient.prototype.promote = function promote(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(PddApiService.Promote, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+PddApiServiceClient.prototype.goodsSearch = function goodsSearch(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(PddApiService.GoodsSearch, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,

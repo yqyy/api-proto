@@ -132,9 +132,189 @@ message URLConvertResponse {
     URLConvertData data = 3;
 }
 
+// API: http://api.tbk.dingdanxia.com/pdd/goods_search
+message SearchData {
+    bool has_mall_coupon = 1;                    // 是否有店铺券
+    uint64 mall_coupon_id = 2;                   // 店铺券id
+    int32 mall_coupon_discount_pct = 3;          // 店铺券折扣
+    int32 mall_coupon_min_order_amount = 4;      // 最小使用金额
+    int32 mall_coupon_max_discount_amount = 5;   // 最大使用金额
+    uint64 mall_coupon_total_quantity = 6;       // 店铺券总量
+    uint64 mall_coupon_remain_quantity = 7;      // 店铺券余量
+    uint64 mall_coupon_start_time = 8;           // 店铺券开始使用时间
+    uint64 mall_coupon_end_time = 9;             // 店铺券结束使用时间
+    uint64 create_at = 10;                       // 创建时间（unix时间戳）
+    uint64 goods_id = 11;                        // 商品id
+    string goods_name = 12;                      // 商品名称
+    string goods_desc = 13;                      // 商品描述
+    string goods_thumbnail_url = 14;             // 商品缩略图
+    string goods_image_url = 15;                 // 商品主图
+    uint64 min_group_price = 16;                 // 最小拼团价（单位为分）
+    uint64 min_normal_price = 17;                // 最小单买价格（单位为分）
+    string mall_name = 18;                       // 店铺名字
+    int32 merchant_type = 19;                    // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
+    uint64 category_id = 20;                     // 商品类目ID，使用pdd.goods.cats.get接口获取
+    uint64 category_name = 21;                   // 商品类目名
+    uint64 opt_id = 22;                          // 商品标签ID
+    string opt_name = 23;                        // 商品标签名
+    repeated uint64 opt_ids = 24;                // 商品标签ID list
+    repeated uint64 cat_ids = 25;                // 商品类目ID list
+    int32 mall_cps = 26;                         // 该商品所在店铺是否参与全店推广，0：否，1：是
+    bool has_coupon = 27;                        // 商品是否有优惠券 true-有，false-没有
+    uint64 coupon_min_order_amount = 28;         // 优惠券门槛价格，单位为分
+    uint64 coupon_discount = 29;                 // 优惠券面额，单位为分
+    uint64 coupon_total_quantity = 30;           // 优惠券总数量
+    uint64 coupon_remain_quantity = 31;          // 优惠券剩余数量
+    uint64 coupon_start_time = 32;               // 优惠券生效时间，UNIX时间戳
+    uint64 coupon_end_time = 33;                 // 优惠券失效时间，UNIX时间戳
+    uint64 promotion_rate = 34;                  // 佣金比例，千分比
+    string sales_tip = 35;                       // 已售卖件数
+    int32 activity_type = 36;                    // 活动类型，0-无活动;1-秒杀;3-限量折扣;12-限时折扣;13-大促活动;14-名品折扣;15-品牌清仓;16-食品超市;17-一元幸运团;18-爱逛街;19-时尚穿搭;20-男人帮;21-9块9;22-竞价活动;23-榜单活动;24-幸运半价购;25-定金预售;26-幸运人气购;27-特色主题活动;28-断码清仓;29-一元话费;30-电器城;31-每日好店;32-品牌卡;101-大促搜索池;102-大促品类分会场;
+    string clt_cpn_batch_sn = 37;                // 店铺收藏券id
+    uint64 clt_cpn_start_time = 38;              // 店铺收藏券起始时间
+    uint64 clt_cpn_end_time = 39;                // 店铺收藏券截止时间
+    uint64 clt_cpn_quantity = 40;                // 店铺收藏券总量
+    uint64 clt_cpn_remain_quantity = 41;         // 店铺收藏券剩余量
+    uint64 clt_cpn_discount = 42;                // 店铺收藏券面额，单位为分
+    uint64 clt_cpn_min_amt = 43;                 // 店铺收藏券使用门槛价格，单位为分
+    string desc_txt = 44;                        // 描述分
+    string serv_txt = 45;                        // 服务分
+    string lgst_txt = 46;                        // 物流分
+    int32 plan_type = 47;                        // 推广计划类型 3:定向 4:招商
+    uint64 zs_duo_id = 48;                       // 招商团长id
+    bool only_scene_auth = 49;                   // 快手专享
+    uint64 mall_id = 50;                         // 店铺ID
+    uint64 predict_promotion_rate = 51;          // 比价行为预判定佣金，需要用户备案
+    string goods_sign = 52;                      // goods_sign
+    int32 total_results = 53;                    // 返回商品总数
+}
+
+message SearchRequest {
+    optional string keyword = 1;              // 商品关键词，与opt_id字段选填一个或全部填写。可支持goods_id、拼多多链接
+    optional uint64 opt_id = 2;               // 商品标签类目ID 详见：https://www.dingdanxia.com/doc/212/86
+    optional int32 page = 3;                  // 默认值1，商品分页数
+    optional int32 page_size = 4;             // 默认100，每页商品数量
+    optional int32 sort_type = 5;             // 排序方式:0-综合排序;1-按佣金比率升序;2-按佣金比例降序;3-按价格升序;4-按价格降序;5-按销量升序;6-按销量降序;7-优惠券金额排序升序;8-优惠券金额排序降序;9-券后价升序排序;10-券后价降序排序;11-按照加入多多进宝时间升序;12-按照加入多多进宝时间降序;13-按佣金金额升序排序;14-按佣金金额降序排序;15-店铺描述评分升序;16-店铺描述评分降序;17-店铺物流评分升序;18-店铺物流评分降序;19-店铺服务评分升序;20-店铺服务评分降序;27-描述评分击败同类店铺百分比升序，28-描述评分击败同类店铺百分比降序，29-物流评分击败同类店铺百分比升序，30-物流评分击败同类店铺百分比降序，31-服务评分击败同类店铺百分比升序，32-服务评分击败同类店铺百分比降序
+    optional bool with_coupon = 6;            // 是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
+    optional string range_list = 7;           // 筛选范围列表 样例：[{"range_id":0,"range_from":1,"range_to":1500},{"range_id":1,"range_from":1,"range_to":1500}] range_id枚举及描述： 0，最小成团价 1，券后价 2，佣金比例 3，优惠券价格 4，广告创建时间 5，销量 6，佣金金额 7，店铺描述分 8，店铺物流分 9，店铺服务分 10， 店铺描述分击败同行业百分比 11， 店铺物流分击败同行业百分比 12，店铺服务分击败同行业百分比 13，商品分 17 ，优惠券/最小团购价 18，过去两小时pv 19，过去两小时销量
+    optional uint64 cat_id = 8;               // 商品类目ID 详见：https://www.dingdanxia.com/doc/85/86
+    optional int32 merchant_type = 9;         // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
+    optional string pid = 10;                 // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
+    optional string custom_parameters = 11;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
+    repeated int32 merchant_type_list = 12;   // 店铺类型数组
+    optional bool is_brand_goods = 13;        // 是否为品牌商品
+    repeated int32 activity_tags = 14;        // 商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴 10143-每日必推等
+    repeated int32 block_cat_packages = 15;   // 屏蔽商品类目：1-拼多多小程序屏蔽类目;2-虚拟类目;3-医疗器械;4-处方药;5-非处方药
+    repeated string goods_sign_list = 16;     // goodsSign列表，支持通过goodsSign查询商品
+    optional string pdd_auth_id = 17;         // 切换授权参数
+}
+
+message SearchResponse {
+    int32 code = 1;
+    string msg = 2;
+    SearchData data = 3;
+}
+
+// API: http://api.tbk.dingdanxia.com/pdd/convert
+/*
+{
+    "code":200,
+    "msg":"请求成功【success】",
+    "data":{
+        "qq_app_info":{
+            "user_name":"gh_0e7477744313@app",
+            "page_path":"package_a/welfare_coupon/welfare_coupon?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3&_oc_cps_sign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&_oc_pid=8143798_218195211&_oc_mkt_domain=222&_oc_mkt_tr_sc=ddjb_goods_coupon&_oc_mkt_tr_token=vheagmd7nwfqyt5llqm57g54fhm5xk7xhvupglm2qziyiinqdabfqqrj52szzuocqs3ifugmz7vxc",
+            "qq_app_icon_url":"http://xcxcdn.yangkeduo.com/pdd_logo.png",
+            "source_display_name":"拼多多",
+            "title":"100%纯棉镂空短袖t恤女V领上衣2020新款韩版大码绣花百搭修身",
+            "app_id":"1108233859",
+            "desc":"拼多多，多实惠，多乐趣。"
+        },
+        "weibo_app_web_view_short_url":"https://p.pinduoduo.com/DCjTGxUL",
+        "mobile_url":"https://mobile.yangkeduo.com/duo_coupon_landing.html?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3&launch_pdd=1&campaign=ddjb&cid=launch_dl_force_",
+        "schema_url":"pinduoduo://com.xunmeng.pinduoduo/duo_coupon_landing.html?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3",
+        "we_app_info":{
+            "we_app_icon_url":"http://xcxcdn.yangkeduo.com/pdd_logo.png",
+            "user_name":"gh_a6611aee87d6",
+            "page_path":"package_a/welfare_coupon/welfare_coupon?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3&_oc_cps_sign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&_oc_pid=8143798_218195211&_oc_mkt_domain=222&_oc_mkt_tr_sc=ddjb_goods_coupon&_oc_mkt_tr_token=vheagmd7nwfqyt5llqm57g54fhm5xk7xhvupglm2qziyiinqdabfqqrj52szzuocqs3ifugmz7vxc",
+            "source_display_name":"拼多多福利券",
+            "title":"100%纯棉镂空短袖t恤女V领上衣2020新款韩版大码绣花百搭修身",
+            "app_id":"wxa918198f16869201",
+            "desc":"拼多多，多实惠，多乐趣。"
+        },
+        "weibo_app_web_view_url":"https://mobile.yangkeduo.com/duo_coupon_landing.html?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3&launch_weibo=1",
+        "mobile_short_url":"https://p.pinduoduo.com/WslTqg3w",
+        "we_app_web_view_url":"https://mobile.yangkeduo.com/duo_coupon_landing.html?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3",
+        "url":"https://mobile.yangkeduo.com/duo_coupon_landing.html?goods_id=104895318702&pid=8143798_218195211&goods_sign=c972ugZxdDpP2PPhwfDYjg1hCxiR_JKwNYDrDm&authDuoId=8516041&cpsSign=CC_210824_8143798_218195211_77c6b1c59d151b3324215a71ca16204b&mall_collect_coupon=1&__page=auth&auth_from=goods&duoduo_type=3",
+        "short_url":"https://p.pinduoduo.com/o1ATRzoy",
+        "we_app_web_view_short_url":"https://p.pinduoduo.com/o1ATRzoy",
+        "itemInfo":{
+            "goods_name":null,
+            "goods_id":104895318702,
+            "goods_sign":"Y9T2ugZxdDpASFWBwePZ4GoBUoo91Y8S_JKwNYDrDm",
+            "min_normal_price":null,
+            "min_group_price":null,
+            "promotion_rate":null,
+            "predict_promotion_rate":null,
+            "has_coupon":null,
+            "coupon_min_order_amount":null,
+            "coupon_discount":null,
+            "coupon_total_quantity":null,
+            "coupon_remain_quantity":null,
+            "coupon_start_time":null,
+            "coupon_end_time":null
+        }
+    }
+}
+*/
+
+// PromotedData promotion by goods sign
+message PromotedData {
+    string we_app_web_view_short_url = 1;    // 唤起微信app推广短链接
+    string we_app_web_view_url = 2;          // 唤起微信app推广链接
+    string mobile_short_url = 3;             // 唤醒拼多多app的推广短链接
+    string mobile_url = 4;                   // 唤醒拼多多app的推广长链接
+    string short_url = 5;                    // 推广短链接
+    string url = 6;                          // 推广长链接
+    string weibo_app_web_view_short_url = 7; // 唤起微博app推广短链接
+    string weibo_app_web_view_url = 8;       // 唤起微博app推广链接
+    string schema_url = 9;                   // schema的链接
+    WeAppInfo we_app_info = 10;              // 小程序信息
+    ItemInfo itemInfo = 11;                  // 商品基本信息 itemInfo＝true 才会出
+}
+message PromoteRequest {
+    string goods_sign = 1;                           // 商品goodsSign，推荐使用，可走最优计划
+    optional string pid = 2;                         // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
+    optional string custom_parameters = 3;           // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
+    optional uint64 cash_gift_id = 4;                // 多多礼金ID
+    optional string cash_gift_name = 5;              // 自定义礼金标题，用于向用户展示渠道专属福利，不超过12个字
+    optional bool itemInfo = 6;                      // 是否返回商品信息 包含商品标题、ID、价格、佣金、优惠券信息
+    optional bool generate_authority_url = 7;        // 是否生成带授权的单品链接。如果未授权，则会走授权流程
+    optional bool generate_short_url = 8;            // 是否生成短链接
+    optional bool multi_group = 9;                   // true--生成多人团推广链接 false--生成单人团推广链接（默认false）1、单人团推广链接：用户访问单人团推广链接，可直接购买商品无需拼团。2、多人团推广链接：用户访问双人团推广链接开团，若用户分享给他
+    optional bool generate_weapp_webview = 10;       // 是否生成唤起微信客户端链接，true-是，false-否，默认false
+    optional string zs_duo_id = 11;                  // 招商多多客ID
+    optional bool generate_we_app = 12;              // 是否生成小程序推广
+    optional bool generate_weiboapp_webview = 13;    // 是否生成微博推广
+    optional bool generate_mall_collect_coupon = 14; // 是否生成店铺收藏券推广链接
+    optional bool generate_qq_app = 15;              // 是否生成qq小程序
+    optional bool generate_schema_url = 16;          // 是否返回 schema URL
+    optional string search_id = 17;                  // 搜索id，建议填写，提高收益,通过搜索接口获取
+    optional bool force_duo_id = 18;                 // 是否使用多多客专属推广计划
+    optional string goods_id_list = 19;              // 商品ID，不建议使用，请优先使用goods_sign
+    optional string pdd_auth_id = 20;                // 切换授权参数
+}
+message PromoteResponse {
+    int32 code = 1;
+    string msg = 2;
+    PromotedData data = 3;
+}
+
 // RPC service
 service PddApiService {
     rpc AuthorityQuery(AuthorityQueryRequest) returns (AuthorityQueryResponse) {}
     rpc CreateMarketingURL(CreateMarketingURLRequest) returns (CreateMarketingURLResponse) {}
     rpc URLConvert(URLConvertRequest) returns (URLConvertResponse) {}
+    rpc Promote(PromoteRequest) returns (PromoteResponse) {}
+    rpc GoodsSearch(SearchRequest) returns (SearchResponse) {}
 }
