@@ -1251,7 +1251,7 @@ type SearchData struct {
 	MallName                    string   `protobuf:"bytes,18,opt,name=mall_name,json=mallName,proto3" json:"mall_name,omitempty"`                                                                // 店铺名字
 	MerchantType                int32    `protobuf:"varint,19,opt,name=merchant_type,json=merchantType,proto3" json:"merchant_type,omitempty"`                                                   // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
 	CategoryId                  uint64   `protobuf:"varint,20,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`                                                         // 商品类目ID，使用pdd.goods.cats.get接口获取
-	CategoryName                uint64   `protobuf:"varint,21,opt,name=category_name,json=categoryName,proto3" json:"category_name,omitempty"`                                                   // 商品类目名
+	CategoryName                string   `protobuf:"bytes,21,opt,name=category_name,json=categoryName,proto3" json:"category_name,omitempty"`                                                    // 商品类目名
 	OptId                       uint64   `protobuf:"varint,22,opt,name=opt_id,json=optId,proto3" json:"opt_id,omitempty"`                                                                        // 商品标签ID
 	OptName                     string   `protobuf:"bytes,23,opt,name=opt_name,json=optName,proto3" json:"opt_name,omitempty"`                                                                   // 商品标签名
 	OptIds                      []uint64 `protobuf:"varint,24,rep,packed,name=opt_ids,json=optIds,proto3" json:"opt_ids,omitempty"`                                                              // 商品标签ID list
@@ -1457,11 +1457,11 @@ func (x *SearchData) GetCategoryId() uint64 {
 	return 0
 }
 
-func (x *SearchData) GetCategoryName() uint64 {
+func (x *SearchData) GetCategoryName() string {
 	if x != nil {
 		return x.CategoryName
 	}
-	return 0
+	return ""
 }
 
 func (x *SearchData) GetOptId() uint64 {
@@ -2604,7 +2604,7 @@ var file_api_pdd_ddx_proto_rawDesc = []byte{
 	0x61, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x61, 0x74, 0x65, 0x67,
 	0x6f, 0x72, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x14, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0a, 0x63, 0x61,
 	0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x12, 0x23, 0x0a, 0x0d, 0x63, 0x61, 0x74, 0x65,
-	0x67, 0x6f, 0x72, 0x79, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x15, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x67, 0x6f, 0x72, 0x79, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x15, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x0c, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x15, 0x0a,
 	0x06, 0x6f, 0x70, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x16, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x6f,
 	0x70, 0x74, 0x49, 0x64, 0x12, 0x19, 0x0a, 0x08, 0x6f, 0x70, 0x74, 0x5f, 0x6e, 0x61, 0x6d, 0x65,

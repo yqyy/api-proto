@@ -662,8 +662,8 @@ export class SearchData extends jspb.Message {
   getCategoryId(): number;
   setCategoryId(value: number): void;
 
-  getCategoryName(): number;
-  setCategoryName(value: number): void;
+  getCategoryName(): string;
+  setCategoryName(value: string): void;
 
   getOptId(): number;
   setOptId(value: number): void;
@@ -794,7 +794,7 @@ export namespace SearchData {
     mallName: string,
     merchantType: number,
     categoryId: number,
-    categoryName: number,
+    categoryName: string,
     optId: number,
     optName: string,
     optIdsList: Array<number>,

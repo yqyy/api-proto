@@ -154,7 +154,7 @@ message SearchData {
     string mall_name = 18;                       // 店铺名字
     int32 merchant_type = 19;                    // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
     uint64 category_id = 20;                     // 商品类目ID，使用pdd.goods.cats.get接口获取
-    uint64 category_name = 21;                   // 商品类目名
+    string category_name = 21;                   // 商品类目名
     uint64 opt_id = 22;                          // 商品标签ID
     string opt_name = 23;                        // 商品标签名
     repeated uint64 opt_ids = 24;                // 商品标签ID list

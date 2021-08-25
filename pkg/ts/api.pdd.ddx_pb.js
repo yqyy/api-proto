@@ -4823,7 +4823,7 @@ proto.pddxpb.SearchData.toObject = function(includeInstance, msg) {
     mallName: jspb.Message.getFieldWithDefault(msg, 18, ""),
     merchantType: jspb.Message.getFieldWithDefault(msg, 19, 0),
     categoryId: jspb.Message.getFieldWithDefault(msg, 20, 0),
-    categoryName: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    categoryName: jspb.Message.getFieldWithDefault(msg, 21, ""),
     optId: jspb.Message.getFieldWithDefault(msg, 22, 0),
     optName: jspb.Message.getFieldWithDefault(msg, 23, ""),
     optIdsList: (f = jspb.Message.getRepeatedField(msg, 24)) == null ? undefined : f,
@@ -4972,7 +4972,7 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCategoryId(value);
       break;
     case 21:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setCategoryName(value);
       break;
     case 22:
@@ -5273,8 +5273,8 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getCategoryName();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f.length > 0) {
+    writer.writeString(
       21,
       f
     );
@@ -5860,20 +5860,20 @@ proto.pddxpb.SearchData.prototype.setCategoryId = function(value) {
 
 
 /**
- * optional uint64 category_name = 21;
- * @return {number}
+ * optional string category_name = 21;
+ * @return {string}
  */
 proto.pddxpb.SearchData.prototype.getCategoryName = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 21, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.pddxpb.SearchData} returns this
  */
 proto.pddxpb.SearchData.prototype.setCategoryName = function(value) {
-  return jspb.Message.setProto3IntField(this, 21, value);
+  return jspb.Message.setProto3StringField(this, 21, value);
 };
 
 
