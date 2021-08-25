@@ -957,10 +957,10 @@ export class SearchResponse extends jspb.Message {
   getTotalResults(): number;
   setTotalResults(value: number): void;
 
-  hasData(): boolean;
-  clearData(): void;
-  getData(): SearchData | undefined;
-  setData(value?: SearchData): void;
+  clearDataList(): void;
+  getDataList(): Array<SearchData>;
+  setDataList(value: Array<SearchData>): void;
+  addData(value?: SearchData, index?: number): SearchData;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SearchResponse.AsObject;
@@ -977,7 +977,7 @@ export namespace SearchResponse {
     code: number,
     msg: string,
     totalResults: number,
-    data?: SearchData.AsObject,
+    dataList: Array<SearchData.AsObject>,
   }
 }
 

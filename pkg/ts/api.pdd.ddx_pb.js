@@ -382,7 +382,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.pddxpb.SearchResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.pddxpb.SearchResponse.repeatedFields_, null);
 };
 goog.inherits(proto.pddxpb.SearchResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -7407,6 +7407,13 @@ proto.pddxpb.SearchRequest.prototype.hasPddAuthId = function() {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.pddxpb.SearchResponse.repeatedFields_ = [4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -7441,7 +7448,8 @@ proto.pddxpb.SearchResponse.toObject = function(includeInstance, msg) {
     code: jspb.Message.getFieldWithDefault(msg, 1, 0),
     msg: jspb.Message.getFieldWithDefault(msg, 2, ""),
     totalResults: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    data: (f = msg.getData()) && proto.pddxpb.SearchData.toObject(includeInstance, f)
+    dataList: jspb.Message.toObjectList(msg.getDataList(),
+    proto.pddxpb.SearchData.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -7493,7 +7501,7 @@ proto.pddxpb.SearchResponse.deserializeBinaryFromReader = function(msg, reader) 
     case 4:
       var value = new proto.pddxpb.SearchData;
       reader.readMessage(value,proto.pddxpb.SearchData.deserializeBinaryFromReader);
-      msg.setData(value);
+      msg.addData(value);
       break;
     default:
       reader.skipField();
@@ -7545,9 +7553,9 @@ proto.pddxpb.SearchResponse.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getData();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getDataList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       4,
       f,
       proto.pddxpb.SearchData.serializeBinaryToWriter
@@ -7611,39 +7619,40 @@ proto.pddxpb.SearchResponse.prototype.setTotalResults = function(value) {
 
 
 /**
- * optional SearchData data = 4;
- * @return {?proto.pddxpb.SearchData}
+ * repeated SearchData data = 4;
+ * @return {!Array<!proto.pddxpb.SearchData>}
  */
-proto.pddxpb.SearchResponse.prototype.getData = function() {
-  return /** @type{?proto.pddxpb.SearchData} */ (
-    jspb.Message.getWrapperField(this, proto.pddxpb.SearchData, 4));
+proto.pddxpb.SearchResponse.prototype.getDataList = function() {
+  return /** @type{!Array<!proto.pddxpb.SearchData>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.pddxpb.SearchData, 4));
 };
 
 
 /**
- * @param {?proto.pddxpb.SearchData|undefined} value
+ * @param {!Array<!proto.pddxpb.SearchData>} value
  * @return {!proto.pddxpb.SearchResponse} returns this
 */
-proto.pddxpb.SearchResponse.prototype.setData = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+proto.pddxpb.SearchResponse.prototype.setDataList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.pddxpb.SearchData=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.pddxpb.SearchData}
+ */
+proto.pddxpb.SearchResponse.prototype.addData = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.pddxpb.SearchData, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.pddxpb.SearchResponse} returns this
  */
-proto.pddxpb.SearchResponse.prototype.clearData = function() {
-  return this.setData(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.pddxpb.SearchResponse.prototype.hasData = function() {
-  return jspb.Message.getField(this, 4) != null;
+proto.pddxpb.SearchResponse.prototype.clearDataList = function() {
+  return this.setDataList([]);
 };
 
 
