@@ -4854,8 +4854,7 @@ proto.pddxpb.SearchData.toObject = function(includeInstance, msg) {
     onlySceneAuth: jspb.Message.getBooleanFieldWithDefault(msg, 49, false),
     mallId: jspb.Message.getFieldWithDefault(msg, 50, 0),
     predictPromotionRate: jspb.Message.getFieldWithDefault(msg, 51, 0),
-    goodsSign: jspb.Message.getFieldWithDefault(msg, 52, ""),
-    totalResults: jspb.Message.getFieldWithDefault(msg, 53, 0)
+    goodsSign: jspb.Message.getFieldWithDefault(msg, 52, "")
   };
 
   if (includeInstance) {
@@ -5103,10 +5102,6 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
     case 52:
       var value = /** @type {string} */ (reader.readString());
       msg.setGoodsSign(value);
-      break;
-    case 53:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setTotalResults(value);
       break;
     default:
       reader.skipField();
@@ -5498,13 +5493,6 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       52,
-      f
-    );
-  }
-  f = message.getTotalResults();
-  if (f !== 0) {
-    writer.writeInt32(
-      53,
       f
     );
   }
@@ -6485,24 +6473,6 @@ proto.pddxpb.SearchData.prototype.setGoodsSign = function(value) {
 };
 
 
-/**
- * optional int32 total_results = 53;
- * @return {number}
- */
-proto.pddxpb.SearchData.prototype.getTotalResults = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 53, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.pddxpb.SearchData} returns this
- */
-proto.pddxpb.SearchData.prototype.setTotalResults = function(value) {
-  return jspb.Message.setProto3IntField(this, 53, value);
-};
-
-
 
 /**
  * List of repeated fields within this message type.
@@ -7470,6 +7440,7 @@ proto.pddxpb.SearchResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     code: jspb.Message.getFieldWithDefault(msg, 1, 0),
     msg: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    totalResults: jspb.Message.getFieldWithDefault(msg, 3, 0),
     data: (f = msg.getData()) && proto.pddxpb.SearchData.toObject(includeInstance, f)
   };
 
@@ -7516,6 +7487,10 @@ proto.pddxpb.SearchResponse.deserializeBinaryFromReader = function(msg, reader) 
       msg.setMsg(value);
       break;
     case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTotalResults(value);
+      break;
+    case 4:
       var value = new proto.pddxpb.SearchData;
       reader.readMessage(value,proto.pddxpb.SearchData.deserializeBinaryFromReader);
       msg.setData(value);
@@ -7563,10 +7538,17 @@ proto.pddxpb.SearchResponse.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getTotalResults();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
   f = message.getData();
   if (f != null) {
     writer.writeMessage(
-      3,
+      4,
       f,
       proto.pddxpb.SearchData.serializeBinaryToWriter
     );
@@ -7611,12 +7593,30 @@ proto.pddxpb.SearchResponse.prototype.setMsg = function(value) {
 
 
 /**
- * optional SearchData data = 3;
+ * optional int32 total_results = 3;
+ * @return {number}
+ */
+proto.pddxpb.SearchResponse.prototype.getTotalResults = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.pddxpb.SearchResponse} returns this
+ */
+proto.pddxpb.SearchResponse.prototype.setTotalResults = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional SearchData data = 4;
  * @return {?proto.pddxpb.SearchData}
  */
 proto.pddxpb.SearchResponse.prototype.getData = function() {
   return /** @type{?proto.pddxpb.SearchData} */ (
-    jspb.Message.getWrapperField(this, proto.pddxpb.SearchData, 3));
+    jspb.Message.getWrapperField(this, proto.pddxpb.SearchData, 4));
 };
 
 
@@ -7625,7 +7625,7 @@ proto.pddxpb.SearchResponse.prototype.getData = function() {
  * @return {!proto.pddxpb.SearchResponse} returns this
 */
 proto.pddxpb.SearchResponse.prototype.setData = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -7643,7 +7643,7 @@ proto.pddxpb.SearchResponse.prototype.clearData = function() {
  * @return {boolean}
  */
 proto.pddxpb.SearchResponse.prototype.hasData = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

@@ -186,7 +186,6 @@ message SearchData {
     uint64 mall_id = 50;                         // 店铺ID
     uint64 predict_promotion_rate = 51;          // 比价行为预判定佣金，需要用户备案
     string goods_sign = 52;                      // goods_sign
-    int32 total_results = 53;                    // 返回商品总数
 }
 
 message SearchRequest {
@@ -212,7 +211,8 @@ message SearchRequest {
 message SearchResponse {
     int32 code = 1;
     string msg = 2;
-    SearchData data = 3;
+    int32 total_results = 3; // 返回商品总数
+    SearchData data = 4;
 }
 
 // API: http://api.tbk.dingdanxia.com/pdd/convert

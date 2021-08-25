@@ -762,9 +762,6 @@ export class SearchData extends jspb.Message {
   getGoodsSign(): string;
   setGoodsSign(value: string): void;
 
-  getTotalResults(): number;
-  setTotalResults(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SearchData.AsObject;
   static toObject(includeInstance: boolean, msg: SearchData): SearchData.AsObject;
@@ -829,7 +826,6 @@ export namespace SearchData {
     mallId: number,
     predictPromotionRate: number,
     goodsSign: string,
-    totalResults: number,
   }
 }
 
@@ -958,6 +954,9 @@ export class SearchResponse extends jspb.Message {
   getMsg(): string;
   setMsg(value: string): void;
 
+  getTotalResults(): number;
+  setTotalResults(value: number): void;
+
   hasData(): boolean;
   clearData(): void;
   getData(): SearchData | undefined;
@@ -977,6 +976,7 @@ export namespace SearchResponse {
   export type AsObject = {
     code: number,
     msg: string,
+    totalResults: number,
     data?: SearchData.AsObject,
   }
 }
