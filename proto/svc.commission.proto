@@ -1,0 +1,66 @@
+syntax = "proto3";
+package commspb;
+
+option go_package = "/commspb";
+
+/* UserBindOrder */
+message UserBindOrderReq {
+    string userID = 1;
+    string orderSN = 2; // 用户在vendor后台可见的订单号
+}
+
+message UserBindOrderRes {
+    int32 code = 1;
+    string msg = 2;
+}
+
+/* UserBindPhone */
+message UserBindPhoneReq {
+    string userID = 1;
+    string phone = 2;
+}
+
+message UserBindPhoneRes {
+    int32 code = 1;
+    string msg = 2;
+}
+
+/* UserGetOrders */
+message UserDividendOrder {
+    string userID = 1;          // user id
+    string orderSN = 2;         // 用户后台可见的订单号
+    int32 orderStatus = 3;      // 订单状态：-1 无效订单（未支付，退货，无佣金， 商家审核失败）1-有效但商家未结算订单（预估金额，用户可能退货）2-已结算订单（用户可提现）
+    int32 orderVendor = 4;      // 订单Vendor
+    int32 payStauts = 5;        // 支付状态： 0-未支付; 1-用户已提交提现申请，审核中; 2-审核未通过; 3-已审核通过，待支付处理中; 4-支付失败; 99-已支付;
+    string cashReqSN = 6;       // 已支付的用户请求提现流水号
+    int32 amount = 7;           // 用户分配到的佣金额，单位为分
+    int32 orderAmount = 8;      // 实际支付金额，单位为分
+    string orderCreateTime = 9; // 订单生成时间，格式yyyy-MM-dd HH:mm:ss
+}
+
+message UserGetOrdersReq {
+    string userID = 1;
+}
+
+message UserGetOrdersRes {
+    int32 code = 1;
+    string msg = 2;
+    repeated UserDividendOrder data = 3;
+}
+
+/* withdraw money */
+message DrawMoneyDetail {
+    double amount = 1;
+    repeated UserDividendOrder orders = 2;
+}
+
+message UserDrawMoneyReq {
+    string userID = 1;
+    string phone = 2;
+}
+
+message UserDrawMoneyRes {
+    int32 code = 1;
+    string msg = 2;
+    DrawMoneyDetail data = 3;
+}
