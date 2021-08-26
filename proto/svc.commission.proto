@@ -64,3 +64,11 @@ message UserDrawMoneyRes {
     string msg = 2;
     DrawMoneyDetail data = 3;
 }
+
+// RPC service
+service CommissionService {
+    rpc UserBindOrder(UserBindOrderReq) returns (UserBindOrderRes) {}
+    rpc UserBindPhone(UserBindPhoneReq) returns (UserBindPhoneRes) {}
+    rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
+    rpc UserWithdrawMoney(UserDrawMoneyReq) returns (UserDrawMoneyReq) {}
+}
