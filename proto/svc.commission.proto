@@ -48,6 +48,24 @@ message UserGetOrdersRes {
     repeated UserDividendOrder data = 3;
 }
 
+/* query money */
+message Balance {
+    float unliquidated = 1;        // 未结算金额
+    float payable = 2;             // 可提现金额
+    float processing = 3;          // 支付处理中金额（已冻结，待支付）
+    float paid = 4;                // 已支付（用户已提现成功）
+}
+
+message UserQueryBalanceReq {
+    string userID = 1;
+}
+
+message UserQueryBalanceRes {
+    int32 code = 1;
+    string msg = 2;
+    Balance data = 3;
+}
+
 /* withdraw money */
 message DrawMoneyDetail {
     double amount = 1;
