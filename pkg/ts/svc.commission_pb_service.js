@@ -28,13 +28,13 @@ CommissionService.UserBindPhone = {
   responseType: svc_commission_pb.UserBindPhoneRes
 };
 
-CommissionService.UserGetOrders = {
-  methodName: "UserGetOrders",
+CommissionService.UserQueryBalance = {
+  methodName: "UserQueryBalance",
   service: CommissionService,
   requestStream: false,
   responseStream: false,
-  requestType: svc_commission_pb.UserGetOrdersReq,
-  responseType: svc_commission_pb.UserGetOrdersRes
+  requestType: svc_commission_pb.UserQueryBalanceReq,
+  responseType: svc_commission_pb.UserQueryBalanceRes
 };
 
 CommissionService.UserWithdrawMoney = {
@@ -115,11 +115,11 @@ CommissionServiceClient.prototype.userBindPhone = function userBindPhone(request
   };
 };
 
-CommissionServiceClient.prototype.userGetOrders = function userGetOrders(requestMessage, metadata, callback) {
+CommissionServiceClient.prototype.userQueryBalance = function userQueryBalance(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
-  var client = grpc.unary(CommissionService.UserGetOrders, {
+  var client = grpc.unary(CommissionService.UserQueryBalance, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,

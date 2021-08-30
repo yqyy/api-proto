@@ -22,13 +22,13 @@ type CommissionServiceUserBindPhone = {
   readonly responseType: typeof svc_commission_pb.UserBindPhoneRes;
 };
 
-type CommissionServiceUserGetOrders = {
+type CommissionServiceUserQueryBalance = {
   readonly methodName: string;
   readonly service: typeof CommissionService;
   readonly requestStream: false;
   readonly responseStream: false;
-  readonly requestType: typeof svc_commission_pb.UserGetOrdersReq;
-  readonly responseType: typeof svc_commission_pb.UserGetOrdersRes;
+  readonly requestType: typeof svc_commission_pb.UserQueryBalanceReq;
+  readonly responseType: typeof svc_commission_pb.UserQueryBalanceRes;
 };
 
 type CommissionServiceUserWithdrawMoney = {
@@ -44,7 +44,7 @@ export class CommissionService {
   static readonly serviceName: string;
   static readonly UserBindOrder: CommissionServiceUserBindOrder;
   static readonly UserBindPhone: CommissionServiceUserBindPhone;
-  static readonly UserGetOrders: CommissionServiceUserGetOrders;
+  static readonly UserQueryBalance: CommissionServiceUserQueryBalance;
   static readonly UserWithdrawMoney: CommissionServiceUserWithdrawMoney;
 }
 
@@ -98,14 +98,14 @@ export class CommissionServiceClient {
     requestMessage: svc_commission_pb.UserBindPhoneReq,
     callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserBindPhoneRes|null) => void
   ): UnaryResponse;
-  userGetOrders(
-    requestMessage: svc_commission_pb.UserGetOrdersReq,
+  userQueryBalance(
+    requestMessage: svc_commission_pb.UserQueryBalanceReq,
     metadata: grpc.Metadata,
-    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserGetOrdersRes|null) => void
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserQueryBalanceRes|null) => void
   ): UnaryResponse;
-  userGetOrders(
-    requestMessage: svc_commission_pb.UserGetOrdersReq,
-    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserGetOrdersRes|null) => void
+  userQueryBalance(
+    requestMessage: svc_commission_pb.UserQueryBalanceReq,
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserQueryBalanceRes|null) => void
   ): UnaryResponse;
   userWithdrawMoney(
     requestMessage: svc_commission_pb.UserDrawMoneyReq,

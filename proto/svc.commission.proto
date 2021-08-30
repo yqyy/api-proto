@@ -87,6 +87,7 @@ message UserDrawMoneyRes {
 service CommissionService {
     rpc UserBindOrder(UserBindOrderReq) returns (UserBindOrderRes) {}
     rpc UserBindPhone(UserBindPhoneReq) returns (UserBindPhoneRes) {}
-    rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
+    // rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
+    rpc UserQueryBalance(UserQueryBalanceReq) returns (UserQueryBalanceRes) {}
     rpc UserWithdrawMoney(UserDrawMoneyReq) returns (UserDrawMoneyReq) {}
 }

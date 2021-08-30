@@ -201,6 +201,88 @@ export namespace UserGetOrdersRes {
   }
 }
 
+export class Balance extends jspb.Message {
+  getUnliquidated(): number;
+  setUnliquidated(value: number): void;
+
+  getPayable(): number;
+  setPayable(value: number): void;
+
+  getProcessing(): number;
+  setProcessing(value: number): void;
+
+  getPaid(): number;
+  setPaid(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Balance.AsObject;
+  static toObject(includeInstance: boolean, msg: Balance): Balance.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Balance, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Balance;
+  static deserializeBinaryFromReader(message: Balance, reader: jspb.BinaryReader): Balance;
+}
+
+export namespace Balance {
+  export type AsObject = {
+    unliquidated: number,
+    payable: number,
+    processing: number,
+    paid: number,
+  }
+}
+
+export class UserQueryBalanceReq extends jspb.Message {
+  getUserid(): string;
+  setUserid(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserQueryBalanceReq.AsObject;
+  static toObject(includeInstance: boolean, msg: UserQueryBalanceReq): UserQueryBalanceReq.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserQueryBalanceReq, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserQueryBalanceReq;
+  static deserializeBinaryFromReader(message: UserQueryBalanceReq, reader: jspb.BinaryReader): UserQueryBalanceReq;
+}
+
+export namespace UserQueryBalanceReq {
+  export type AsObject = {
+    userid: string,
+  }
+}
+
+export class UserQueryBalanceRes extends jspb.Message {
+  getCode(): number;
+  setCode(value: number): void;
+
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  hasData(): boolean;
+  clearData(): void;
+  getData(): Balance | undefined;
+  setData(value?: Balance): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserQueryBalanceRes.AsObject;
+  static toObject(includeInstance: boolean, msg: UserQueryBalanceRes): UserQueryBalanceRes.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserQueryBalanceRes, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserQueryBalanceRes;
+  static deserializeBinaryFromReader(message: UserQueryBalanceRes, reader: jspb.BinaryReader): UserQueryBalanceRes;
+}
+
+export namespace UserQueryBalanceRes {
+  export type AsObject = {
+    code: number,
+    msg: string,
+    data?: Balance.AsObject,
+  }
+}
+
 export class DrawMoneyDetail extends jspb.Message {
   getAmount(): number;
   setAmount(value: number): void;
