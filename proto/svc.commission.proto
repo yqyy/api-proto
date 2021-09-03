@@ -83,11 +83,33 @@ message UserDrawMoneyRes {
     DrawMoneyDetail data = 3;
 }
 
+/* withdraw money records */
+message DrawMoneyRecords {
+    string userID = 1;
+    string reqSN = 2;
+    string orderSNs = 3;
+    int32 reqAmount = 4;
+    int32 status = 5;
+    int32 paidAmount = 6;
+    int32 payMethod = 7;
+}
+
+message UserDrawMoneyRecordsReq {
+    string userID = 1;
+}
+
+message UserDrawMoneyRecordsRes {
+    int32 code = 1;
+    string msg = 2;
+    repeated DrawMoneyRecords data = 3;
+}
+
 // RPC service
 service CommissionService {
     rpc UserBindOrder(UserBindOrderReq) returns (UserBindOrderRes) {}
     rpc UserBindPhone(UserBindPhoneReq) returns (UserBindPhoneRes) {}
-    // rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
+    rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
     rpc UserQueryBalance(UserQueryBalanceReq) returns (UserQueryBalanceRes) {}
     rpc UserWithdrawMoney(UserDrawMoneyReq) returns (UserDrawMoneyReq) {}
+    rpc UserQueryDrawMoneyRecords(UserDrawMoneyRecordsReq) returns (UserDrawMoneyRecordsRes) {}
 }

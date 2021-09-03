@@ -363,3 +363,97 @@ export namespace UserDrawMoneyRes {
   }
 }
 
+export class DrawMoneyRecords extends jspb.Message {
+  getUserid(): string;
+  setUserid(value: string): void;
+
+  getReqsn(): string;
+  setReqsn(value: string): void;
+
+  getOrdersns(): string;
+  setOrdersns(value: string): void;
+
+  getReqamount(): number;
+  setReqamount(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getPaidamount(): number;
+  setPaidamount(value: number): void;
+
+  getPaymethod(): number;
+  setPaymethod(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DrawMoneyRecords.AsObject;
+  static toObject(includeInstance: boolean, msg: DrawMoneyRecords): DrawMoneyRecords.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DrawMoneyRecords, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DrawMoneyRecords;
+  static deserializeBinaryFromReader(message: DrawMoneyRecords, reader: jspb.BinaryReader): DrawMoneyRecords;
+}
+
+export namespace DrawMoneyRecords {
+  export type AsObject = {
+    userid: string,
+    reqsn: string,
+    ordersns: string,
+    reqamount: number,
+    status: number,
+    paidamount: number,
+    paymethod: number,
+  }
+}
+
+export class UserDrawMoneyRecordsReq extends jspb.Message {
+  getUserid(): string;
+  setUserid(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserDrawMoneyRecordsReq.AsObject;
+  static toObject(includeInstance: boolean, msg: UserDrawMoneyRecordsReq): UserDrawMoneyRecordsReq.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserDrawMoneyRecordsReq, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserDrawMoneyRecordsReq;
+  static deserializeBinaryFromReader(message: UserDrawMoneyRecordsReq, reader: jspb.BinaryReader): UserDrawMoneyRecordsReq;
+}
+
+export namespace UserDrawMoneyRecordsReq {
+  export type AsObject = {
+    userid: string,
+  }
+}
+
+export class UserDrawMoneyRecordsRes extends jspb.Message {
+  getCode(): number;
+  setCode(value: number): void;
+
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  clearDataList(): void;
+  getDataList(): Array<DrawMoneyRecords>;
+  setDataList(value: Array<DrawMoneyRecords>): void;
+  addData(value?: DrawMoneyRecords, index?: number): DrawMoneyRecords;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserDrawMoneyRecordsRes.AsObject;
+  static toObject(includeInstance: boolean, msg: UserDrawMoneyRecordsRes): UserDrawMoneyRecordsRes.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserDrawMoneyRecordsRes, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserDrawMoneyRecordsRes;
+  static deserializeBinaryFromReader(message: UserDrawMoneyRecordsRes, reader: jspb.BinaryReader): UserDrawMoneyRecordsRes;
+}
+
+export namespace UserDrawMoneyRecordsRes {
+  export type AsObject = {
+    code: number,
+    msg: string,
+    dataList: Array<DrawMoneyRecords.AsObject>,
+  }
+}
+

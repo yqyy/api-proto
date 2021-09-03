@@ -22,6 +22,15 @@ type CommissionServiceUserBindPhone = {
   readonly responseType: typeof svc_commission_pb.UserBindPhoneRes;
 };
 
+type CommissionServiceUserGetOrders = {
+  readonly methodName: string;
+  readonly service: typeof CommissionService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof svc_commission_pb.UserGetOrdersReq;
+  readonly responseType: typeof svc_commission_pb.UserGetOrdersRes;
+};
+
 type CommissionServiceUserQueryBalance = {
   readonly methodName: string;
   readonly service: typeof CommissionService;
@@ -40,12 +49,23 @@ type CommissionServiceUserWithdrawMoney = {
   readonly responseType: typeof svc_commission_pb.UserDrawMoneyReq;
 };
 
+type CommissionServiceUserQueryDrawMoneyRecords = {
+  readonly methodName: string;
+  readonly service: typeof CommissionService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof svc_commission_pb.UserDrawMoneyRecordsReq;
+  readonly responseType: typeof svc_commission_pb.UserDrawMoneyRecordsRes;
+};
+
 export class CommissionService {
   static readonly serviceName: string;
   static readonly UserBindOrder: CommissionServiceUserBindOrder;
   static readonly UserBindPhone: CommissionServiceUserBindPhone;
+  static readonly UserGetOrders: CommissionServiceUserGetOrders;
   static readonly UserQueryBalance: CommissionServiceUserQueryBalance;
   static readonly UserWithdrawMoney: CommissionServiceUserWithdrawMoney;
+  static readonly UserQueryDrawMoneyRecords: CommissionServiceUserQueryDrawMoneyRecords;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -98,6 +118,15 @@ export class CommissionServiceClient {
     requestMessage: svc_commission_pb.UserBindPhoneReq,
     callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserBindPhoneRes|null) => void
   ): UnaryResponse;
+  userGetOrders(
+    requestMessage: svc_commission_pb.UserGetOrdersReq,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserGetOrdersRes|null) => void
+  ): UnaryResponse;
+  userGetOrders(
+    requestMessage: svc_commission_pb.UserGetOrdersReq,
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserGetOrdersRes|null) => void
+  ): UnaryResponse;
   userQueryBalance(
     requestMessage: svc_commission_pb.UserQueryBalanceReq,
     metadata: grpc.Metadata,
@@ -115,6 +144,15 @@ export class CommissionServiceClient {
   userWithdrawMoney(
     requestMessage: svc_commission_pb.UserDrawMoneyReq,
     callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyReq|null) => void
+  ): UnaryResponse;
+  userQueryDrawMoneyRecords(
+    requestMessage: svc_commission_pb.UserDrawMoneyRecordsReq,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyRecordsRes|null) => void
+  ): UnaryResponse;
+  userQueryDrawMoneyRecords(
+    requestMessage: svc_commission_pb.UserDrawMoneyRecordsReq,
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyRecordsRes|null) => void
   ): UnaryResponse;
 }
 

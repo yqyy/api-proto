@@ -28,6 +28,15 @@ CommissionService.UserBindPhone = {
   responseType: svc_commission_pb.UserBindPhoneRes
 };
 
+CommissionService.UserGetOrders = {
+  methodName: "UserGetOrders",
+  service: CommissionService,
+  requestStream: false,
+  responseStream: false,
+  requestType: svc_commission_pb.UserGetOrdersReq,
+  responseType: svc_commission_pb.UserGetOrdersRes
+};
+
 CommissionService.UserQueryBalance = {
   methodName: "UserQueryBalance",
   service: CommissionService,
@@ -44,6 +53,15 @@ CommissionService.UserWithdrawMoney = {
   responseStream: false,
   requestType: svc_commission_pb.UserDrawMoneyReq,
   responseType: svc_commission_pb.UserDrawMoneyReq
+};
+
+CommissionService.UserQueryDrawMoneyRecords = {
+  methodName: "UserQueryDrawMoneyRecords",
+  service: CommissionService,
+  requestStream: false,
+  responseStream: false,
+  requestType: svc_commission_pb.UserDrawMoneyRecordsReq,
+  responseType: svc_commission_pb.UserDrawMoneyRecordsRes
 };
 
 exports.CommissionService = CommissionService;
@@ -115,6 +133,37 @@ CommissionServiceClient.prototype.userBindPhone = function userBindPhone(request
   };
 };
 
+CommissionServiceClient.prototype.userGetOrders = function userGetOrders(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(CommissionService.UserGetOrders, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
 CommissionServiceClient.prototype.userQueryBalance = function userQueryBalance(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
@@ -151,6 +200,37 @@ CommissionServiceClient.prototype.userWithdrawMoney = function userWithdrawMoney
     callback = arguments[1];
   }
   var client = grpc.unary(CommissionService.UserWithdrawMoney, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+CommissionServiceClient.prototype.userQueryDrawMoneyRecords = function userQueryDrawMoneyRecords(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(CommissionService.UserQueryDrawMoneyRecords, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,

@@ -20,9 +20,10 @@ const _ = grpc.SupportPackageIsVersion7
 type CommissionServiceClient interface {
 	UserBindOrder(ctx context.Context, in *UserBindOrderReq, opts ...grpc.CallOption) (*UserBindOrderRes, error)
 	UserBindPhone(ctx context.Context, in *UserBindPhoneReq, opts ...grpc.CallOption) (*UserBindPhoneRes, error)
-	// rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
+	UserGetOrders(ctx context.Context, in *UserGetOrdersReq, opts ...grpc.CallOption) (*UserGetOrdersRes, error)
 	UserQueryBalance(ctx context.Context, in *UserQueryBalanceReq, opts ...grpc.CallOption) (*UserQueryBalanceRes, error)
 	UserWithdrawMoney(ctx context.Context, in *UserDrawMoneyReq, opts ...grpc.CallOption) (*UserDrawMoneyReq, error)
+	UserQueryDrawMoneyRecords(ctx context.Context, in *UserDrawMoneyRecordsReq, opts ...grpc.CallOption) (*UserDrawMoneyRecordsRes, error)
 }
 
 type commissionServiceClient struct {
@@ -51,6 +52,15 @@ func (c *commissionServiceClient) UserBindPhone(ctx context.Context, in *UserBin
 	return out, nil
 }
 
+func (c *commissionServiceClient) UserGetOrders(ctx context.Context, in *UserGetOrdersReq, opts ...grpc.CallOption) (*UserGetOrdersRes, error) {
+	out := new(UserGetOrdersRes)
+	err := c.cc.Invoke(ctx, "/commspb.CommissionService/UserGetOrders", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *commissionServiceClient) UserQueryBalance(ctx context.Context, in *UserQueryBalanceReq, opts ...grpc.CallOption) (*UserQueryBalanceRes, error) {
 	out := new(UserQueryBalanceRes)
 	err := c.cc.Invoke(ctx, "/commspb.CommissionService/UserQueryBalance", in, out, opts...)
@@ -69,15 +79,25 @@ func (c *commissionServiceClient) UserWithdrawMoney(ctx context.Context, in *Use
 	return out, nil
 }
 
+func (c *commissionServiceClient) UserQueryDrawMoneyRecords(ctx context.Context, in *UserDrawMoneyRecordsReq, opts ...grpc.CallOption) (*UserDrawMoneyRecordsRes, error) {
+	out := new(UserDrawMoneyRecordsRes)
+	err := c.cc.Invoke(ctx, "/commspb.CommissionService/UserQueryDrawMoneyRecords", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CommissionServiceServer is the server API for CommissionService service.
 // All implementations must embed UnimplementedCommissionServiceServer
 // for forward compatibility
 type CommissionServiceServer interface {
 	UserBindOrder(context.Context, *UserBindOrderReq) (*UserBindOrderRes, error)
 	UserBindPhone(context.Context, *UserBindPhoneReq) (*UserBindPhoneRes, error)
-	// rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
+	UserGetOrders(context.Context, *UserGetOrdersReq) (*UserGetOrdersRes, error)
 	UserQueryBalance(context.Context, *UserQueryBalanceReq) (*UserQueryBalanceRes, error)
 	UserWithdrawMoney(context.Context, *UserDrawMoneyReq) (*UserDrawMoneyReq, error)
+	UserQueryDrawMoneyRecords(context.Context, *UserDrawMoneyRecordsReq) (*UserDrawMoneyRecordsRes, error)
 	mustEmbedUnimplementedCommissionServiceServer()
 }
 
@@ -91,11 +111,17 @@ func (UnimplementedCommissionServiceServer) UserBindOrder(context.Context, *User
 func (UnimplementedCommissionServiceServer) UserBindPhone(context.Context, *UserBindPhoneReq) (*UserBindPhoneRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserBindPhone not implemented")
 }
+func (UnimplementedCommissionServiceServer) UserGetOrders(context.Context, *UserGetOrdersReq) (*UserGetOrdersRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserGetOrders not implemented")
+}
 func (UnimplementedCommissionServiceServer) UserQueryBalance(context.Context, *UserQueryBalanceReq) (*UserQueryBalanceRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserQueryBalance not implemented")
 }
 func (UnimplementedCommissionServiceServer) UserWithdrawMoney(context.Context, *UserDrawMoneyReq) (*UserDrawMoneyReq, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserWithdrawMoney not implemented")
+}
+func (UnimplementedCommissionServiceServer) UserQueryDrawMoneyRecords(context.Context, *UserDrawMoneyRecordsReq) (*UserDrawMoneyRecordsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserQueryDrawMoneyRecords not implemented")
 }
 func (UnimplementedCommissionServiceServer) mustEmbedUnimplementedCommissionServiceServer() {}
 
@@ -146,6 +172,24 @@ func _CommissionService_UserBindPhone_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CommissionService_UserGetOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserGetOrdersReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommissionServiceServer).UserGetOrders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/commspb.CommissionService/UserGetOrders",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommissionServiceServer).UserGetOrders(ctx, req.(*UserGetOrdersReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CommissionService_UserQueryBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserQueryBalanceReq)
 	if err := dec(in); err != nil {
@@ -182,6 +226,24 @@ func _CommissionService_UserWithdrawMoney_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CommissionService_UserQueryDrawMoneyRecords_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserDrawMoneyRecordsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommissionServiceServer).UserQueryDrawMoneyRecords(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/commspb.CommissionService/UserQueryDrawMoneyRecords",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommissionServiceServer).UserQueryDrawMoneyRecords(ctx, req.(*UserDrawMoneyRecordsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CommissionService_ServiceDesc is the grpc.ServiceDesc for CommissionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -198,12 +260,20 @@ var CommissionService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CommissionService_UserBindPhone_Handler,
 		},
 		{
+			MethodName: "UserGetOrders",
+			Handler:    _CommissionService_UserGetOrders_Handler,
+		},
+		{
 			MethodName: "UserQueryBalance",
 			Handler:    _CommissionService_UserQueryBalance_Handler,
 		},
 		{
 			MethodName: "UserWithdrawMoney",
 			Handler:    _CommissionService_UserWithdrawMoney_Handler,
+		},
+		{
+			MethodName: "UserQueryDrawMoneyRecords",
+			Handler:    _CommissionService_UserQueryDrawMoneyRecords_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
