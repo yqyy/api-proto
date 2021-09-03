@@ -74,7 +74,6 @@ message DrawMoneyDetail {
 
 message UserDrawMoneyReq {
     string userID = 1;
-    string phone = 2;
 }
 
 message UserDrawMoneyRes {
