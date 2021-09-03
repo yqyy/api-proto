@@ -22,7 +22,7 @@ type CommissionServiceClient interface {
 	UserBindPhone(ctx context.Context, in *UserBindPhoneReq, opts ...grpc.CallOption) (*UserBindPhoneRes, error)
 	UserGetOrders(ctx context.Context, in *UserGetOrdersReq, opts ...grpc.CallOption) (*UserGetOrdersRes, error)
 	UserQueryBalance(ctx context.Context, in *UserQueryBalanceReq, opts ...grpc.CallOption) (*UserQueryBalanceRes, error)
-	UserWithdrawMoney(ctx context.Context, in *UserDrawMoneyReq, opts ...grpc.CallOption) (*UserDrawMoneyReq, error)
+	UserWithdrawMoney(ctx context.Context, in *UserDrawMoneyReq, opts ...grpc.CallOption) (*UserDrawMoneyRes, error)
 	UserQueryDrawMoneyRecords(ctx context.Context, in *UserDrawMoneyRecordsReq, opts ...grpc.CallOption) (*UserDrawMoneyRecordsRes, error)
 }
 
@@ -70,8 +70,8 @@ func (c *commissionServiceClient) UserQueryBalance(ctx context.Context, in *User
 	return out, nil
 }
 
-func (c *commissionServiceClient) UserWithdrawMoney(ctx context.Context, in *UserDrawMoneyReq, opts ...grpc.CallOption) (*UserDrawMoneyReq, error) {
-	out := new(UserDrawMoneyReq)
+func (c *commissionServiceClient) UserWithdrawMoney(ctx context.Context, in *UserDrawMoneyReq, opts ...grpc.CallOption) (*UserDrawMoneyRes, error) {
+	out := new(UserDrawMoneyRes)
 	err := c.cc.Invoke(ctx, "/commspb.CommissionService/UserWithdrawMoney", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -96,7 +96,7 @@ type CommissionServiceServer interface {
 	UserBindPhone(context.Context, *UserBindPhoneReq) (*UserBindPhoneRes, error)
 	UserGetOrders(context.Context, *UserGetOrdersReq) (*UserGetOrdersRes, error)
 	UserQueryBalance(context.Context, *UserQueryBalanceReq) (*UserQueryBalanceRes, error)
-	UserWithdrawMoney(context.Context, *UserDrawMoneyReq) (*UserDrawMoneyReq, error)
+	UserWithdrawMoney(context.Context, *UserDrawMoneyReq) (*UserDrawMoneyRes, error)
 	UserQueryDrawMoneyRecords(context.Context, *UserDrawMoneyRecordsReq) (*UserDrawMoneyRecordsRes, error)
 	mustEmbedUnimplementedCommissionServiceServer()
 }
@@ -117,7 +117,7 @@ func (UnimplementedCommissionServiceServer) UserGetOrders(context.Context, *User
 func (UnimplementedCommissionServiceServer) UserQueryBalance(context.Context, *UserQueryBalanceReq) (*UserQueryBalanceRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserQueryBalance not implemented")
 }
-func (UnimplementedCommissionServiceServer) UserWithdrawMoney(context.Context, *UserDrawMoneyReq) (*UserDrawMoneyReq, error) {
+func (UnimplementedCommissionServiceServer) UserWithdrawMoney(context.Context, *UserDrawMoneyReq) (*UserDrawMoneyRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserWithdrawMoney not implemented")
 }
 func (UnimplementedCommissionServiceServer) UserQueryDrawMoneyRecords(context.Context, *UserDrawMoneyRecordsReq) (*UserDrawMoneyRecordsRes, error) {

@@ -109,6 +109,6 @@ service CommissionService {
     rpc UserBindPhone(UserBindPhoneReq) returns (UserBindPhoneRes) {}
     rpc UserGetOrders(UserGetOrdersReq) returns (UserGetOrdersRes) {}
     rpc UserQueryBalance(UserQueryBalanceReq) returns (UserQueryBalanceRes) {}
-    rpc UserWithdrawMoney(UserDrawMoneyReq) returns (UserDrawMoneyReq) {}
+    rpc UserWithdrawMoney(UserDrawMoneyReq) returns (UserDrawMoneyRes) {}
     rpc UserQueryDrawMoneyRecords(UserDrawMoneyRecordsReq) returns (UserDrawMoneyRecordsRes) {}
 }

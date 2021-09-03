@@ -46,7 +46,7 @@ type CommissionServiceUserWithdrawMoney = {
   readonly requestStream: false;
   readonly responseStream: false;
   readonly requestType: typeof svc_commission_pb.UserDrawMoneyReq;
-  readonly responseType: typeof svc_commission_pb.UserDrawMoneyReq;
+  readonly responseType: typeof svc_commission_pb.UserDrawMoneyRes;
 };
 
 type CommissionServiceUserQueryDrawMoneyRecords = {
@@ -139,11 +139,11 @@ export class CommissionServiceClient {
   userWithdrawMoney(
     requestMessage: svc_commission_pb.UserDrawMoneyReq,
     metadata: grpc.Metadata,
-    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyReq|null) => void
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyRes|null) => void
   ): UnaryResponse;
   userWithdrawMoney(
     requestMessage: svc_commission_pb.UserDrawMoneyReq,
-    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyReq|null) => void
+    callback: (error: ServiceError|null, responseMessage: svc_commission_pb.UserDrawMoneyRes|null) => void
   ): UnaryResponse;
   userQueryDrawMoneyRecords(
     requestMessage: svc_commission_pb.UserDrawMoneyRecordsReq,

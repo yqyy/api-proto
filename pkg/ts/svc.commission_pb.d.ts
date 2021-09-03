@@ -313,9 +313,6 @@ export class UserDrawMoneyReq extends jspb.Message {
   getUserid(): string;
   setUserid(value: string): void;
 
-  getPhone(): string;
-  setPhone(value: string): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserDrawMoneyReq.AsObject;
   static toObject(includeInstance: boolean, msg: UserDrawMoneyReq): UserDrawMoneyReq.AsObject;
@@ -329,7 +326,6 @@ export class UserDrawMoneyReq extends jspb.Message {
 export namespace UserDrawMoneyReq {
   export type AsObject = {
     userid: string,
-    phone: string,
   }
 }
 

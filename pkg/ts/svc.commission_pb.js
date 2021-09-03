@@ -2510,8 +2510,7 @@ proto.commspb.UserDrawMoneyReq.prototype.toObject = function(opt_includeInstance
  */
 proto.commspb.UserDrawMoneyReq.toObject = function(includeInstance, msg) {
   var f, obj = {
-    userid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    phone: jspb.Message.getFieldWithDefault(msg, 2, "")
+    userid: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -2552,10 +2551,6 @@ proto.commspb.UserDrawMoneyReq.deserializeBinaryFromReader = function(msg, reade
       var value = /** @type {string} */ (reader.readString());
       msg.setUserid(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPhone(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -2592,13 +2587,6 @@ proto.commspb.UserDrawMoneyReq.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getPhone();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -2617,24 +2605,6 @@ proto.commspb.UserDrawMoneyReq.prototype.getUserid = function() {
  */
 proto.commspb.UserDrawMoneyReq.prototype.setUserid = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string phone = 2;
- * @return {string}
- */
-proto.commspb.UserDrawMoneyReq.prototype.getPhone = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.commspb.UserDrawMoneyReq} returns this
- */
-proto.commspb.UserDrawMoneyReq.prototype.setPhone = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

@@ -52,7 +52,7 @@ CommissionService.UserWithdrawMoney = {
   requestStream: false,
   responseStream: false,
   requestType: svc_commission_pb.UserDrawMoneyReq,
-  responseType: svc_commission_pb.UserDrawMoneyReq
+  responseType: svc_commission_pb.UserDrawMoneyRes
 };
 
 CommissionService.UserQueryDrawMoneyRecords = {
