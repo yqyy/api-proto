@@ -6266,9 +6266,9 @@ proto.tbpb.ItemInfo.toObject = function(includeInstance, msg) {
     title: jspb.Message.getFieldWithDefault(msg, 1, ""),
     pictUrl: jspb.Message.getFieldWithDefault(msg, 2, ""),
     smallImages: (f = msg.getSmallImages()) && proto.tbpb.SmallImages.toObject(includeInstance, f),
-    reservePrice: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    zkFinalPrice: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    qhFinalPrice: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    reservePrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
+    zkFinalPrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0),
+    qhFinalPrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 6, 0.0),
     qhFinalCommission: jspb.Message.getFloatingPointFieldWithDefault(msg, 7, 0.0),
     activityId: jspb.Message.getFieldWithDefault(msg, 8, ""),
     userType: jspb.Message.getFieldWithDefault(msg, 9, 0),
@@ -6326,15 +6326,15 @@ proto.tbpb.ItemInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSmallImages(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readFloat());
       msg.setReservePrice(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readFloat());
       msg.setZkFinalPrice(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readFloat());
       msg.setQhFinalPrice(value);
       break;
     case 7:
@@ -6417,22 +6417,22 @@ proto.tbpb.ItemInfo.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getReservePrice();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f !== 0.0) {
+    writer.writeFloat(
       4,
       f
     );
   }
   f = message.getZkFinalPrice();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f !== 0.0) {
+    writer.writeFloat(
       5,
       f
     );
   }
   f = message.getQhFinalPrice();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f !== 0.0) {
+    writer.writeFloat(
       6,
       f
     );
@@ -6563,11 +6563,11 @@ proto.tbpb.ItemInfo.prototype.hasSmallImages = function() {
 
 
 /**
- * optional int32 reserve_price = 4;
+ * optional float reserve_price = 4;
  * @return {number}
  */
 proto.tbpb.ItemInfo.prototype.getReservePrice = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 4, 0.0));
 };
 
 
@@ -6576,16 +6576,16 @@ proto.tbpb.ItemInfo.prototype.getReservePrice = function() {
  * @return {!proto.tbpb.ItemInfo} returns this
  */
 proto.tbpb.ItemInfo.prototype.setReservePrice = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3FloatField(this, 4, value);
 };
 
 
 /**
- * optional int32 zk_final_price = 5;
+ * optional float zk_final_price = 5;
  * @return {number}
  */
 proto.tbpb.ItemInfo.prototype.getZkFinalPrice = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 5, 0.0));
 };
 
 
@@ -6594,16 +6594,16 @@ proto.tbpb.ItemInfo.prototype.getZkFinalPrice = function() {
  * @return {!proto.tbpb.ItemInfo} returns this
  */
 proto.tbpb.ItemInfo.prototype.setZkFinalPrice = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3FloatField(this, 5, value);
 };
 
 
 /**
- * optional int32 qh_final_price = 6;
+ * optional float qh_final_price = 6;
  * @return {number}
  */
 proto.tbpb.ItemInfo.prototype.getQhFinalPrice = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 6, 0.0));
 };
 
 
@@ -6612,7 +6612,7 @@ proto.tbpb.ItemInfo.prototype.getQhFinalPrice = function() {
  * @return {!proto.tbpb.ItemInfo} returns this
  */
 proto.tbpb.ItemInfo.prototype.setQhFinalPrice = function(value) {
-  return jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3FloatField(this, 6, value);
 };
 
 

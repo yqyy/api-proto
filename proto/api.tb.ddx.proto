@@ -168,10 +168,10 @@ message ItemInfo {
     string title                  = 1;
     string pict_url               = 2;
     SmallImages small_images      = 3;
-    int32  reserve_price          = 4;
-    int32  zk_final_price         = 5;
-    int32  qh_final_price         = 6;
-    float  qh_final_commission    = 7;
+    float reserve_price           = 4;
+    float zk_final_price          = 5;
+    float qh_final_price          = 6;
+    float qh_final_commission     = 7;
     string activity_id            = 8;
     int32  user_type              = 9;
     int32  volume                 = 10;
