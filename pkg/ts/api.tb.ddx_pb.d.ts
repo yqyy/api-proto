@@ -1035,3 +1035,63 @@ export namespace PromoteURLResponse {
   }
 }
 
+export class PublisherSaveRequest extends jspb.Message {
+  getCallbackUrl(): string;
+  setCallbackUrl(value: string): void;
+
+  hasCallbackDataFormat(): boolean;
+  clearCallbackDataFormat(): void;
+  getCallbackDataFormat(): string;
+  setCallbackDataFormat(value: string): void;
+
+  getNote(): string;
+  setNote(value: string): void;
+
+  hasType(): boolean;
+  clearType(): void;
+  getType(): number;
+  setType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PublisherSaveRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: PublisherSaveRequest): PublisherSaveRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PublisherSaveRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PublisherSaveRequest;
+  static deserializeBinaryFromReader(message: PublisherSaveRequest, reader: jspb.BinaryReader): PublisherSaveRequest;
+}
+
+export namespace PublisherSaveRequest {
+  export type AsObject = {
+    callbackUrl: string,
+    callbackDataFormat: string,
+    note: string,
+    type: number,
+  }
+}
+
+export class PublisherSaveResponse extends jspb.Message {
+  getAuthorizationUrl(): string;
+  setAuthorizationUrl(value: string): void;
+
+  getNote(): string;
+  setNote(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PublisherSaveResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: PublisherSaveResponse): PublisherSaveResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PublisherSaveResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PublisherSaveResponse;
+  static deserializeBinaryFromReader(message: PublisherSaveResponse, reader: jspb.BinaryReader): PublisherSaveResponse;
+}
+
+export namespace PublisherSaveResponse {
+  export type AsObject = {
+    authorizationUrl: string,
+    note: string,
+  }
+}
+

@@ -31,11 +31,21 @@ type TbApiServicePromoteByTKL = {
   readonly responseType: typeof api_tb_ddx_pb.PromoteURLResponse;
 };
 
+type TbApiServicePublisherSave = {
+  readonly methodName: string;
+  readonly service: typeof TbApiService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof api_tb_ddx_pb.PublisherSaveRequest;
+  readonly responseType: typeof api_tb_ddx_pb.PublisherSaveResponse;
+};
+
 export class TbApiService {
   static readonly serviceName: string;
   static readonly SearchGoods: TbApiServiceSearchGoods;
   static readonly PromoteByID: TbApiServicePromoteByID;
   static readonly PromoteByTKL: TbApiServicePromoteByTKL;
+  static readonly PublisherSave: TbApiServicePublisherSave;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -96,6 +106,15 @@ export class TbApiServiceClient {
   promoteByTKL(
     requestMessage: api_tb_ddx_pb.PromoteURLByTKLRequest,
     callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PromoteURLResponse|null) => void
+  ): UnaryResponse;
+  publisherSave(
+    requestMessage: api_tb_ddx_pb.PublisherSaveRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PublisherSaveResponse|null) => void
+  ): UnaryResponse;
+  publisherSave(
+    requestMessage: api_tb_ddx_pb.PublisherSaveRequest,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PublisherSaveResponse|null) => void
   ): UnaryResponse;
 }
 

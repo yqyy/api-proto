@@ -21,6 +21,7 @@ type TbApiServiceClient interface {
 	SearchGoods(ctx context.Context, in *SearchGoodsRequest, opts ...grpc.CallOption) (*SearchGoodsResponse, error)
 	PromoteByID(ctx context.Context, in *PromoteURLByIDRequest, opts ...grpc.CallOption) (*PromoteURLResponse, error)
 	PromoteByTKL(ctx context.Context, in *PromoteURLByTKLRequest, opts ...grpc.CallOption) (*PromoteURLResponse, error)
+	PublisherSave(ctx context.Context, in *PublisherSaveRequest, opts ...grpc.CallOption) (*PublisherSaveResponse, error)
 }
 
 type tbApiServiceClient struct {
@@ -58,6 +59,15 @@ func (c *tbApiServiceClient) PromoteByTKL(ctx context.Context, in *PromoteURLByT
 	return out, nil
 }
 
+func (c *tbApiServiceClient) PublisherSave(ctx context.Context, in *PublisherSaveRequest, opts ...grpc.CallOption) (*PublisherSaveResponse, error) {
+	out := new(PublisherSaveResponse)
+	err := c.cc.Invoke(ctx, "/tbpb.TbApiService/PublisherSave", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TbApiServiceServer is the server API for TbApiService service.
 // All implementations must embed UnimplementedTbApiServiceServer
 // for forward compatibility
@@ -65,6 +75,7 @@ type TbApiServiceServer interface {
 	SearchGoods(context.Context, *SearchGoodsRequest) (*SearchGoodsResponse, error)
 	PromoteByID(context.Context, *PromoteURLByIDRequest) (*PromoteURLResponse, error)
 	PromoteByTKL(context.Context, *PromoteURLByTKLRequest) (*PromoteURLResponse, error)
+	PublisherSave(context.Context, *PublisherSaveRequest) (*PublisherSaveResponse, error)
 	mustEmbedUnimplementedTbApiServiceServer()
 }
 
@@ -80,6 +91,9 @@ func (UnimplementedTbApiServiceServer) PromoteByID(context.Context, *PromoteURLB
 }
 func (UnimplementedTbApiServiceServer) PromoteByTKL(context.Context, *PromoteURLByTKLRequest) (*PromoteURLResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PromoteByTKL not implemented")
+}
+func (UnimplementedTbApiServiceServer) PublisherSave(context.Context, *PublisherSaveRequest) (*PublisherSaveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublisherSave not implemented")
 }
 func (UnimplementedTbApiServiceServer) mustEmbedUnimplementedTbApiServiceServer() {}
 
@@ -148,6 +162,24 @@ func _TbApiService_PromoteByTKL_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TbApiService_PublisherSave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PublisherSaveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TbApiServiceServer).PublisherSave(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/tbpb.TbApiService/PublisherSave",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TbApiServiceServer).PublisherSave(ctx, req.(*PublisherSaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TbApiService_ServiceDesc is the grpc.ServiceDesc for TbApiService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -166,6 +198,10 @@ var TbApiService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PromoteByTKL",
 			Handler:    _TbApiService_PromoteByTKL_Handler,
+		},
+		{
+			MethodName: "PublisherSave",
+			Handler:    _TbApiService_PublisherSave_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
