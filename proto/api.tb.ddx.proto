@@ -220,9 +220,23 @@ message PromoteURLResponse {
     PromotedURLData data = 3;
 }
 
+// 淘宝客渠道信息备案api接口-渠道推广专属(无私域会员API接口权限专属)
+message PublisherSaveRequest {
+    string callback_url = 1; // 代理授权，并登记备案后，返回渠道/会员信息至回调地址 请输入完整的可跳转地址 例如 https://www.dingdanxia.com/
+    optional string callback_data_format = 2; // json: 返回json参数，parm ：返回url参数
+    string note = 3;         // 备注，此内容填写用户唯一标识，跟返回的relation_id字段做关联
+    optional int32 type = 4; // 1：电脑版授权页面，2：手机版授权页面，默认值1
+}
+
+message PublisherSaveResponse {
+    string authorization_url = 1; // 授权链接，用户打开此链接备案,10分钟有效期
+    string note = 2; // 注意事项
+}
+
 // RPC service
 service TbApiService {
     rpc SearchGoods(SearchGoodsRequest) returns (SearchGoodsResponse) {}
     rpc PromoteByID(PromoteURLByIDRequest) returns (PromoteURLResponse) {}
     rpc PromoteByTKL(PromoteURLByTKLRequest) returns (PromoteURLResponse) {}
+    rpc PublisherSave(PublisherSaveRequest) returns (PublisherSaveResponse) {}
 }
