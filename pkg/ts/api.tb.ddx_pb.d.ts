@@ -1035,6 +1035,288 @@ export namespace PromoteURLResponse {
   }
 }
 
+export class OfflineInfo extends jspb.Message {
+  getShopName(): string;
+  setShopName(value: string): void;
+
+  getShopType(): string;
+  setShopType(value: string): void;
+
+  getPhoneNumber(): string;
+  setPhoneNumber(value: string): void;
+
+  getDetailAddress(): string;
+  setDetailAddress(value: string): void;
+
+  getLocation(): string;
+  setLocation(value: string): void;
+
+  getShopCertifyType(): string;
+  setShopCertifyType(value: string): void;
+
+  getCertifyNumber(): string;
+  setCertifyNumber(value: string): void;
+
+  getCareer(): string;
+  setCareer(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OfflineInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: OfflineInfo): OfflineInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: OfflineInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OfflineInfo;
+  static deserializeBinaryFromReader(message: OfflineInfo, reader: jspb.BinaryReader): OfflineInfo;
+}
+
+export namespace OfflineInfo {
+  export type AsObject = {
+    shopName: string,
+    shopType: string,
+    phoneNumber: string,
+    detailAddress: string,
+    location: string,
+    shopCertifyType: string,
+    certifyNumber: string,
+    career: string,
+  }
+}
+
+export class MapData extends jspb.Message {
+  getReationApp(): string;
+  setReationApp(value: string): void;
+
+  getCreateDate(): string;
+  setCreateDate(value: string): void;
+
+  getAccountName(): string;
+  setAccountName(value: string): void;
+
+  getReaName(): string;
+  setReaName(value: string): void;
+
+  getReationId(): number;
+  setReationId(value: number): void;
+
+  getOffineScene(): string;
+  setOffineScene(value: string): void;
+
+  getOnineScene(): string;
+  setOnineScene(value: string): void;
+
+  getNote(): string;
+  setNote(value: string): void;
+
+  getRootPid(): string;
+  setRootPid(value: string): void;
+
+  getRtag(): string;
+  setRtag(value: string): void;
+
+  hasOffineInfo(): boolean;
+  clearOffineInfo(): void;
+  getOffineInfo(): OfflineInfo | undefined;
+  setOffineInfo(value?: OfflineInfo): void;
+
+  getSpecialId(): number;
+  setSpecialId(value: number): void;
+
+  getPunishStatus(): string;
+  setPunishStatus(value: string): void;
+
+  getExternalId(): string;
+  setExternalId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MapData.AsObject;
+  static toObject(includeInstance: boolean, msg: MapData): MapData.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MapData, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MapData;
+  static deserializeBinaryFromReader(message: MapData, reader: jspb.BinaryReader): MapData;
+}
+
+export namespace MapData {
+  export type AsObject = {
+    reationApp: string,
+    createDate: string,
+    accountName: string,
+    reaName: string,
+    reationId: number,
+    offineScene: string,
+    onineScene: string,
+    note: string,
+    rootPid: string,
+    rtag: string,
+    offineInfo?: OfflineInfo.AsObject,
+    specialId: number,
+    punishStatus: string,
+    externalId: string,
+  }
+}
+
+export class InviterList extends jspb.Message {
+  clearMapDataList(): void;
+  getMapDataList(): Array<MapData>;
+  setMapDataList(value: Array<MapData>): void;
+  addMapData(value?: MapData, index?: number): MapData;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InviterList.AsObject;
+  static toObject(includeInstance: boolean, msg: InviterList): InviterList.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InviterList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InviterList;
+  static deserializeBinaryFromReader(message: InviterList, reader: jspb.BinaryReader): InviterList;
+}
+
+export namespace InviterList {
+  export type AsObject = {
+    mapDataList: Array<MapData.AsObject>,
+  }
+}
+
+export class RootPidChannelList extends jspb.Message {
+  clearStringList(): void;
+  getStringList(): Array<string>;
+  setStringList(value: Array<string>): void;
+  addString(value: string, index?: number): string;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RootPidChannelList.AsObject;
+  static toObject(includeInstance: boolean, msg: RootPidChannelList): RootPidChannelList.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RootPidChannelList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RootPidChannelList;
+  static deserializeBinaryFromReader(message: RootPidChannelList, reader: jspb.BinaryReader): RootPidChannelList;
+}
+
+export namespace RootPidChannelList {
+  export type AsObject = {
+    stringList: Array<string>,
+  }
+}
+
+export class PublisherData extends jspb.Message {
+  hasInviterList(): boolean;
+  clearInviterList(): void;
+  getInviterList(): InviterList | undefined;
+  setInviterList(value?: InviterList): void;
+
+  hasRootPidChannelList(): boolean;
+  clearRootPidChannelList(): void;
+  getRootPidChannelList(): RootPidChannelList | undefined;
+  setRootPidChannelList(value?: RootPidChannelList): void;
+
+  getTotalCount(): number;
+  setTotalCount(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PublisherData.AsObject;
+  static toObject(includeInstance: boolean, msg: PublisherData): PublisherData.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PublisherData, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PublisherData;
+  static deserializeBinaryFromReader(message: PublisherData, reader: jspb.BinaryReader): PublisherData;
+}
+
+export namespace PublisherData {
+  export type AsObject = {
+    inviterList?: InviterList.AsObject,
+    rootPidChannelList?: RootPidChannelList.AsObject,
+    totalCount: number,
+  }
+}
+
+export class PublisherGetRequest extends jspb.Message {
+  getInfoType(): number;
+  setInfoType(value: number): void;
+
+  getRelationApp(): string;
+  setRelationApp(value: string): void;
+
+  hasRelationId(): boolean;
+  clearRelationId(): void;
+  getRelationId(): number;
+  setRelationId(value: number): void;
+
+  hasPageNo(): boolean;
+  clearPageNo(): void;
+  getPageNo(): number;
+  setPageNo(value: number): void;
+
+  hasPageSize(): boolean;
+  clearPageSize(): void;
+  getPageSize(): number;
+  setPageSize(value: number): void;
+
+  hasSpecialId(): boolean;
+  clearSpecialId(): void;
+  getSpecialId(): string;
+  setSpecialId(value: string): void;
+
+  hasExternalId(): boolean;
+  clearExternalId(): void;
+  getExternalId(): string;
+  setExternalId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PublisherGetRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: PublisherGetRequest): PublisherGetRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PublisherGetRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PublisherGetRequest;
+  static deserializeBinaryFromReader(message: PublisherGetRequest, reader: jspb.BinaryReader): PublisherGetRequest;
+}
+
+export namespace PublisherGetRequest {
+  export type AsObject = {
+    infoType: number,
+    relationApp: string,
+    relationId: number,
+    pageNo: number,
+    pageSize: number,
+    specialId: string,
+    externalId: string,
+  }
+}
+
+export class PublisherGetResponse extends jspb.Message {
+  getCode(): number;
+  setCode(value: number): void;
+
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  hasData(): boolean;
+  clearData(): void;
+  getData(): PublisherData | undefined;
+  setData(value?: PublisherData): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PublisherGetResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: PublisherGetResponse): PublisherGetResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PublisherGetResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PublisherGetResponse;
+  static deserializeBinaryFromReader(message: PublisherGetResponse, reader: jspb.BinaryReader): PublisherGetResponse;
+}
+
+export namespace PublisherGetResponse {
+  export type AsObject = {
+    code: number,
+    msg: string,
+    data?: PublisherData.AsObject,
+  }
+}
+
 export class PublisherSaveRequest extends jspb.Message {
   getCallbackUrl(): string;
   setCallbackUrl(value: string): void;
@@ -1092,6 +1374,410 @@ export namespace PublisherSaveResponse {
   export type AsObject = {
     authorizationUrl: string,
     note: string,
+  }
+}
+
+export class ServiceFee extends jspb.Message {
+  getShareRelativeRate(): string;
+  setShareRelativeRate(value: string): void;
+
+  getShareFee(): string;
+  setShareFee(value: string): void;
+
+  getSharePreFee(): string;
+  setSharePreFee(value: string): void;
+
+  getTkShareRoleType(): number;
+  setTkShareRoleType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ServiceFee.AsObject;
+  static toObject(includeInstance: boolean, msg: ServiceFee): ServiceFee.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ServiceFee, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServiceFee;
+  static deserializeBinaryFromReader(message: ServiceFee, reader: jspb.BinaryReader): ServiceFee;
+}
+
+export namespace ServiceFee {
+  export type AsObject = {
+    shareRelativeRate: string,
+    shareFee: string,
+    sharePreFee: string,
+    tkShareRoleType: number,
+  }
+}
+
+export class OrderDetail extends jspb.Message {
+  getHasPre(): boolean;
+  setHasPre(value: boolean): void;
+
+  getPositionIndex(): string;
+  setPositionIndex(value: string): void;
+
+  getHasNext(): boolean;
+  setHasNext(value: boolean): void;
+
+  getPageNo(): number;
+  setPageNo(value: number): void;
+
+  getPageSize(): number;
+  setPageSize(value: number): void;
+
+  getTbPaidTime(): string;
+  setTbPaidTime(value: string): void;
+
+  getTkPaidTime(): string;
+  setTkPaidTime(value: string): void;
+
+  getPayPrice(): string;
+  setPayPrice(value: string): void;
+
+  getPubShareFee(): string;
+  setPubShareFee(value: string): void;
+
+  getTradeId(): string;
+  setTradeId(value: string): void;
+
+  getTkOrderRole(): number;
+  setTkOrderRole(value: number): void;
+
+  getTkEarningTime(): string;
+  setTkEarningTime(value: string): void;
+
+  getAdzoneId(): number;
+  setAdzoneId(value: number): void;
+
+  getPubShareRate(): string;
+  setPubShareRate(value: string): void;
+
+  getRefundTag(): number;
+  setRefundTag(value: number): void;
+
+  getSubsidyRate(): string;
+  setSubsidyRate(value: string): void;
+
+  getTkTotalRate(): string;
+  setTkTotalRate(value: string): void;
+
+  getItemCategoryName(): string;
+  setItemCategoryName(value: string): void;
+
+  getSellerNick(): string;
+  setSellerNick(value: string): void;
+
+  getPubId(): number;
+  setPubId(value: number): void;
+
+  getAlimamaRate(): string;
+  setAlimamaRate(value: string): void;
+
+  getSubsidyType(): string;
+  setSubsidyType(value: string): void;
+
+  getItemImg(): string;
+  setItemImg(value: string): void;
+
+  getPubSharePreFee(): string;
+  setPubSharePreFee(value: string): void;
+
+  getAlipayTotalPrice(): string;
+  setAlipayTotalPrice(value: string): void;
+
+  getItemTitle(): string;
+  setItemTitle(value: string): void;
+
+  getModifiedTime(): string;
+  setModifiedTime(value: string): void;
+
+  getSiteName(): string;
+  setSiteName(value: string): void;
+
+  getItemNum(): number;
+  setItemNum(value: number): void;
+
+  getSubsidyFee(): string;
+  setSubsidyFee(value: string): void;
+
+  getAlimamaShareFee(): string;
+  setAlimamaShareFee(value: string): void;
+
+  getTradeParentId(): string;
+  setTradeParentId(value: string): void;
+
+  getOrderType(): string;
+  setOrderType(value: string): void;
+
+  getTkCreateTime(): string;
+  setTkCreateTime(value: string): void;
+
+  getFlowSource(): string;
+  setFlowSource(value: string): void;
+
+  getTerminalType(): string;
+  setTerminalType(value: string): void;
+
+  getClickTime(): string;
+  setClickTime(value: string): void;
+
+  getTkStatus(): number;
+  setTkStatus(value: number): void;
+
+  getItemPrice(): string;
+  setItemPrice(value: string): void;
+
+  getItemId(): string;
+  setItemId(value: string): void;
+
+  getAdzoneName(): string;
+  setAdzoneName(value: string): void;
+
+  getTotalCommissionRate(): string;
+  setTotalCommissionRate(value: string): void;
+
+  getItemLink(): string;
+  setItemLink(value: string): void;
+
+  getSiteId(): number;
+  setSiteId(value: number): void;
+
+  getSellerShopTitle(): string;
+  setSellerShopTitle(value: string): void;
+
+  getIncomeRate(): string;
+  setIncomeRate(value: string): void;
+
+  getTotalCommissionFee(): string;
+  setTotalCommissionFee(value: string): void;
+
+  getSpecialId(): number;
+  setSpecialId(value: number): void;
+
+  getRelationId(): number;
+  setRelationId(value: number): void;
+
+  getTkDepositTime(): string;
+  setTkDepositTime(value: string): void;
+
+  getTbDepositTime(): string;
+  setTbDepositTime(value: string): void;
+
+  getDepositPrice(): string;
+  setDepositPrice(value: string): void;
+
+  getTkCommissionPreFeeForMediaPlatform(): string;
+  setTkCommissionPreFeeForMediaPlatform(value: string): void;
+
+  getTkCommissionFeeForMediaPlatform(): string;
+  setTkCommissionFeeForMediaPlatform(value: string): void;
+
+  getTkCommissionRateForMediaPlatform(): string;
+  setTkCommissionRateForMediaPlatform(value: string): void;
+
+  getAlscId(): string;
+  setAlscId(value: string): void;
+
+  getAlscPid(): string;
+  setAlscPid(value: string): void;
+
+  clearServiceFeeDtoListList(): void;
+  getServiceFeeDtoListList(): Array<ServiceFee>;
+  setServiceFeeDtoListList(value: Array<ServiceFee>): void;
+  addServiceFeeDtoList(value?: ServiceFee, index?: number): ServiceFee;
+
+  getLxRid(): string;
+  setLxRid(value: string): void;
+
+  getIsLx(): string;
+  setIsLx(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OrderDetail.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderDetail): OrderDetail.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: OrderDetail, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderDetail;
+  static deserializeBinaryFromReader(message: OrderDetail, reader: jspb.BinaryReader): OrderDetail;
+}
+
+export namespace OrderDetail {
+  export type AsObject = {
+    hasPre: boolean,
+    positionIndex: string,
+    hasNext: boolean,
+    pageNo: number,
+    pageSize: number,
+    tbPaidTime: string,
+    tkPaidTime: string,
+    payPrice: string,
+    pubShareFee: string,
+    tradeId: string,
+    tkOrderRole: number,
+    tkEarningTime: string,
+    adzoneId: number,
+    pubShareRate: string,
+    refundTag: number,
+    subsidyRate: string,
+    tkTotalRate: string,
+    itemCategoryName: string,
+    sellerNick: string,
+    pubId: number,
+    alimamaRate: string,
+    subsidyType: string,
+    itemImg: string,
+    pubSharePreFee: string,
+    alipayTotalPrice: string,
+    itemTitle: string,
+    modifiedTime: string,
+    siteName: string,
+    itemNum: number,
+    subsidyFee: string,
+    alimamaShareFee: string,
+    tradeParentId: string,
+    orderType: string,
+    tkCreateTime: string,
+    flowSource: string,
+    terminalType: string,
+    clickTime: string,
+    tkStatus: number,
+    itemPrice: string,
+    itemId: string,
+    adzoneName: string,
+    totalCommissionRate: string,
+    itemLink: string,
+    siteId: number,
+    sellerShopTitle: string,
+    incomeRate: string,
+    totalCommissionFee: string,
+    specialId: number,
+    relationId: number,
+    tkDepositTime: string,
+    tbDepositTime: string,
+    depositPrice: string,
+    tkCommissionPreFeeForMediaPlatform: string,
+    tkCommissionFeeForMediaPlatform: string,
+    tkCommissionRateForMediaPlatform: string,
+    alscId: string,
+    alscPid: string,
+    serviceFeeDtoListList: Array<ServiceFee.AsObject>,
+    lxRid: string,
+    isLx: string,
+  }
+}
+
+export class OrderDetailRequest extends jspb.Message {
+  getStartTime(): string;
+  setStartTime(value: string): void;
+
+  getEndTime(): string;
+  setEndTime(value: string): void;
+
+  hasQueryType(): boolean;
+  clearQueryType(): void;
+  getQueryType(): number;
+  setQueryType(value: number): void;
+
+  hasPositionIndex(): boolean;
+  clearPositionIndex(): void;
+  getPositionIndex(): string;
+  setPositionIndex(value: string): void;
+
+  hasPageSize(): boolean;
+  clearPageSize(): void;
+  getPageSize(): number;
+  setPageSize(value: number): void;
+
+  hasPageNo(): boolean;
+  clearPageNo(): void;
+  getPageNo(): number;
+  setPageNo(value: number): void;
+
+  hasMemberType(): boolean;
+  clearMemberType(): void;
+  getMemberType(): number;
+  setMemberType(value: number): void;
+
+  hasTkStatus(): boolean;
+  clearTkStatus(): void;
+  getTkStatus(): number;
+  setTkStatus(value: number): void;
+
+  hasJumpType(): boolean;
+  clearJumpType(): void;
+  getJumpType(): number;
+  setJumpType(value: number): void;
+
+  hasOrderScene(): boolean;
+  clearOrderScene(): void;
+  getOrderScene(): number;
+  setOrderScene(value: number): void;
+
+  hasAccessToke(): boolean;
+  clearAccessToke(): void;
+  getAccessToke(): string;
+  setAccessToke(value: string): void;
+
+  hasTbAuthId(): boolean;
+  clearTbAuthId(): void;
+  getTbAuthId(): string;
+  setTbAuthId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OrderDetailRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderDetailRequest): OrderDetailRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: OrderDetailRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderDetailRequest;
+  static deserializeBinaryFromReader(message: OrderDetailRequest, reader: jspb.BinaryReader): OrderDetailRequest;
+}
+
+export namespace OrderDetailRequest {
+  export type AsObject = {
+    startTime: string,
+    endTime: string,
+    queryType: number,
+    positionIndex: string,
+    pageSize: number,
+    pageNo: number,
+    memberType: number,
+    tkStatus: number,
+    jumpType: number,
+    orderScene: number,
+    accessToke: string,
+    tbAuthId: string,
+  }
+}
+
+export class OrderDetailResponse extends jspb.Message {
+  getCode(): number;
+  setCode(value: number): void;
+
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  hasData(): boolean;
+  clearData(): void;
+  getData(): OrderDetail | undefined;
+  setData(value?: OrderDetail): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OrderDetailResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderDetailResponse): OrderDetailResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: OrderDetailResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderDetailResponse;
+  static deserializeBinaryFromReader(message: OrderDetailResponse, reader: jspb.BinaryReader): OrderDetailResponse;
+}
+
+export namespace OrderDetailResponse {
+  export type AsObject = {
+    code: number,
+    msg: string,
+    data?: OrderDetail.AsObject,
   }
 }
 

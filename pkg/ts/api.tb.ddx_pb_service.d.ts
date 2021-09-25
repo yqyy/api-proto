@@ -31,6 +31,15 @@ type TbApiServicePromoteByTKL = {
   readonly responseType: typeof api_tb_ddx_pb.PromoteURLResponse;
 };
 
+type TbApiServicePublisherGet = {
+  readonly methodName: string;
+  readonly service: typeof TbApiService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof api_tb_ddx_pb.PublisherGetRequest;
+  readonly responseType: typeof api_tb_ddx_pb.PublisherGetResponse;
+};
+
 type TbApiServicePublisherSave = {
   readonly methodName: string;
   readonly service: typeof TbApiService;
@@ -40,12 +49,23 @@ type TbApiServicePublisherSave = {
   readonly responseType: typeof api_tb_ddx_pb.PublisherSaveResponse;
 };
 
+type TbApiServiceSyncOrderDetail = {
+  readonly methodName: string;
+  readonly service: typeof TbApiService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof api_tb_ddx_pb.OrderDetailRequest;
+  readonly responseType: typeof api_tb_ddx_pb.OrderDetailResponse;
+};
+
 export class TbApiService {
   static readonly serviceName: string;
   static readonly SearchGoods: TbApiServiceSearchGoods;
   static readonly PromoteByID: TbApiServicePromoteByID;
   static readonly PromoteByTKL: TbApiServicePromoteByTKL;
+  static readonly PublisherGet: TbApiServicePublisherGet;
   static readonly PublisherSave: TbApiServicePublisherSave;
+  static readonly SyncOrderDetail: TbApiServiceSyncOrderDetail;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -107,6 +127,15 @@ export class TbApiServiceClient {
     requestMessage: api_tb_ddx_pb.PromoteURLByTKLRequest,
     callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PromoteURLResponse|null) => void
   ): UnaryResponse;
+  publisherGet(
+    requestMessage: api_tb_ddx_pb.PublisherGetRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PublisherGetResponse|null) => void
+  ): UnaryResponse;
+  publisherGet(
+    requestMessage: api_tb_ddx_pb.PublisherGetRequest,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PublisherGetResponse|null) => void
+  ): UnaryResponse;
   publisherSave(
     requestMessage: api_tb_ddx_pb.PublisherSaveRequest,
     metadata: grpc.Metadata,
@@ -115,6 +144,15 @@ export class TbApiServiceClient {
   publisherSave(
     requestMessage: api_tb_ddx_pb.PublisherSaveRequest,
     callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.PublisherSaveResponse|null) => void
+  ): UnaryResponse;
+  syncOrderDetail(
+    requestMessage: api_tb_ddx_pb.OrderDetailRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.OrderDetailResponse|null) => void
+  ): UnaryResponse;
+  syncOrderDetail(
+    requestMessage: api_tb_ddx_pb.OrderDetailRequest,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.OrderDetailResponse|null) => void
   ): UnaryResponse;
 }
 

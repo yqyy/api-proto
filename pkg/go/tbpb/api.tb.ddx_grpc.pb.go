@@ -21,7 +21,9 @@ type TbApiServiceClient interface {
 	SearchGoods(ctx context.Context, in *SearchGoodsRequest, opts ...grpc.CallOption) (*SearchGoodsResponse, error)
 	PromoteByID(ctx context.Context, in *PromoteURLByIDRequest, opts ...grpc.CallOption) (*PromoteURLResponse, error)
 	PromoteByTKL(ctx context.Context, in *PromoteURLByTKLRequest, opts ...grpc.CallOption) (*PromoteURLResponse, error)
+	PublisherGet(ctx context.Context, in *PublisherGetRequest, opts ...grpc.CallOption) (*PublisherGetResponse, error)
 	PublisherSave(ctx context.Context, in *PublisherSaveRequest, opts ...grpc.CallOption) (*PublisherSaveResponse, error)
+	SyncOrderDetail(ctx context.Context, in *OrderDetailRequest, opts ...grpc.CallOption) (*OrderDetailResponse, error)
 }
 
 type tbApiServiceClient struct {
@@ -59,9 +61,27 @@ func (c *tbApiServiceClient) PromoteByTKL(ctx context.Context, in *PromoteURLByT
 	return out, nil
 }
 
+func (c *tbApiServiceClient) PublisherGet(ctx context.Context, in *PublisherGetRequest, opts ...grpc.CallOption) (*PublisherGetResponse, error) {
+	out := new(PublisherGetResponse)
+	err := c.cc.Invoke(ctx, "/tbpb.TbApiService/PublisherGet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tbApiServiceClient) PublisherSave(ctx context.Context, in *PublisherSaveRequest, opts ...grpc.CallOption) (*PublisherSaveResponse, error) {
 	out := new(PublisherSaveResponse)
 	err := c.cc.Invoke(ctx, "/tbpb.TbApiService/PublisherSave", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tbApiServiceClient) SyncOrderDetail(ctx context.Context, in *OrderDetailRequest, opts ...grpc.CallOption) (*OrderDetailResponse, error) {
+	out := new(OrderDetailResponse)
+	err := c.cc.Invoke(ctx, "/tbpb.TbApiService/SyncOrderDetail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +95,9 @@ type TbApiServiceServer interface {
 	SearchGoods(context.Context, *SearchGoodsRequest) (*SearchGoodsResponse, error)
 	PromoteByID(context.Context, *PromoteURLByIDRequest) (*PromoteURLResponse, error)
 	PromoteByTKL(context.Context, *PromoteURLByTKLRequest) (*PromoteURLResponse, error)
+	PublisherGet(context.Context, *PublisherGetRequest) (*PublisherGetResponse, error)
 	PublisherSave(context.Context, *PublisherSaveRequest) (*PublisherSaveResponse, error)
+	SyncOrderDetail(context.Context, *OrderDetailRequest) (*OrderDetailResponse, error)
 	mustEmbedUnimplementedTbApiServiceServer()
 }
 
@@ -92,8 +114,14 @@ func (UnimplementedTbApiServiceServer) PromoteByID(context.Context, *PromoteURLB
 func (UnimplementedTbApiServiceServer) PromoteByTKL(context.Context, *PromoteURLByTKLRequest) (*PromoteURLResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PromoteByTKL not implemented")
 }
+func (UnimplementedTbApiServiceServer) PublisherGet(context.Context, *PublisherGetRequest) (*PublisherGetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublisherGet not implemented")
+}
 func (UnimplementedTbApiServiceServer) PublisherSave(context.Context, *PublisherSaveRequest) (*PublisherSaveResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PublisherSave not implemented")
+}
+func (UnimplementedTbApiServiceServer) SyncOrderDetail(context.Context, *OrderDetailRequest) (*OrderDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncOrderDetail not implemented")
 }
 func (UnimplementedTbApiServiceServer) mustEmbedUnimplementedTbApiServiceServer() {}
 
@@ -162,6 +190,24 @@ func _TbApiService_PromoteByTKL_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TbApiService_PublisherGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PublisherGetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TbApiServiceServer).PublisherGet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/tbpb.TbApiService/PublisherGet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TbApiServiceServer).PublisherGet(ctx, req.(*PublisherGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TbApiService_PublisherSave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PublisherSaveRequest)
 	if err := dec(in); err != nil {
@@ -176,6 +222,24 @@ func _TbApiService_PublisherSave_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TbApiServiceServer).PublisherSave(ctx, req.(*PublisherSaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TbApiService_SyncOrderDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrderDetailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TbApiServiceServer).SyncOrderDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/tbpb.TbApiService/SyncOrderDetail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TbApiServiceServer).SyncOrderDetail(ctx, req.(*OrderDetailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -200,8 +264,16 @@ var TbApiService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TbApiService_PromoteByTKL_Handler,
 		},
 		{
+			MethodName: "PublisherGet",
+			Handler:    _TbApiService_PublisherGet_Handler,
+		},
+		{
 			MethodName: "PublisherSave",
 			Handler:    _TbApiService_PublisherSave_Handler,
+		},
+		{
+			MethodName: "SyncOrderDetail",
+			Handler:    _TbApiService_SyncOrderDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
