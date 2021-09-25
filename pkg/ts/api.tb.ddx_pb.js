@@ -533,7 +533,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.tbpb.OrderDetailResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.tbpb.OrderDetailResponse.repeatedFields_, null);
 };
 goog.inherits(proto.tbpb.OrderDetailResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -11005,11 +11005,6 @@ proto.tbpb.OrderDetail.prototype.toObject = function(opt_includeInstance) {
  */
 proto.tbpb.OrderDetail.toObject = function(includeInstance, msg) {
   var f, obj = {
-    hasPre: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    positionIndex: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    hasNext: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    pageNo: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    pageSize: jspb.Message.getFieldWithDefault(msg, 5, 0),
     tbPaidTime: jspb.Message.getFieldWithDefault(msg, 6, ""),
     tkPaidTime: jspb.Message.getFieldWithDefault(msg, 7, ""),
     payPrice: jspb.Message.getFieldWithDefault(msg, 8, ""),
@@ -11102,26 +11097,6 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setHasPre(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPositionIndex(value);
-      break;
-    case 3:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setHasNext(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPageNo(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPageSize(value);
-      break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setTbPaidTime(value);
@@ -11372,41 +11347,6 @@ proto.tbpb.OrderDetail.prototype.serializeBinary = function() {
  */
 proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getHasPre();
-  if (f) {
-    writer.writeBool(
-      1,
-      f
-    );
-  }
-  f = message.getPositionIndex();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getHasNext();
-  if (f) {
-    writer.writeBool(
-      3,
-      f
-    );
-  }
-  f = message.getPageNo();
-  if (f !== 0) {
-    writer.writeInt32(
-      4,
-      f
-    );
-  }
-  f = message.getPageSize();
-  if (f !== 0) {
-    writer.writeInt32(
-      5,
-      f
-    );
-  }
   f = message.getTbPaidTime();
   if (f.length > 0) {
     writer.writeString(
@@ -11793,96 +11733,6 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-};
-
-
-/**
- * optional bool has_pre = 1;
- * @return {boolean}
- */
-proto.tbpb.OrderDetail.prototype.getHasPre = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.tbpb.OrderDetail} returns this
- */
-proto.tbpb.OrderDetail.prototype.setHasPre = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 1, value);
-};
-
-
-/**
- * optional string position_index = 2;
- * @return {string}
- */
-proto.tbpb.OrderDetail.prototype.getPositionIndex = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.tbpb.OrderDetail} returns this
- */
-proto.tbpb.OrderDetail.prototype.setPositionIndex = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional bool has_next = 3;
- * @return {boolean}
- */
-proto.tbpb.OrderDetail.prototype.getHasNext = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.tbpb.OrderDetail} returns this
- */
-proto.tbpb.OrderDetail.prototype.setHasNext = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
-};
-
-
-/**
- * optional int32 page_no = 4;
- * @return {number}
- */
-proto.tbpb.OrderDetail.prototype.getPageNo = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.tbpb.OrderDetail} returns this
- */
-proto.tbpb.OrderDetail.prototype.setPageNo = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
-};
-
-
-/**
- * optional int32 page_size = 5;
- * @return {number}
- */
-proto.tbpb.OrderDetail.prototype.getPageSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.tbpb.OrderDetail} returns this
- */
-proto.tbpb.OrderDetail.prototype.setPageSize = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -13537,6 +13387,13 @@ proto.tbpb.OrderDetailRequest.prototype.hasTbAuthId = function() {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.tbpb.OrderDetailResponse.repeatedFields_ = [8];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -13570,7 +13427,13 @@ proto.tbpb.OrderDetailResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     code: jspb.Message.getFieldWithDefault(msg, 1, 0),
     msg: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    data: (f = msg.getData()) && proto.tbpb.OrderDetail.toObject(includeInstance, f)
+    hasPre: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+    hasNext: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    pageNo: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    positionIndex: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    dataList: jspb.Message.toObjectList(msg.getDataList(),
+    proto.tbpb.OrderDetail.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -13616,9 +13479,29 @@ proto.tbpb.OrderDetailResponse.deserializeBinaryFromReader = function(msg, reade
       msg.setMsg(value);
       break;
     case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHasPre(value);
+      break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHasNext(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPageNo(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPageSize(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPositionIndex(value);
+      break;
+    case 8:
       var value = new proto.tbpb.OrderDetail;
       reader.readMessage(value,proto.tbpb.OrderDetail.deserializeBinaryFromReader);
-      msg.setData(value);
+      msg.addData(value);
       break;
     default:
       reader.skipField();
@@ -13663,10 +13546,45 @@ proto.tbpb.OrderDetailResponse.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getData();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getHasPre();
+  if (f) {
+    writer.writeBool(
       3,
+      f
+    );
+  }
+  f = message.getHasNext();
+  if (f) {
+    writer.writeBool(
+      4,
+      f
+    );
+  }
+  f = message.getPageNo();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
+  f = message.getPageSize();
+  if (f !== 0) {
+    writer.writeInt32(
+      6,
+      f
+    );
+  }
+  f = message.getPositionIndex();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
+  f = message.getDataList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      8,
       f,
       proto.tbpb.OrderDetail.serializeBinaryToWriter
     );
@@ -13711,39 +13629,130 @@ proto.tbpb.OrderDetailResponse.prototype.setMsg = function(value) {
 
 
 /**
- * optional OrderDetail data = 3;
- * @return {?proto.tbpb.OrderDetail}
- */
-proto.tbpb.OrderDetailResponse.prototype.getData = function() {
-  return /** @type{?proto.tbpb.OrderDetail} */ (
-    jspb.Message.getWrapperField(this, proto.tbpb.OrderDetail, 3));
-};
-
-
-/**
- * @param {?proto.tbpb.OrderDetail|undefined} value
- * @return {!proto.tbpb.OrderDetailResponse} returns this
-*/
-proto.tbpb.OrderDetailResponse.prototype.setData = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.tbpb.OrderDetailResponse} returns this
- */
-proto.tbpb.OrderDetailResponse.prototype.clearData = function() {
-  return this.setData(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
+ * optional bool has_pre = 3;
  * @return {boolean}
  */
-proto.tbpb.OrderDetailResponse.prototype.hasData = function() {
-  return jspb.Message.getField(this, 3) != null;
+proto.tbpb.OrderDetailResponse.prototype.getHasPre = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+ */
+proto.tbpb.OrderDetailResponse.prototype.setHasPre = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 3, value);
+};
+
+
+/**
+ * optional bool has_next = 4;
+ * @return {boolean}
+ */
+proto.tbpb.OrderDetailResponse.prototype.getHasNext = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+ */
+proto.tbpb.OrderDetailResponse.prototype.setHasNext = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 4, value);
+};
+
+
+/**
+ * optional int32 page_no = 5;
+ * @return {number}
+ */
+proto.tbpb.OrderDetailResponse.prototype.getPageNo = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+ */
+proto.tbpb.OrderDetailResponse.prototype.setPageNo = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional int32 page_size = 6;
+ * @return {number}
+ */
+proto.tbpb.OrderDetailResponse.prototype.getPageSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+ */
+proto.tbpb.OrderDetailResponse.prototype.setPageSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional string position_index = 7;
+ * @return {string}
+ */
+proto.tbpb.OrderDetailResponse.prototype.getPositionIndex = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+ */
+proto.tbpb.OrderDetailResponse.prototype.setPositionIndex = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * repeated OrderDetail data = 8;
+ * @return {!Array<!proto.tbpb.OrderDetail>}
+ */
+proto.tbpb.OrderDetailResponse.prototype.getDataList = function() {
+  return /** @type{!Array<!proto.tbpb.OrderDetail>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.tbpb.OrderDetail, 8));
+};
+
+
+/**
+ * @param {!Array<!proto.tbpb.OrderDetail>} value
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+*/
+proto.tbpb.OrderDetailResponse.prototype.setDataList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 8, value);
+};
+
+
+/**
+ * @param {!proto.tbpb.OrderDetail=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.tbpb.OrderDetail}
+ */
+proto.tbpb.OrderDetailResponse.prototype.addData = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 8, opt_value, proto.tbpb.OrderDetail, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.tbpb.OrderDetailResponse} returns this
+ */
+proto.tbpb.OrderDetailResponse.prototype.clearDataList = function() {
+  return this.setDataList([]);
 };
 
 

@@ -1410,21 +1410,6 @@ export namespace ServiceFee {
 }
 
 export class OrderDetail extends jspb.Message {
-  getHasPre(): boolean;
-  setHasPre(value: boolean): void;
-
-  getPositionIndex(): string;
-  setPositionIndex(value: string): void;
-
-  getHasNext(): boolean;
-  setHasNext(value: boolean): void;
-
-  getPageNo(): number;
-  setPageNo(value: number): void;
-
-  getPageSize(): number;
-  setPageSize(value: number): void;
-
   getTbPaidTime(): string;
   setTbPaidTime(value: string): void;
 
@@ -1604,11 +1589,6 @@ export class OrderDetail extends jspb.Message {
 
 export namespace OrderDetail {
   export type AsObject = {
-    hasPre: boolean,
-    positionIndex: string,
-    hasNext: boolean,
-    pageNo: number,
-    pageSize: number,
     tbPaidTime: string,
     tkPaidTime: string,
     payPrice: string,
@@ -1758,10 +1738,25 @@ export class OrderDetailResponse extends jspb.Message {
   getMsg(): string;
   setMsg(value: string): void;
 
-  hasData(): boolean;
-  clearData(): void;
-  getData(): OrderDetail | undefined;
-  setData(value?: OrderDetail): void;
+  getHasPre(): boolean;
+  setHasPre(value: boolean): void;
+
+  getHasNext(): boolean;
+  setHasNext(value: boolean): void;
+
+  getPageNo(): number;
+  setPageNo(value: number): void;
+
+  getPageSize(): number;
+  setPageSize(value: number): void;
+
+  getPositionIndex(): string;
+  setPositionIndex(value: string): void;
+
+  clearDataList(): void;
+  getDataList(): Array<OrderDetail>;
+  setDataList(value: Array<OrderDetail>): void;
+  addData(value?: OrderDetail, index?: number): OrderDetail;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OrderDetailResponse.AsObject;
@@ -1777,7 +1772,12 @@ export namespace OrderDetailResponse {
   export type AsObject = {
     code: number,
     msg: string,
-    data?: OrderDetail.AsObject,
+    hasPre: boolean,
+    hasNext: boolean,
+    pageNo: number,
+    pageSize: number,
+    positionIndex: string,
+    dataList: Array<OrderDetail.AsObject>,
   }
 }
 

@@ -297,66 +297,61 @@ message ServiceFee {
 }
 
 message OrderDetail {
-    bool   has_pre                                  = 1; // 是否还有上一页
-    string position_index                           = 2; // 位点字段，由调用方原样传递       
-    bool   has_next                                 = 3; // 是否还有下一页
-    int32  page_no                                  = 4; // 页码 
-    int32  page_size                                = 5; // 页大小   
-    string tb_paid_time                             = 6; // 订单在淘宝拍下付款的时间    
-    string tk_paid_time                             = 7; // 订单付款的时间，该时间同步淘宝，可能会略晚于买家在淘宝的订单创建时间    
-    string pay_price                                = 8; // 买家确认收货的付款金额（不包含运费金额）  
-    string pub_share_fee                            = 9; // 结算预估收入=结算金额*提成。以买家确认收货的付款金额为基数，预估您可能获得的收入。因买家退款、您违规推广等原因，可能与您最终收入不一致。最终收入以月结后您实际收到的为准      
-    string trade_id                                 = 10; // 买家通过购物车购买的每个商品对应的订单编号，此订单编号并未在淘宝买家后台透出（此订单号唯一，可作为唯一条件使用） 
-    int32  tk_order_role                            = 11; // 二方：佣金收益的第一归属者； 三方：从其他淘宝客佣金中进行分成的推广者       
-    string tk_earning_time                          = 12; // 订单确认收货后且商家完成佣金支付的时间       
-    int32  adzone_id                                = 13; // 推广位管理下的推广位名称对应的ID，同时也是pid=mm_1_2_3中的“3”这段数字   
-    string pub_share_rate                           = 14; // 从结算佣金中分得的收益比率       
-    int32  refund_tag                               = 15; // 维权标签，0 含义为非维权 1 含义为维权订单    
-    string subsidy_rate                             = 16; // 平台给与的补贴比率，如天猫、淘宝、聚划算等     
-    string tk_total_rate                            = 17; // 提成=收入比率*分成比率。指实际获得收益的比率      
-    string item_category_name                       = 18; // 商品所属的根类目，即一级类目的名称           
-    string seller_nick                              = 19; // 掌柜旺旺    
+    string tb_paid_time                             = 6; // 订单在淘宝拍下付款的时间
+    string tk_paid_time                             = 7; // 订单付款的时间，该时间同步淘宝，可能会略晚于买家在淘宝的订单创建时间
+    string pay_price                                = 8; // 买家确认收货的付款金额（不包含运费金额
+    string pub_share_fee                            = 9; // 结算预估收入=结算金额*提成。以买家确认收货的付款金额为基数，预估您可能获得的收入。因买家退款、您违规推广等原因，可能与您最终收入不一致。最终收入以月结后您实际收到的为准
+    string trade_id                                 = 10; // 买家通过购物车购买的每个商品对应的订单编号，此订单编号并未在淘宝买家后台透出（此订单号唯一，可作为唯一条件使用）
+    int32  tk_order_role                            = 11; // 二方：佣金收益的第一归属者； 三方：从其他淘宝客佣金中进行分成的推广者
+    string tk_earning_time                          = 12; // 订单确认收货后且商家完成佣金支付的时间
+    int32  adzone_id                                = 13; // 推广位管理下的推广位名称对应的ID，同时也是pid=mm_1_2_3中的“3”这段数字
+    string pub_share_rate                           = 14; // 从结算佣金中分得的收益比率
+    int32  refund_tag                               = 15; // 维权标签，0 含义为非维权 1 含义为维权订单
+    string subsidy_rate                             = 16; // 平台给与的补贴比率，如天猫、淘宝、聚划算等
+    string tk_total_rate                            = 17; // 提成=收入比率*分成比率。指实际获得收益的比率
+    string item_category_name                       = 18; // 商品所属的根类目，即一级类目的名称
+    string seller_nick                              = 19; // 掌柜旺旺
     int32  pub_id                                   = 20; // 推广者的会员id
-    string alimama_rate                             = 21; // 推广者赚取佣金后支付给阿里妈妈的技术服务费用的比率     
-    string subsidy_type                             = 22; // 平台出资方，如天猫、淘宝、或聚划算等     
-    string item_img                                 = 23; // 商品图片 
-    string pub_share_pre_fee                        = 24; // 付款预估收入=付款金额*提成。指买家付款金额为基数，预估您可能获得的收入。因买家退款等原因，可能与结算预估收入不一致          
-    string alipay_total_price                       = 25; // 买家拍下付款的金额（不包含运费金额）           
-    string item_title                               = 26; // 商品标题   
-    string modified_time                            = 27; // 订单更新时间      
-    string site_name                                = 28; // 媒体管理下的对应ID的自定义名称  
-    int32  item_num                                 = 29; // 商品数量  
-    string subsidy_fee                              = 30; // 补贴金额=结算金额*补贴比率    
-    string alimama_share_fee                        = 31; // 技术服务费=结算金额*收入比率*技术服务费率。推广者赚取佣金后支付给阿里妈妈的技术服务费用          
-    string trade_parent_id                          = 32; // 买家在淘宝后台显示的订单编号        
-    string order_type                               = 33; // 订单所属平台类型，包括天猫、淘宝、聚划算等   
-    string tk_create_time                           = 34; // 订单创建的时间，该时间同步淘宝，可能会略晚于买家在淘宝的订单创建时间      
-    string flow_source                              = 35; // 产品类型    
-    string terminal_type                            = 36; // 成交平台      
-    string click_time                               = 37; // 通过推广链接达到商品、店铺详情页的点击时间  
-    int32  tk_status                                = 38; // 已付款：指订单已付款，但还未确认收货 已收货：指订单已确认收货，但商家佣金未支付 已结算：指订单已确认收货，且商家佣金已支付成功 已失效：指订单关闭/订单佣金小于0.01元，订单关闭主要有：1）买家超时未付款； 2）买家付款前，买家/卖家取消了订单；3）订单付款后发起售中退款成功；3：订单结算，12：订单付款， 13：订单失效，14：订单成功   
-    string item_price                               = 39; // 商品单价   
+    string alimama_rate                             = 21; // 推广者赚取佣金后支付给阿里妈妈的技术服务费用的比率
+    string subsidy_type                             = 22; // 平台出资方，如天猫、淘宝、或聚划算等
+    string item_img                                 = 23; // 商品图片
+    string pub_share_pre_fee                        = 24; // 付款预估收入=付款金额*提成。指买家付款金额为基数，预估您可能获得的收入。因买家退款等原因，可能与结算预估收入不一致
+    string alipay_total_price                       = 25; // 买家拍下付款的金额（不包含运费金额）
+    string item_title                               = 26; // 商品标题
+    string modified_time                            = 27; // 订单更新时间
+    string site_name                                = 28; // 媒体管理下的对应ID的自定义名称
+    int32  item_num                                 = 29; // 商品数量
+    string subsidy_fee                              = 30; // 补贴金额=结算金额*补贴比率
+    string alimama_share_fee                        = 31; // 技术服务费=结算金额*收入比率*技术服务费率。推广者赚取佣金后支付给阿里妈妈的技术服务费用
+    string trade_parent_id                          = 32; // 买家在淘宝后台显示的订单编号
+    string order_type                               = 33; // 订单所属平台类型，包括天猫、淘宝、聚划算等
+    string tk_create_time                           = 34; // 订单创建的时间，该时间同步淘宝，可能会略晚于买家在淘宝的订单创建时间
+    string flow_source                              = 35; // 产品类型
+    string terminal_type                            = 36; // 成交平台
+    string click_time                               = 37; // 通过推广链接达到商品、店铺详情页的点击时间
+    int32  tk_status                                = 38; // 已付款：指订单已付款，但还未确认收货 已收货：指订单已确认收货，但商家佣金未支付 已结算：指订单已确认收货，且商家佣金已支付成功 已失效：指订单关闭/订单佣金小于0.01元，订单关闭主要有：1）买家超时未付款； 2）买家付款前，买家/卖家取消了订单；3）订单付款后发起售中退款成功；3：订单结算，12：订单付款， 13：订单失效，14：订单成功
+    string item_price                               = 39; // 商品单价
     string item_id                                  = 40; // 商品id
-    string adzone_name                              = 41; // 推广位管理下的自定义推广位名称    
-    string total_commission_rate                    = 42; // 佣金比率              
-    string item_link                                = 43; // 商品链接  
-    int32  site_id                                  = 44; // 媒体管理下的ID，同时也是pid=mm_1_2_3中的“2”这段数字 
-    string seller_shop_title                        = 45; // 店铺名称          
-    string income_rate                              = 46; // 订单结算的佣金比率+平台的补贴比率    
-    string total_commission_fee                     = 47; // 佣金金额=结算金额*佣金比率             
-    int32  special_id                               = 48; // 会员运营ID（需要申请到私域会员权限才返回此ID）    
-    int32  relation_id                              = 49; // 渠道关系ID会员运营ID（需要申请到渠道管理权限才返回此ID）     
-    string tk_deposit_time                          = 50; // 预售时期，用户对预售商品支付定金的付款时间，可能略晚于在淘宝付定金时间        
-    string tb_deposit_time                          = 51; // 预售时期，用户对预售商品支付定金的付款时间        
-    string deposit_price                            = 52; // 预售时期，用户对预售商品支付的定金金额      
-    string tk_commission_pre_fee_for_media_platform = 53; // 预估内容专项服务费：内容场景专项技术服务费，内容推广者在内容场景进行推广需要支付给阿里妈妈专项的技术服务费用。专项服务费＝付款金额＊专项服务费率。                                 
-    string tk_commission_fee_for_media_platform     = 54; // 结算内容专项服务费：内容场景专项技术服务费，内容推广者在内容场景进行推广需要支付给阿里妈妈专项的技术服务费用。专项服务费＝结算金额＊专项服务费率。                             
-    string tk_commission_rate_for_media_platform    = 55; // 内容专项服务费率：内容场景专项技术服务费率，内容推广者在内容场景进行推广需要按结算金额支付一定比例给阿里妈妈作为内容场景专项技术服务费，用于提供与内容平台实现产品技术对接等服务。                              
+    string adzone_name                              = 41; // 推广位管理下的自定义推广位名称
+    string total_commission_rate                    = 42; // 佣金比率
+    string item_link                                = 43; // 商品链接
+    int32  site_id                                  = 44; // 媒体管理下的ID，同时也是pid=mm_1_2_3中的“2”这段数字
+    string seller_shop_title                        = 45; // 店铺名称
+    string income_rate                              = 46; // 订单结算的佣金比率+平台的补贴比率
+    string total_commission_fee                     = 47; // 佣金金额=结算金额*佣金比率
+    int32  special_id                               = 48; // 会员运营ID（需要申请到私域会员权限才返回此ID）
+    int32  relation_id                              = 49; // 渠道关系ID会员运营ID（需要申请到渠道管理权限才返回此ID）
+    string tk_deposit_time                          = 50; // 预售时期，用户对预售商品支付定金的付款时间，可能略晚于在淘宝付定金时间
+    string tb_deposit_time                          = 51; // 预售时期，用户对预售商品支付定金的付款时间
+    string deposit_price                            = 52; // 预售时期，用户对预售商品支付的定金金额
+    string tk_commission_pre_fee_for_media_platform = 53; // 预估内容专项服务费：内容场景专项技术服务费，内容推广者在内容场景进行推广需要支付给阿里妈妈专项的技术服务费用。专项服务费＝付款金额＊专项服务费率。
+    string tk_commission_fee_for_media_platform     = 54; // 结算内容专项服务费：内容场景专项技术服务费，内容推广者在内容场景进行推广需要支付给阿里妈妈专项的技术服务费用。专项服务费＝结算金额＊专项服务费率。
+    string tk_commission_rate_for_media_platform    = 55; // 内容专项服务费率：内容场景专项技术服务费率，内容推广者在内容场景进行推广需要按结算金额支付一定比例给阿里妈妈作为内容场景专项技术服务费，用于提供与内容平台实现产品技术对接等服务。
     string alsc_id                                  = 56; // 口碑子订单号
-    string alsc_pid                                 = 57; // 口碑父订单号 
+    string alsc_pid                                 = 57; // 口碑父订单号
     repeated ServiceFee service_fee_dto_list        = 58; // 服务费信息
-    string lx_rid                                   = 59;
-    string is_lx                                    = 60;             
+    string lx_rid                                   = 59; // 激励池对应的rid
+    string is_lx                                    = 60; // 订单是否为激励池订单 1，表征是 0，表征否
 }
 
 message OrderDetailRequest {
@@ -375,9 +370,14 @@ message OrderDetailRequest {
 }
 
 message OrderDetailResponse {
-    int32 code = 1;
-    string msg = 2;
-    OrderDetail data = 3;
+    int32 code            = 1;
+    string msg            = 2;
+    bool   has_pre        = 3; // 是否还有上一页     
+    bool   has_next       = 4; // 是否还有下一页
+    int32  page_no        = 5; // 页码
+    int32  page_size      = 6; // 页大小
+    string position_index = 7; // 位点字段，由调用方原样传递
+    repeated OrderDetail data      = 8;
 }
 
 // RPC service
