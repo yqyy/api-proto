@@ -1317,6 +1317,30 @@ export namespace PublisherGetResponse {
   }
 }
 
+export class PublisherSaveData extends jspb.Message {
+  getAuthorizationUrl(): string;
+  setAuthorizationUrl(value: string): void;
+
+  getNote(): string;
+  setNote(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PublisherSaveData.AsObject;
+  static toObject(includeInstance: boolean, msg: PublisherSaveData): PublisherSaveData.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PublisherSaveData, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PublisherSaveData;
+  static deserializeBinaryFromReader(message: PublisherSaveData, reader: jspb.BinaryReader): PublisherSaveData;
+}
+
+export namespace PublisherSaveData {
+  export type AsObject = {
+    authorizationUrl: string,
+    note: string,
+  }
+}
+
 export class PublisherSaveRequest extends jspb.Message {
   getCallbackUrl(): string;
   setCallbackUrl(value: string): void;
@@ -1354,11 +1378,16 @@ export namespace PublisherSaveRequest {
 }
 
 export class PublisherSaveResponse extends jspb.Message {
-  getAuthorizationUrl(): string;
-  setAuthorizationUrl(value: string): void;
+  getCode(): number;
+  setCode(value: number): void;
 
-  getNote(): string;
-  setNote(value: string): void;
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  hasData(): boolean;
+  clearData(): void;
+  getData(): PublisherSaveData | undefined;
+  setData(value?: PublisherSaveData): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PublisherSaveResponse.AsObject;
@@ -1372,8 +1401,9 @@ export class PublisherSaveResponse extends jspb.Message {
 
 export namespace PublisherSaveResponse {
   export type AsObject = {
-    authorizationUrl: string,
-    note: string,
+    code: number,
+    msg: string,
+    data?: PublisherSaveData.AsObject,
   }
 }
 
