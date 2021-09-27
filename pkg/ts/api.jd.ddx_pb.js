@@ -765,7 +765,7 @@ proto.jdpb.CommissionInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setStarttime(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setIslock(value);
       break;
     default:
@@ -841,7 +841,7 @@ proto.jdpb.CommissionInfo.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getIslock();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
@@ -958,7 +958,7 @@ proto.jdpb.CommissionInfo.prototype.setStarttime = function(value) {
 
 
 /**
- * optional int32 isLock = 7;
+ * optional int64 isLock = 7;
  * @return {number}
  */
 proto.jdpb.CommissionInfo.prototype.getIslock = function() {
@@ -1373,7 +1373,7 @@ proto.jdpb.PriceInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setPrice(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setHistorypriceday(value);
       break;
     case 3:
@@ -1385,7 +1385,7 @@ proto.jdpb.PriceInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setLowestprice(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setLowestpricetype(value);
       break;
     default:
@@ -1426,7 +1426,7 @@ proto.jdpb.PriceInfo.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getHistorypriceday();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       2,
       f
     );
@@ -1447,7 +1447,7 @@ proto.jdpb.PriceInfo.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getLowestpricetype();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -1474,7 +1474,7 @@ proto.jdpb.PriceInfo.prototype.setPrice = function(value) {
 
 
 /**
- * optional int32 historyPriceDay = 2;
+ * optional int64 historyPriceDay = 2;
  * @return {number}
  */
 proto.jdpb.PriceInfo.prototype.getHistorypriceday = function() {
@@ -1546,7 +1546,7 @@ proto.jdpb.PriceInfo.prototype.setLowestprice = function(value) {
 
 
 /**
- * optional int32 lowestPriceType = 5;
+ * optional int64 lowestPriceType = 5;
  * @return {number}
  */
 proto.jdpb.PriceInfo.prototype.getLowestpricetype = function() {
@@ -2141,7 +2141,7 @@ proto.jdpb.PromotedData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setNote(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setIsCoupon(value);
       break;
     case 6:
@@ -2245,7 +2245,7 @@ proto.jdpb.PromotedData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getIsCoupon();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -2413,7 +2413,7 @@ proto.jdpb.PromotedData.prototype.setNote = function(value) {
 
 
 /**
- * optional int32 is_coupon = 5;
+ * optional int64 is_coupon = 5;
  * @return {number}
  */
 proto.jdpb.PromotedData.prototype.getIsCoupon = function() {
@@ -2798,7 +2798,7 @@ proto.jdpb.PromotionByUnionIDRequest.deserializeBinaryFromReader = function(msg,
       msg.setAutosearch(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setType(value);
       break;
     case 5:
@@ -2810,7 +2810,7 @@ proto.jdpb.PromotionByUnionIDRequest.deserializeBinaryFromReader = function(msg,
       msg.setCouponurl(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setChaintype(value);
       break;
     case 8:
@@ -2873,7 +2873,7 @@ proto.jdpb.PromotionByUnionIDRequest.serializeBinaryToWriter = function(message,
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 4));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
@@ -2894,7 +2894,7 @@ proto.jdpb.PromotionByUnionIDRequest.serializeBinaryToWriter = function(message,
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 7));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
@@ -2989,7 +2989,7 @@ proto.jdpb.PromotionByUnionIDRequest.prototype.hasAutosearch = function() {
 
 
 /**
- * optional int32 type = 4;
+ * optional int64 type = 4;
  * @return {number}
  */
 proto.jdpb.PromotionByUnionIDRequest.prototype.getType = function() {
@@ -3097,7 +3097,7 @@ proto.jdpb.PromotionByUnionIDRequest.prototype.hasCouponurl = function() {
 
 
 /**
- * optional int32 chainType = 7;
+ * optional int64 chainType = 7;
  * @return {number}
  */
 proto.jdpb.PromotionByUnionIDRequest.prototype.getChaintype = function() {
@@ -3276,7 +3276,7 @@ proto.jdpb.PromotionByUnionIDResponse.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -3319,7 +3319,7 @@ proto.jdpb.PromotionByUnionIDResponse.serializeBinaryToWriter = function(message
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -3343,7 +3343,7 @@ proto.jdpb.PromotionByUnionIDResponse.serializeBinaryToWriter = function(message
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.jdpb.PromotionByUnionIDResponse.prototype.getCode = function() {

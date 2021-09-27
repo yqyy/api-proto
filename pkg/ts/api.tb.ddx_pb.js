@@ -894,7 +894,7 @@ proto.tbpb.GoodsDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCouponInfo(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCouponRemainCount(value);
       break;
     case 10:
@@ -910,7 +910,7 @@ proto.tbpb.GoodsDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCouponStartTime(value);
       break;
     case 13:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCouponTotalCount(value);
       break;
     case 14:
@@ -1031,11 +1031,11 @@ proto.tbpb.GoodsDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUrl(value);
       break;
     case 43:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setUserType(value);
       break;
     case 44:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setVolume(value);
       break;
     case 45:
@@ -1063,7 +1063,7 @@ proto.tbpb.GoodsDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setOstime(value);
       break;
     case 51:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setJddNum(value);
       break;
     case 52:
@@ -1083,15 +1083,15 @@ proto.tbpb.GoodsDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setOrigPrice(value);
       break;
     case 56:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTotalStock(value);
       break;
     case 57:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSellNum(value);
       break;
     case 58:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setStock(value);
       break;
     case 59:
@@ -1237,7 +1237,7 @@ proto.tbpb.GoodsDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getCouponRemainCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       9,
       f
     );
@@ -1265,7 +1265,7 @@ proto.tbpb.GoodsDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getCouponTotalCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       13,
       f
     );
@@ -1476,14 +1476,14 @@ proto.tbpb.GoodsDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getUserType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       43,
       f
     );
   }
   f = message.getVolume();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       44,
       f
     );
@@ -1532,7 +1532,7 @@ proto.tbpb.GoodsDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getJddNum();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       51,
       f
     );
@@ -1567,21 +1567,21 @@ proto.tbpb.GoodsDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getTotalStock();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       56,
       f
     );
   }
   f = message.getSellNum();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       57,
       f
     );
   }
   f = message.getStock();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       58,
       f
     );
@@ -1832,7 +1832,7 @@ proto.tbpb.GoodsDetail.prototype.setCouponInfo = function(value) {
 
 
 /**
- * optional int32 coupon_remain_count = 9;
+ * optional int64 coupon_remain_count = 9;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getCouponRemainCount = function() {
@@ -1904,7 +1904,7 @@ proto.tbpb.GoodsDetail.prototype.setCouponStartTime = function(value) {
 
 
 /**
- * optional int32 coupon_total_count = 13;
+ * optional int64 coupon_total_count = 13;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getCouponTotalCount = function() {
@@ -2463,7 +2463,7 @@ proto.tbpb.GoodsDetail.prototype.setUrl = function(value) {
 
 
 /**
- * optional int32 user_type = 43;
+ * optional int64 user_type = 43;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getUserType = function() {
@@ -2481,7 +2481,7 @@ proto.tbpb.GoodsDetail.prototype.setUserType = function(value) {
 
 
 /**
- * optional int32 volume = 44;
+ * optional int64 volume = 44;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getVolume = function() {
@@ -2607,7 +2607,7 @@ proto.tbpb.GoodsDetail.prototype.setOstime = function(value) {
 
 
 /**
- * optional int32 jdd_num = 51;
+ * optional int64 jdd_num = 51;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getJddNum = function() {
@@ -2697,7 +2697,7 @@ proto.tbpb.GoodsDetail.prototype.setOrigPrice = function(value) {
 
 
 /**
- * optional int32 total_stock = 56;
+ * optional int64 total_stock = 56;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getTotalStock = function() {
@@ -2715,7 +2715,7 @@ proto.tbpb.GoodsDetail.prototype.setTotalStock = function(value) {
 
 
 /**
- * optional int32 sell_num = 57;
+ * optional int64 sell_num = 57;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getSellNum = function() {
@@ -2733,7 +2733,7 @@ proto.tbpb.GoodsDetail.prototype.setSellNum = function(value) {
 
 
 /**
- * optional int32 stock = 58;
+ * optional int64 stock = 58;
  * @return {number}
  */
 proto.tbpb.GoodsDetail.prototype.getStock = function() {
@@ -3120,31 +3120,31 @@ proto.tbpb.SearchGoodsRequest.deserializeBinaryFromReader = function(msg, reader
       msg.setPlatform(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageSize(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageNo(value);
       break;
     case 8:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setStartDsr(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setEndTkRate(value);
       break;
     case 10:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setStartTkRate(value);
       break;
     case 11:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setEndPrice(value);
       break;
     case 12:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setStartPrice(value);
       break;
     case 13:
@@ -3160,7 +3160,7 @@ proto.tbpb.SearchGoodsRequest.deserializeBinaryFromReader = function(msg, reader
       msg.setItemLoc(value);
       break;
     case 16:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMaterialId(value);
       break;
     case 17:
@@ -3188,15 +3188,15 @@ proto.tbpb.SearchGoodsRequest.deserializeBinaryFromReader = function(msg, reader
       msg.setNeedFreeShipment(value);
       break;
     case 23:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setNpxLevel(value);
       break;
     case 24:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setEndKaTkRate(value);
       break;
     case 25:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setStartKaTkRate(value);
       break;
     case 26:
@@ -3281,49 +3281,49 @@ proto.tbpb.SearchGoodsRequest.serializeBinaryToWriter = function(message, writer
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 6));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       6,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 7));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 8));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       8,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 9));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       9,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 10));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       10,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 11));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       11,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 12));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       12,
       f
     );
@@ -3351,7 +3351,7 @@ proto.tbpb.SearchGoodsRequest.serializeBinaryToWriter = function(message, writer
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 16));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       16,
       f
     );
@@ -3400,21 +3400,21 @@ proto.tbpb.SearchGoodsRequest.serializeBinaryToWriter = function(message, writer
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 23));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       23,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 24));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       24,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 25));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       25,
       f
     );
@@ -3613,7 +3613,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasPlatform = function() {
 
 
 /**
- * optional int32 page_size = 6;
+ * optional int64 page_size = 6;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getPageSize = function() {
@@ -3649,7 +3649,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasPageSize = function() {
 
 
 /**
- * optional int32 page_no = 7;
+ * optional int64 page_no = 7;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getPageNo = function() {
@@ -3685,7 +3685,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasPageNo = function() {
 
 
 /**
- * optional int32 start_dsr = 8;
+ * optional int64 start_dsr = 8;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getStartDsr = function() {
@@ -3721,7 +3721,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasStartDsr = function() {
 
 
 /**
- * optional int32 end_tk_rate = 9;
+ * optional int64 end_tk_rate = 9;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getEndTkRate = function() {
@@ -3757,7 +3757,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasEndTkRate = function() {
 
 
 /**
- * optional int32 start_tk_rate = 10;
+ * optional int64 start_tk_rate = 10;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getStartTkRate = function() {
@@ -3793,7 +3793,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasStartTkRate = function() {
 
 
 /**
- * optional int32 end_price = 11;
+ * optional int64 end_price = 11;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getEndPrice = function() {
@@ -3829,7 +3829,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasEndPrice = function() {
 
 
 /**
- * optional int32 start_price = 12;
+ * optional int64 start_price = 12;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getStartPrice = function() {
@@ -3973,7 +3973,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasItemLoc = function() {
 
 
 /**
- * optional int32 material_id = 16;
+ * optional int64 material_id = 16;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getMaterialId = function() {
@@ -4225,7 +4225,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasNeedFreeShipment = function() {
 
 
 /**
- * optional int32 npx_level = 23;
+ * optional int64 npx_level = 23;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getNpxLevel = function() {
@@ -4261,7 +4261,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasNpxLevel = function() {
 
 
 /**
- * optional int32 end_ka_tk_rate = 24;
+ * optional int64 end_ka_tk_rate = 24;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getEndKaTkRate = function() {
@@ -4297,7 +4297,7 @@ proto.tbpb.SearchGoodsRequest.prototype.hasEndKaTkRate = function() {
 
 
 /**
- * optional int32 start_ka_tk_rate = 25;
+ * optional int64 start_ka_tk_rate = 25;
  * @return {number}
  */
 proto.tbpb.SearchGoodsRequest.prototype.getStartKaTkRate = function() {
@@ -4555,7 +4555,7 @@ proto.tbpb.SearchGoodsMsgData.deserializeBinaryFromReader = function(msg, reader
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTotalResults(value);
       break;
     case 2:
@@ -4594,7 +4594,7 @@ proto.tbpb.SearchGoodsMsgData.serializeBinaryToWriter = function(message, writer
   var f = undefined;
   f = message.getTotalResults();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -4611,7 +4611,7 @@ proto.tbpb.SearchGoodsMsgData.serializeBinaryToWriter = function(message, writer
 
 
 /**
- * optional int32 total_results = 1;
+ * optional int64 total_results = 1;
  * @return {number}
  */
 proto.tbpb.SearchGoodsMsgData.prototype.getTotalResults = function() {
@@ -4738,7 +4738,7 @@ proto.tbpb.SearchGoodsResponse.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -4781,7 +4781,7 @@ proto.tbpb.SearchGoodsResponse.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -4805,7 +4805,7 @@ proto.tbpb.SearchGoodsResponse.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.tbpb.SearchGoodsResponse.prototype.getCode = function() {
@@ -4958,7 +4958,7 @@ proto.tbpb.DdxTbApiSearchGoodsRes.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -4966,7 +4966,7 @@ proto.tbpb.DdxTbApiSearchGoodsRes.deserializeBinaryFromReader = function(msg, re
       msg.setMsg(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTotalResults(value);
       break;
     case 4:
@@ -5005,7 +5005,7 @@ proto.tbpb.DdxTbApiSearchGoodsRes.serializeBinaryToWriter = function(message, wr
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -5019,7 +5019,7 @@ proto.tbpb.DdxTbApiSearchGoodsRes.serializeBinaryToWriter = function(message, wr
   }
   f = message.getTotalResults();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
@@ -5036,7 +5036,7 @@ proto.tbpb.DdxTbApiSearchGoodsRes.serializeBinaryToWriter = function(message, wr
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.tbpb.DdxTbApiSearchGoodsRes.prototype.getCode = function() {
@@ -5072,7 +5072,7 @@ proto.tbpb.DdxTbApiSearchGoodsRes.prototype.setMsg = function(value) {
 
 
 /**
- * optional int32 total_results = 3;
+ * optional int64 total_results = 3;
  * @return {number}
  */
 proto.tbpb.DdxTbApiSearchGoodsRes.prototype.getTotalResults = function() {
@@ -6654,11 +6654,11 @@ proto.tbpb.ItemInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setActivityId(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setUserType(value);
       break;
     case 10:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setVolume(value);
       break;
     case 11:
@@ -6761,14 +6761,14 @@ proto.tbpb.ItemInfo.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getUserType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       9,
       f
     );
   }
   f = message.getVolume();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       10,
       f
     );
@@ -6961,7 +6961,7 @@ proto.tbpb.ItemInfo.prototype.setActivityId = function(value) {
 
 
 /**
- * optional int32 user_type = 9;
+ * optional int64 user_type = 9;
  * @return {number}
  */
 proto.tbpb.ItemInfo.prototype.getUserType = function() {
@@ -6979,7 +6979,7 @@ proto.tbpb.ItemInfo.prototype.setUserType = function(value) {
 
 
 /**
- * optional int32 volume = 10;
+ * optional int64 volume = 10;
  * @return {number}
  */
 proto.tbpb.ItemInfo.prototype.getVolume = function() {
@@ -7182,19 +7182,19 @@ proto.tbpb.PromotedURLData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMaxCommissionRate(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCouponTotalCount(value);
       break;
     case 10:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCouponRemainCount(value);
       break;
     case 11:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMmCouponRemainCount(value);
       break;
     case 12:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMmCouponTotalCount(value);
       break;
     case 13:
@@ -7214,7 +7214,7 @@ proto.tbpb.PromotedURLData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMmCouponInfo(value);
       break;
     case 17:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCouponType(value);
       break;
     case 18:
@@ -7271,7 +7271,7 @@ proto.tbpb.PromotedURLData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMinCommissionRate(value);
       break;
     case 31:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setRewardInfo(value);
       break;
     default:
@@ -7361,28 +7361,28 @@ proto.tbpb.PromotedURLData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getCouponTotalCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       9,
       f
     );
   }
   f = message.getCouponRemainCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       10,
       f
     );
   }
   f = message.getMmCouponRemainCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       11,
       f
     );
   }
   f = message.getMmCouponTotalCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       12,
       f
     );
@@ -7417,7 +7417,7 @@ proto.tbpb.PromotedURLData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getCouponType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       17,
       f
     );
@@ -7516,7 +7516,7 @@ proto.tbpb.PromotedURLData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getRewardInfo();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       31,
       f
     );
@@ -7669,7 +7669,7 @@ proto.tbpb.PromotedURLData.prototype.setMaxCommissionRate = function(value) {
 
 
 /**
- * optional int32 coupon_total_count = 9;
+ * optional int64 coupon_total_count = 9;
  * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getCouponTotalCount = function() {
@@ -7687,7 +7687,7 @@ proto.tbpb.PromotedURLData.prototype.setCouponTotalCount = function(value) {
 
 
 /**
- * optional int32 coupon_remain_count = 10;
+ * optional int64 coupon_remain_count = 10;
  * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getCouponRemainCount = function() {
@@ -7705,7 +7705,7 @@ proto.tbpb.PromotedURLData.prototype.setCouponRemainCount = function(value) {
 
 
 /**
- * optional int32 mm_coupon_remain_count = 11;
+ * optional int64 mm_coupon_remain_count = 11;
  * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getMmCouponRemainCount = function() {
@@ -7723,7 +7723,7 @@ proto.tbpb.PromotedURLData.prototype.setMmCouponRemainCount = function(value) {
 
 
 /**
- * optional int32 mm_coupon_total_count = 12;
+ * optional int64 mm_coupon_total_count = 12;
  * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getMmCouponTotalCount = function() {
@@ -7813,7 +7813,7 @@ proto.tbpb.PromotedURLData.prototype.setMmCouponInfo = function(value) {
 
 
 /**
- * optional int32 coupon_type = 17;
+ * optional int64 coupon_type = 17;
  * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getCouponType = function() {
@@ -8084,7 +8084,7 @@ proto.tbpb.PromotedURLData.prototype.setMinCommissionRate = function(value) {
 
 
 /**
- * optional int32 reward_info = 31;
+ * optional int64 reward_info = 31;
  * @return {number}
  */
 proto.tbpb.PromotedURLData.prototype.getRewardInfo = function() {
@@ -8173,7 +8173,7 @@ proto.tbpb.PromoteURLResponse.deserializeBinaryFromReader = function(msg, reader
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -8216,7 +8216,7 @@ proto.tbpb.PromoteURLResponse.serializeBinaryToWriter = function(message, writer
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -8240,7 +8240,7 @@ proto.tbpb.PromoteURLResponse.serializeBinaryToWriter = function(message, writer
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.tbpb.PromoteURLResponse.prototype.getCode = function() {
@@ -8751,7 +8751,7 @@ proto.tbpb.MapData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setReaName(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setReationId(value);
       break;
     case 6:
@@ -8780,7 +8780,7 @@ proto.tbpb.MapData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setOffineInfo(value);
       break;
     case 12:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSpecialId(value);
       break;
     case 13:
@@ -8850,7 +8850,7 @@ proto.tbpb.MapData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getReationId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -8900,7 +8900,7 @@ proto.tbpb.MapData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getSpecialId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       12,
       f
     );
@@ -8995,7 +8995,7 @@ proto.tbpb.MapData.prototype.setReaName = function(value) {
 
 
 /**
- * optional int32 reation_id = 5;
+ * optional int64 reation_id = 5;
  * @return {number}
  */
 proto.tbpb.MapData.prototype.getReationId = function() {
@@ -9140,7 +9140,7 @@ proto.tbpb.MapData.prototype.hasOffineInfo = function() {
 
 
 /**
- * optional int32 special_id = 12;
+ * optional int64 special_id = 12;
  * @return {number}
  */
 proto.tbpb.MapData.prototype.getSpecialId = function() {
@@ -9591,7 +9591,7 @@ proto.tbpb.PublisherData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setRootPidChannelList(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTotalCount(value);
       break;
     default:
@@ -9641,7 +9641,7 @@ proto.tbpb.PublisherData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getTotalCount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
@@ -9724,7 +9724,7 @@ proto.tbpb.PublisherData.prototype.hasRootPidChannelList = function() {
 
 
 /**
- * optional int32 total_count = 3;
+ * optional int64 total_count = 3;
  * @return {number}
  */
 proto.tbpb.PublisherData.prototype.getTotalCount = function() {
@@ -9817,7 +9817,7 @@ proto.tbpb.PublisherGetRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setInfoType(value);
       break;
     case 2:
@@ -9825,15 +9825,15 @@ proto.tbpb.PublisherGetRequest.deserializeBinaryFromReader = function(msg, reade
       msg.setRelationApp(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setRelationId(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageNo(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageSize(value);
       break;
     case 6:
@@ -9875,7 +9875,7 @@ proto.tbpb.PublisherGetRequest.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getInfoType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -9889,21 +9889,21 @@ proto.tbpb.PublisherGetRequest.serializeBinaryToWriter = function(message, write
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 3));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 4));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 5));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -9926,7 +9926,7 @@ proto.tbpb.PublisherGetRequest.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 info_type = 1;
+ * optional int64 info_type = 1;
  * @return {number}
  */
 proto.tbpb.PublisherGetRequest.prototype.getInfoType = function() {
@@ -9962,7 +9962,7 @@ proto.tbpb.PublisherGetRequest.prototype.setRelationApp = function(value) {
 
 
 /**
- * optional int32 relation_id = 3;
+ * optional int64 relation_id = 3;
  * @return {number}
  */
 proto.tbpb.PublisherGetRequest.prototype.getRelationId = function() {
@@ -9998,7 +9998,7 @@ proto.tbpb.PublisherGetRequest.prototype.hasRelationId = function() {
 
 
 /**
- * optional int32 page_no = 4;
+ * optional int64 page_no = 4;
  * @return {number}
  */
 proto.tbpb.PublisherGetRequest.prototype.getPageNo = function() {
@@ -10034,7 +10034,7 @@ proto.tbpb.PublisherGetRequest.prototype.hasPageNo = function() {
 
 
 /**
- * optional int32 page_size = 5;
+ * optional int64 page_size = 5;
  * @return {number}
  */
 proto.tbpb.PublisherGetRequest.prototype.getPageSize = function() {
@@ -10213,7 +10213,7 @@ proto.tbpb.PublisherGetResponse.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -10256,7 +10256,7 @@ proto.tbpb.PublisherGetResponse.serializeBinaryToWriter = function(message, writ
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -10280,7 +10280,7 @@ proto.tbpb.PublisherGetResponse.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.tbpb.PublisherGetResponse.prototype.getCode = function() {
@@ -10597,7 +10597,7 @@ proto.tbpb.PublisherSaveRequest.deserializeBinaryFromReader = function(msg, read
       msg.setNote(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setType(value);
       break;
     default:
@@ -10652,7 +10652,7 @@ proto.tbpb.PublisherSaveRequest.serializeBinaryToWriter = function(message, writ
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 4));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
@@ -10733,7 +10733,7 @@ proto.tbpb.PublisherSaveRequest.prototype.setNote = function(value) {
 
 
 /**
- * optional int32 type = 4;
+ * optional int64 type = 4;
  * @return {number}
  */
 proto.tbpb.PublisherSaveRequest.prototype.getType = function() {
@@ -10840,7 +10840,7 @@ proto.tbpb.PublisherSaveResponse.deserializeBinaryFromReader = function(msg, rea
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -10883,7 +10883,7 @@ proto.tbpb.PublisherSaveResponse.serializeBinaryToWriter = function(message, wri
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -10907,7 +10907,7 @@ proto.tbpb.PublisherSaveResponse.serializeBinaryToWriter = function(message, wri
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.tbpb.PublisherSaveResponse.prototype.getCode = function() {
@@ -11064,7 +11064,7 @@ proto.tbpb.ServiceFee.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSharePreFee(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTkShareRoleType(value);
       break;
     default:
@@ -11119,7 +11119,7 @@ proto.tbpb.ServiceFee.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getTkShareRoleType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
@@ -11182,7 +11182,7 @@ proto.tbpb.ServiceFee.prototype.setSharePreFee = function(value) {
 
 
 /**
- * optional int32 tk_share_role_type = 4;
+ * optional int64 tk_share_role_type = 4;
  * @return {number}
  */
 proto.tbpb.ServiceFee.prototype.getTkShareRoleType = function() {
@@ -11351,7 +11351,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setTradeId(value);
       break;
     case 11:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTkOrderRole(value);
       break;
     case 12:
@@ -11359,7 +11359,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setTkEarningTime(value);
       break;
     case 13:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setAdzoneId(value);
       break;
     case 14:
@@ -11367,7 +11367,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setPubShareRate(value);
       break;
     case 15:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setRefundTag(value);
       break;
     case 16:
@@ -11387,7 +11387,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSellerNick(value);
       break;
     case 20:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPubId(value);
       break;
     case 21:
@@ -11423,7 +11423,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSiteName(value);
       break;
     case 29:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setItemNum(value);
       break;
     case 30:
@@ -11459,7 +11459,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setClickTime(value);
       break;
     case 38:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTkStatus(value);
       break;
     case 39:
@@ -11483,7 +11483,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setItemLink(value);
       break;
     case 44:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSiteId(value);
       break;
     case 45:
@@ -11499,11 +11499,11 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setTotalCommissionFee(value);
       break;
     case 48:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSpecialId(value);
       break;
     case 49:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setRelationId(value);
       break;
     case 50:
@@ -11617,7 +11617,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getTkOrderRole();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       11,
       f
     );
@@ -11631,7 +11631,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getAdzoneId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       13,
       f
     );
@@ -11645,7 +11645,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getRefundTag();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       15,
       f
     );
@@ -11680,7 +11680,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getPubId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       20,
       f
     );
@@ -11743,7 +11743,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getItemNum();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       29,
       f
     );
@@ -11806,7 +11806,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getTkStatus();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       38,
       f
     );
@@ -11848,7 +11848,7 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getSiteId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       44,
       f
     );
@@ -11876,14 +11876,14 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getSpecialId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       48,
       f
     );
   }
   f = message.getRelationId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       49,
       f
     );
@@ -12060,7 +12060,7 @@ proto.tbpb.OrderDetail.prototype.setTradeId = function(value) {
 
 
 /**
- * optional int32 tk_order_role = 11;
+ * optional int64 tk_order_role = 11;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getTkOrderRole = function() {
@@ -12096,7 +12096,7 @@ proto.tbpb.OrderDetail.prototype.setTkEarningTime = function(value) {
 
 
 /**
- * optional int32 adzone_id = 13;
+ * optional int64 adzone_id = 13;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getAdzoneId = function() {
@@ -12132,7 +12132,7 @@ proto.tbpb.OrderDetail.prototype.setPubShareRate = function(value) {
 
 
 /**
- * optional int32 refund_tag = 15;
+ * optional int64 refund_tag = 15;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getRefundTag = function() {
@@ -12222,7 +12222,7 @@ proto.tbpb.OrderDetail.prototype.setSellerNick = function(value) {
 
 
 /**
- * optional int32 pub_id = 20;
+ * optional int64 pub_id = 20;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getPubId = function() {
@@ -12384,7 +12384,7 @@ proto.tbpb.OrderDetail.prototype.setSiteName = function(value) {
 
 
 /**
- * optional int32 item_num = 29;
+ * optional int64 item_num = 29;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getItemNum = function() {
@@ -12546,7 +12546,7 @@ proto.tbpb.OrderDetail.prototype.setClickTime = function(value) {
 
 
 /**
- * optional int32 tk_status = 38;
+ * optional int64 tk_status = 38;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getTkStatus = function() {
@@ -12654,7 +12654,7 @@ proto.tbpb.OrderDetail.prototype.setItemLink = function(value) {
 
 
 /**
- * optional int32 site_id = 44;
+ * optional int64 site_id = 44;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getSiteId = function() {
@@ -12726,7 +12726,7 @@ proto.tbpb.OrderDetail.prototype.setTotalCommissionFee = function(value) {
 
 
 /**
- * optional int32 special_id = 48;
+ * optional int64 special_id = 48;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getSpecialId = function() {
@@ -12744,7 +12744,7 @@ proto.tbpb.OrderDetail.prototype.setSpecialId = function(value) {
 
 
 /**
- * optional int32 relation_id = 49;
+ * optional int64 relation_id = 49;
  * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getRelationId = function() {
@@ -13068,7 +13068,7 @@ proto.tbpb.OrderDetailRequest.deserializeBinaryFromReader = function(msg, reader
       msg.setEndTime(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setQueryType(value);
       break;
     case 4:
@@ -13076,27 +13076,27 @@ proto.tbpb.OrderDetailRequest.deserializeBinaryFromReader = function(msg, reader
       msg.setPositionIndex(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageSize(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageNo(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMemberType(value);
       break;
     case 8:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTkStatus(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setJumpType(value);
       break;
     case 10:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setOrderScene(value);
       break;
     case 11:
@@ -13152,7 +13152,7 @@ proto.tbpb.OrderDetailRequest.serializeBinaryToWriter = function(message, writer
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 3));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
@@ -13166,42 +13166,42 @@ proto.tbpb.OrderDetailRequest.serializeBinaryToWriter = function(message, writer
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 5));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 6));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       6,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 7));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 8));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       8,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 9));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       9,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 10));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       10,
       f
     );
@@ -13260,7 +13260,7 @@ proto.tbpb.OrderDetailRequest.prototype.setEndTime = function(value) {
 
 
 /**
- * optional int32 query_type = 3;
+ * optional int64 query_type = 3;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getQueryType = function() {
@@ -13332,7 +13332,7 @@ proto.tbpb.OrderDetailRequest.prototype.hasPositionIndex = function() {
 
 
 /**
- * optional int32 page_size = 5;
+ * optional int64 page_size = 5;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getPageSize = function() {
@@ -13368,7 +13368,7 @@ proto.tbpb.OrderDetailRequest.prototype.hasPageSize = function() {
 
 
 /**
- * optional int32 page_no = 6;
+ * optional int64 page_no = 6;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getPageNo = function() {
@@ -13404,7 +13404,7 @@ proto.tbpb.OrderDetailRequest.prototype.hasPageNo = function() {
 
 
 /**
- * optional int32 member_type = 7;
+ * optional int64 member_type = 7;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getMemberType = function() {
@@ -13440,7 +13440,7 @@ proto.tbpb.OrderDetailRequest.prototype.hasMemberType = function() {
 
 
 /**
- * optional int32 tk_status = 8;
+ * optional int64 tk_status = 8;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getTkStatus = function() {
@@ -13476,7 +13476,7 @@ proto.tbpb.OrderDetailRequest.prototype.hasTkStatus = function() {
 
 
 /**
- * optional int32 jump_type = 9;
+ * optional int64 jump_type = 9;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getJumpType = function() {
@@ -13512,7 +13512,7 @@ proto.tbpb.OrderDetailRequest.prototype.hasJumpType = function() {
 
 
 /**
- * optional int32 order_scene = 10;
+ * optional int64 order_scene = 10;
  * @return {number}
  */
 proto.tbpb.OrderDetailRequest.prototype.getOrderScene = function() {
@@ -13704,7 +13704,7 @@ proto.tbpb.OrderDetailResponse.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -13720,11 +13720,11 @@ proto.tbpb.OrderDetailResponse.deserializeBinaryFromReader = function(msg, reade
       msg.setHasNext(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageNo(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageSize(value);
       break;
     case 7:
@@ -13767,7 +13767,7 @@ proto.tbpb.OrderDetailResponse.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -13795,14 +13795,14 @@ proto.tbpb.OrderDetailResponse.serializeBinaryToWriter = function(message, write
   }
   f = message.getPageNo();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
   }
   f = message.getPageSize();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       6,
       f
     );
@@ -13826,7 +13826,7 @@ proto.tbpb.OrderDetailResponse.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.tbpb.OrderDetailResponse.prototype.getCode = function() {
@@ -13898,7 +13898,7 @@ proto.tbpb.OrderDetailResponse.prototype.setHasNext = function(value) {
 
 
 /**
- * optional int32 page_no = 5;
+ * optional int64 page_no = 5;
  * @return {number}
  */
 proto.tbpb.OrderDetailResponse.prototype.getPageNo = function() {
@@ -13916,7 +13916,7 @@ proto.tbpb.OrderDetailResponse.prototype.setPageNo = function(value) {
 
 
 /**
- * optional int32 page_size = 6;
+ * optional int64 page_size = 6;
  * @return {number}
  */
 proto.tbpb.OrderDetailResponse.prototype.getPageSize = function() {

@@ -525,7 +525,7 @@ proto.pddxpb.AuthorityQueryData.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setBind(value);
       break;
     default:
@@ -559,7 +559,7 @@ proto.pddxpb.AuthorityQueryData.serializeBinaryToWriter = function(message, writ
   var f = undefined;
   f = message.getBind();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -568,7 +568,7 @@ proto.pddxpb.AuthorityQueryData.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional int32 bind = 1;
+ * optional int64 bind = 1;
  * @return {number}
  */
 proto.pddxpb.AuthorityQueryData.prototype.getBind = function() {
@@ -901,7 +901,7 @@ proto.pddxpb.AuthorityQueryResponse.deserializeBinaryFromReader = function(msg, 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -944,7 +944,7 @@ proto.pddxpb.AuthorityQueryResponse.serializeBinaryToWriter = function(message, 
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -968,7 +968,7 @@ proto.pddxpb.AuthorityQueryResponse.serializeBinaryToWriter = function(message, 
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.pddxpb.AuthorityQueryResponse.prototype.getCode = function() {
@@ -2667,7 +2667,7 @@ proto.pddxpb.CreateMarketingURLRequest.deserializeBinaryFromReader = function(ms
       msg.setGenerateWeApp(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setChannelType(value);
       break;
     case 8:
@@ -2751,7 +2751,7 @@ proto.pddxpb.CreateMarketingURLRequest.serializeBinaryToWriter = function(messag
   }
   f = message.getChannelType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
@@ -2990,7 +2990,7 @@ proto.pddxpb.CreateMarketingURLRequest.prototype.hasGenerateWeApp = function() {
 
 
 /**
- * optional int32 channel_type = 7;
+ * optional int64 channel_type = 7;
  * @return {number}
  */
 proto.pddxpb.CreateMarketingURLRequest.prototype.getChannelType = function() {
@@ -3151,7 +3151,7 @@ proto.pddxpb.CreateMarketingURLResponse.deserializeBinaryFromReader = function(m
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -3194,7 +3194,7 @@ proto.pddxpb.CreateMarketingURLResponse.serializeBinaryToWriter = function(messa
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -3218,7 +3218,7 @@ proto.pddxpb.CreateMarketingURLResponse.serializeBinaryToWriter = function(messa
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.pddxpb.CreateMarketingURLResponse.prototype.getCode = function() {
@@ -4625,7 +4625,7 @@ proto.pddxpb.URLConvertResponse.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -4668,7 +4668,7 @@ proto.pddxpb.URLConvertResponse.serializeBinaryToWriter = function(message, writ
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -4692,7 +4692,7 @@ proto.pddxpb.URLConvertResponse.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.pddxpb.URLConvertResponse.prototype.getCode = function() {
@@ -4900,15 +4900,15 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMallCouponId(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMallCouponDiscountPct(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMallCouponMinOrderAmount(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMallCouponMaxDiscountAmount(value);
       break;
     case 6:
@@ -4964,7 +4964,7 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMallName(value);
       break;
     case 19:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMerchantType(value);
       break;
     case 20:
@@ -4996,7 +4996,7 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
       }
       break;
     case 26:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMallCps(value);
       break;
     case 27:
@@ -5036,7 +5036,7 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSalesTip(value);
       break;
     case 36:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setActivityType(value);
       break;
     case 37:
@@ -5080,7 +5080,7 @@ proto.pddxpb.SearchData.deserializeBinaryFromReader = function(msg, reader) {
       msg.setLgstTxt(value);
       break;
     case 47:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPlanType(value);
       break;
     case 48:
@@ -5148,21 +5148,21 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getMallCouponDiscountPct();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
   }
   f = message.getMallCouponMinOrderAmount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
   }
   f = message.getMallCouponMaxDiscountAmount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -5260,7 +5260,7 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getMerchantType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       19,
       f
     );
@@ -5309,7 +5309,7 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getMallCps();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       26,
       f
     );
@@ -5379,7 +5379,7 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getActivityType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       36,
       f
     );
@@ -5456,7 +5456,7 @@ proto.pddxpb.SearchData.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getPlanType();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       47,
       f
     );
@@ -5536,7 +5536,7 @@ proto.pddxpb.SearchData.prototype.setMallCouponId = function(value) {
 
 
 /**
- * optional int32 mall_coupon_discount_pct = 3;
+ * optional int64 mall_coupon_discount_pct = 3;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getMallCouponDiscountPct = function() {
@@ -5554,7 +5554,7 @@ proto.pddxpb.SearchData.prototype.setMallCouponDiscountPct = function(value) {
 
 
 /**
- * optional int32 mall_coupon_min_order_amount = 4;
+ * optional int64 mall_coupon_min_order_amount = 4;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getMallCouponMinOrderAmount = function() {
@@ -5572,7 +5572,7 @@ proto.pddxpb.SearchData.prototype.setMallCouponMinOrderAmount = function(value) 
 
 
 /**
- * optional int32 mall_coupon_max_discount_amount = 5;
+ * optional int64 mall_coupon_max_discount_amount = 5;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getMallCouponMaxDiscountAmount = function() {
@@ -5824,7 +5824,7 @@ proto.pddxpb.SearchData.prototype.setMallName = function(value) {
 
 
 /**
- * optional int32 merchant_type = 19;
+ * optional int64 merchant_type = 19;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getMerchantType = function() {
@@ -5988,7 +5988,7 @@ proto.pddxpb.SearchData.prototype.clearCatIdsList = function() {
 
 
 /**
- * optional int32 mall_cps = 26;
+ * optional int64 mall_cps = 26;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getMallCps = function() {
@@ -6168,7 +6168,7 @@ proto.pddxpb.SearchData.prototype.setSalesTip = function(value) {
 
 
 /**
- * optional int32 activity_type = 36;
+ * optional int64 activity_type = 36;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getActivityType = function() {
@@ -6366,7 +6366,7 @@ proto.pddxpb.SearchData.prototype.setLgstTxt = function(value) {
 
 
 /**
- * optional int32 plan_type = 47;
+ * optional int64 plan_type = 47;
  * @return {number}
  */
 proto.pddxpb.SearchData.prototype.getPlanType = function() {
@@ -6574,15 +6574,15 @@ proto.pddxpb.SearchRequest.deserializeBinaryFromReader = function(msg, reader) {
       msg.setOptId(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPage(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPageSize(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSortType(value);
       break;
     case 6:
@@ -6598,7 +6598,7 @@ proto.pddxpb.SearchRequest.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCatId(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setMerchantType(value);
       break;
     case 10:
@@ -6610,7 +6610,7 @@ proto.pddxpb.SearchRequest.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCustomParameters(value);
       break;
     case 12:
-      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
       for (var i = 0; i < values.length; i++) {
         msg.addMerchantTypeList(values[i]);
       }
@@ -6620,13 +6620,13 @@ proto.pddxpb.SearchRequest.deserializeBinaryFromReader = function(msg, reader) {
       msg.setIsBrandGoods(value);
       break;
     case 14:
-      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
       for (var i = 0; i < values.length; i++) {
         msg.addActivityTags(values[i]);
       }
       break;
     case 15:
-      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
       for (var i = 0; i < values.length; i++) {
         msg.addBlockCatPackages(values[i]);
       }
@@ -6684,21 +6684,21 @@ proto.pddxpb.SearchRequest.serializeBinaryToWriter = function(message, writer) {
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 3));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 4));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 5));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -6726,7 +6726,7 @@ proto.pddxpb.SearchRequest.serializeBinaryToWriter = function(message, writer) {
   }
   f = /** @type {number} */ (jspb.Message.getField(message, 9));
   if (f != null) {
-    writer.writeInt32(
+    writer.writeInt64(
       9,
       f
     );
@@ -6747,7 +6747,7 @@ proto.pddxpb.SearchRequest.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getMerchantTypeListList();
   if (f.length > 0) {
-    writer.writePackedInt32(
+    writer.writePackedInt64(
       12,
       f
     );
@@ -6761,14 +6761,14 @@ proto.pddxpb.SearchRequest.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getActivityTagsList();
   if (f.length > 0) {
-    writer.writePackedInt32(
+    writer.writePackedInt64(
       14,
       f
     );
   }
   f = message.getBlockCatPackagesList();
   if (f.length > 0) {
-    writer.writePackedInt32(
+    writer.writePackedInt64(
       15,
       f
     );
@@ -6863,7 +6863,7 @@ proto.pddxpb.SearchRequest.prototype.hasOptId = function() {
 
 
 /**
- * optional int32 page = 3;
+ * optional int64 page = 3;
  * @return {number}
  */
 proto.pddxpb.SearchRequest.prototype.getPage = function() {
@@ -6899,7 +6899,7 @@ proto.pddxpb.SearchRequest.prototype.hasPage = function() {
 
 
 /**
- * optional int32 page_size = 4;
+ * optional int64 page_size = 4;
  * @return {number}
  */
 proto.pddxpb.SearchRequest.prototype.getPageSize = function() {
@@ -6935,7 +6935,7 @@ proto.pddxpb.SearchRequest.prototype.hasPageSize = function() {
 
 
 /**
- * optional int32 sort_type = 5;
+ * optional int64 sort_type = 5;
  * @return {number}
  */
 proto.pddxpb.SearchRequest.prototype.getSortType = function() {
@@ -7079,7 +7079,7 @@ proto.pddxpb.SearchRequest.prototype.hasCatId = function() {
 
 
 /**
- * optional int32 merchant_type = 9;
+ * optional int64 merchant_type = 9;
  * @return {number}
  */
 proto.pddxpb.SearchRequest.prototype.getMerchantType = function() {
@@ -7187,7 +7187,7 @@ proto.pddxpb.SearchRequest.prototype.hasCustomParameters = function() {
 
 
 /**
- * repeated int32 merchant_type_list = 12;
+ * repeated int64 merchant_type_list = 12;
  * @return {!Array<number>}
  */
 proto.pddxpb.SearchRequest.prototype.getMerchantTypeListList = function() {
@@ -7260,7 +7260,7 @@ proto.pddxpb.SearchRequest.prototype.hasIsBrandGoods = function() {
 
 
 /**
- * repeated int32 activity_tags = 14;
+ * repeated int64 activity_tags = 14;
  * @return {!Array<number>}
  */
 proto.pddxpb.SearchRequest.prototype.getActivityTagsList = function() {
@@ -7297,7 +7297,7 @@ proto.pddxpb.SearchRequest.prototype.clearActivityTagsList = function() {
 
 
 /**
- * repeated int32 block_cat_packages = 15;
+ * repeated int64 block_cat_packages = 15;
  * @return {!Array<number>}
  */
 proto.pddxpb.SearchRequest.prototype.getBlockCatPackagesList = function() {
@@ -7487,7 +7487,7 @@ proto.pddxpb.SearchResponse.deserializeBinaryFromReader = function(msg, reader) 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -7495,7 +7495,7 @@ proto.pddxpb.SearchResponse.deserializeBinaryFromReader = function(msg, reader) 
       msg.setMsg(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTotalResults(value);
       break;
     case 4:
@@ -7534,7 +7534,7 @@ proto.pddxpb.SearchResponse.serializeBinaryToWriter = function(message, writer) 
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -7548,7 +7548,7 @@ proto.pddxpb.SearchResponse.serializeBinaryToWriter = function(message, writer) 
   }
   f = message.getTotalResults();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
@@ -7565,7 +7565,7 @@ proto.pddxpb.SearchResponse.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.pddxpb.SearchResponse.prototype.getCode = function() {
@@ -7601,7 +7601,7 @@ proto.pddxpb.SearchResponse.prototype.setMsg = function(value) {
 
 
 /**
- * optional int32 total_results = 3;
+ * optional int64 total_results = 3;
  * @return {number}
  */
 proto.pddxpb.SearchResponse.prototype.getTotalResults = function() {
@@ -9242,7 +9242,7 @@ proto.pddxpb.PromotionResponse.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -9285,7 +9285,7 @@ proto.pddxpb.PromotionResponse.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -9309,7 +9309,7 @@ proto.pddxpb.PromotionResponse.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.pddxpb.PromotionResponse.prototype.getCode = function() {
