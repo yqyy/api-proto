@@ -335,7 +335,7 @@ message OrderDetail {
     string click_time                               = 37; // 通过推广链接达到商品、店铺详情页的点击时间
     int64  tk_status                                = 38; // 已付款：指订单已付款，但还未确认收货 已收货：指订单已确认收货，但商家佣金未支付 已结算：指订单已确认收货，且商家佣金已支付成功 已失效：指订单关闭/订单佣金小于0.01元，订单关闭主要有：1）买家超时未付款； 2）买家付款前，买家/卖家取消了订单；3）订单付款后发起售中退款成功；3：订单结算，12：订单付款， 13：订单失效，14：订单成功
     string item_price                               = 39; // 商品单价
-    string item_id                                  = 40; // 商品id
+    int64 item_id                                   = 40; // 商品id
     string adzone_name                              = 41; // 推广位管理下的自定义推广位名称
     string total_commission_rate                    = 42; // 佣金比率
     string item_link                                = 43; // 商品链接

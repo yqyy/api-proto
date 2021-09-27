@@ -11272,7 +11272,7 @@ proto.tbpb.OrderDetail.toObject = function(includeInstance, msg) {
     clickTime: jspb.Message.getFieldWithDefault(msg, 37, ""),
     tkStatus: jspb.Message.getFieldWithDefault(msg, 38, 0),
     itemPrice: jspb.Message.getFieldWithDefault(msg, 39, ""),
-    itemId: jspb.Message.getFieldWithDefault(msg, 40, ""),
+    itemId: jspb.Message.getFieldWithDefault(msg, 40, 0),
     adzoneName: jspb.Message.getFieldWithDefault(msg, 41, ""),
     totalCommissionRate: jspb.Message.getFieldWithDefault(msg, 42, ""),
     itemLink: jspb.Message.getFieldWithDefault(msg, 43, ""),
@@ -11467,7 +11467,7 @@ proto.tbpb.OrderDetail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setItemPrice(value);
       break;
     case 40:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setItemId(value);
       break;
     case 41:
@@ -11819,8 +11819,8 @@ proto.tbpb.OrderDetail.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getItemId();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       40,
       f
     );
@@ -12582,20 +12582,20 @@ proto.tbpb.OrderDetail.prototype.setItemPrice = function(value) {
 
 
 /**
- * optional string item_id = 40;
- * @return {string}
+ * optional int64 item_id = 40;
+ * @return {number}
  */
 proto.tbpb.OrderDetail.prototype.getItemId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 40, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 40, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.tbpb.OrderDetail} returns this
  */
 proto.tbpb.OrderDetail.prototype.setItemId = function(value) {
-  return jspb.Message.setProto3StringField(this, 40, value);
+  return jspb.Message.setProto3IntField(this, 40, value);
 };
 
 

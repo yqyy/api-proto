@@ -2794,7 +2794,7 @@ type OrderDetail struct {
 	ClickTime                          string        `protobuf:"bytes,37,opt,name=click_time,json=clickTime,proto3" json:"click_time,omitempty"`                                                                                      // 通过推广链接达到商品、店铺详情页的点击时间
 	TkStatus                           int64         `protobuf:"varint,38,opt,name=tk_status,json=tkStatus,proto3" json:"tk_status,omitempty"`                                                                                        // 已付款：指订单已付款，但还未确认收货 已收货：指订单已确认收货，但商家佣金未支付 已结算：指订单已确认收货，且商家佣金已支付成功 已失效：指订单关闭/订单佣金小于0.01元，订单关闭主要有：1）买家超时未付款； 2）买家付款前，买家/卖家取消了订单；3）订单付款后发起售中退款成功；3：订单结算，12：订单付款， 13：订单失效，14：订单成功
 	ItemPrice                          string        `protobuf:"bytes,39,opt,name=item_price,json=itemPrice,proto3" json:"item_price,omitempty"`                                                                                      // 商品单价
-	ItemId                             string        `protobuf:"bytes,40,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`                                                                                               // 商品id
+	ItemId                             int64         `protobuf:"varint,40,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`                                                                                              // 商品id
 	AdzoneName                         string        `protobuf:"bytes,41,opt,name=adzone_name,json=adzoneName,proto3" json:"adzone_name,omitempty"`                                                                                   // 推广位管理下的自定义推广位名称
 	TotalCommissionRate                string        `protobuf:"bytes,42,opt,name=total_commission_rate,json=totalCommissionRate,proto3" json:"total_commission_rate,omitempty"`                                                      // 佣金比率
 	ItemLink                           string        `protobuf:"bytes,43,opt,name=item_link,json=itemLink,proto3" json:"item_link,omitempty"`                                                                                         // 商品链接
@@ -3087,11 +3087,11 @@ func (x *OrderDetail) GetItemPrice() string {
 	return ""
 }
 
-func (x *OrderDetail) GetItemId() string {
+func (x *OrderDetail) GetItemId() int64 {
 	if x != nil {
 		return x.ItemId
 	}
-	return ""
+	return 0
 }
 
 func (x *OrderDetail) GetAdzoneName() string {
@@ -4153,7 +4153,7 @@ var file_api_tb_ddx_proto_rawDesc = []byte{
 	0x28, 0x03, 0x52, 0x08, 0x74, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x1d, 0x0a, 0x0a,
 	0x69, 0x74, 0x65, 0x6d, 0x5f, 0x70, 0x72, 0x69, 0x63, 0x65, 0x18, 0x27, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x09, 0x69, 0x74, 0x65, 0x6d, 0x50, 0x72, 0x69, 0x63, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x69,
-	0x74, 0x65, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x28, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x74,
+	0x74, 0x65, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x28, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x69, 0x74,
 	0x65, 0x6d, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x0b, 0x61, 0x64, 0x7a, 0x6f, 0x6e, 0x65, 0x5f, 0x6e,
 	0x61, 0x6d, 0x65, 0x18, 0x29, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x61, 0x64, 0x7a, 0x6f, 0x6e,
 	0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x32, 0x0a, 0x15, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x5f, 0x63,

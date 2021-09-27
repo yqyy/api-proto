@@ -1542,8 +1542,8 @@ export class OrderDetail extends jspb.Message {
   getItemPrice(): string;
   setItemPrice(value: string): void;
 
-  getItemId(): string;
-  setItemId(value: string): void;
+  getItemId(): number;
+  setItemId(value: number): void;
 
   getAdzoneName(): string;
   setAdzoneName(value: string): void;
@@ -1653,7 +1653,7 @@ export namespace OrderDetail {
     clickTime: string,
     tkStatus: number,
     itemPrice: string,
-    itemId: string,
+    itemId: number,
     adzoneName: string,
     totalCommissionRate: string,
     itemLink: string,
