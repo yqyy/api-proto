@@ -7,7 +7,7 @@ option go_package = "/pddxpb";
 
 // API: http://api.tbk.dingdanxia.com/pdd/authority_query
 message AuthorityQueryData {
-    int32 bind = 1; // 1-已绑定；0-未绑定
+    int64 bind = 1; // 1-已绑定；0-未绑定
 }
 
 message AuthorityQueryRequest {
@@ -17,7 +17,7 @@ message AuthorityQueryRequest {
 }
 
 message AuthorityQueryResponse {
-    int32 code = 1;
+    int64 code = 1;
     string msg = 2;
     AuthorityQueryData data = 3;
 }
@@ -76,13 +76,13 @@ message CreateMarketingURLRequest {
     optional bool generate_schema_url = 4;      // 是否返回 schema URL
     optional bool generate_short_url = 5;       // 是否生成短链接。true-是，false-否，默认false
     optional bool generate_we_app = 6;          // 是否生成小程序推广
-    int32 channel_type = 7;                     // 营销工具类型，必填：-1-活动列表，0-红包(需申请推广权限)，2–新人红包，3-刮刮卡，5-员工内购，6-购物车，10-生成绑定备案链接，12-砸金蛋，13-一元购，14-千万补贴B端页面，15-充值中心B端页面
+    int64 channel_type = 7;                     // 营销工具类型，必填：-1-活动列表，0-红包(需申请推广权限)，2–新人红包，3-刮刮卡，5-员工内购，6-购物车，10-生成绑定备案链接，12-砸金蛋，13-一元购，14-千万补贴B端页面，15-充值中心B端页面
     optional uint64 scratch_card_amount = 8;    // 刮刮卡指定金额（单位分），可指定2-100元间数值，即有效区间为：[200,10000]
     optional string pdd_auth_id = 9;            // 切换授权参数
 }
 
 message CreateMarketingURLResponse {
-    int32 code = 1;
+    int64 code = 1;
     string msg = 2;
     MarketingURLData data = 3;
 }
@@ -127,7 +127,7 @@ message URLConvertRequest {
 }
 
 message URLConvertResponse {
-    int32 code = 1;
+    int64 code = 1;
     string msg = 2;
     URLConvertData data = 3;
 }
@@ -136,9 +136,9 @@ message URLConvertResponse {
 message SearchData {
     bool has_mall_coupon = 1;                    // 是否有店铺券
     uint64 mall_coupon_id = 2;                   // 店铺券id
-    int32 mall_coupon_discount_pct = 3;          // 店铺券折扣
-    int32 mall_coupon_min_order_amount = 4;      // 最小使用金额
-    int32 mall_coupon_max_discount_amount = 5;   // 最大使用金额
+    int64 mall_coupon_discount_pct = 3;          // 店铺券折扣
+    int64 mall_coupon_min_order_amount = 4;      // 最小使用金额
+    int64 mall_coupon_max_discount_amount = 5;   // 最大使用金额
     uint64 mall_coupon_total_quantity = 6;       // 店铺券总量
     uint64 mall_coupon_remain_quantity = 7;      // 店铺券余量
     uint64 mall_coupon_start_time = 8;           // 店铺券开始使用时间
@@ -152,14 +152,14 @@ message SearchData {
     uint64 min_group_price = 16;                 // 最小拼团价（单位为分）
     uint64 min_normal_price = 17;                // 最小单买价格（单位为分）
     string mall_name = 18;                       // 店铺名字
-    int32 merchant_type = 19;                    // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
+    int64 merchant_type = 19;                    // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
     uint64 category_id = 20;                     // 商品类目ID，使用pdd.goods.cats.get接口获取
     string category_name = 21;                   // 商品类目名
     uint64 opt_id = 22;                          // 商品标签ID
     string opt_name = 23;                        // 商品标签名
     repeated uint64 opt_ids = 24;                // 商品标签ID list
     repeated uint64 cat_ids = 25;                // 商品类目ID list
-    int32 mall_cps = 26;                         // 该商品所在店铺是否参与全店推广，0：否，1：是
+    int64 mall_cps = 26;                         // 该商品所在店铺是否参与全店推广，0：否，1：是
     bool has_coupon = 27;                        // 商品是否有优惠券 true-有，false-没有
     uint64 coupon_min_order_amount = 28;         // 优惠券门槛价格，单位为分
     uint64 coupon_discount = 29;                 // 优惠券面额，单位为分
@@ -169,7 +169,7 @@ message SearchData {
     uint64 coupon_end_time = 33;                 // 优惠券失效时间，UNIX时间戳
     uint64 promotion_rate = 34;                  // 佣金比例，千分比
     string sales_tip = 35;                       // 已售卖件数
-    int32 activity_type = 36;                    // 活动类型，0-无活动;1-秒杀;3-限量折扣;12-限时折扣;13-大促活动;14-名品折扣;15-品牌清仓;16-食品超市;17-一元幸运团;18-爱逛街;19-时尚穿搭;20-男人帮;21-9块9;22-竞价活动;23-榜单活动;24-幸运半价购;25-定金预售;26-幸运人气购;27-特色主题活动;28-断码清仓;29-一元话费;30-电器城;31-每日好店;32-品牌卡;101-大促搜索池;102-大促品类分会场;
+    int64 activity_type = 36;                    // 活动类型，0-无活动;1-秒杀;3-限量折扣;12-限时折扣;13-大促活动;14-名品折扣;15-品牌清仓;16-食品超市;17-一元幸运团;18-爱逛街;19-时尚穿搭;20-男人帮;21-9块9;22-竞价活动;23-榜单活动;24-幸运半价购;25-定金预售;26-幸运人气购;27-特色主题活动;28-断码清仓;29-一元话费;30-电器城;31-每日好店;32-品牌卡;101-大促搜索池;102-大促品类分会场;
     string clt_cpn_batch_sn = 37;                // 店铺收藏券id
     uint64 clt_cpn_start_time = 38;              // 店铺收藏券起始时间
     uint64 clt_cpn_end_time = 39;                // 店铺收藏券截止时间
@@ -180,7 +180,7 @@ message SearchData {
     string desc_txt = 44;                        // 描述分
     string serv_txt = 45;                        // 服务分
     string lgst_txt = 46;                        // 物流分
-    int32 plan_type = 47;                        // 推广计划类型 3:定向 4:招商
+    int64 plan_type = 47;                        // 推广计划类型 3:定向 4:招商
     uint64 zs_duo_id = 48;                       // 招商团长id
     bool only_scene_auth = 49;                   // 快手专享
     uint64 mall_id = 50;                         // 店铺ID
@@ -191,27 +191,27 @@ message SearchData {
 message SearchRequest {
     optional string keyword = 1;              // 商品关键词，与opt_id字段选填一个或全部填写。可支持goods_id、拼多多链接
     optional uint64 opt_id = 2;               // 商品标签类目ID 详见：https://www.dingdanxia.com/doc/212/86
-    optional int32 page = 3;                  // 默认值1，商品分页数
-    optional int32 page_size = 4;             // 默认100，每页商品数量
-    optional int32 sort_type = 5;             // 排序方式:0-综合排序;1-按佣金比率升序;2-按佣金比例降序;3-按价格升序;4-按价格降序;5-按销量升序;6-按销量降序;7-优惠券金额排序升序;8-优惠券金额排序降序;9-券后价升序排序;10-券后价降序排序;11-按照加入多多进宝时间升序;12-按照加入多多进宝时间降序;13-按佣金金额升序排序;14-按佣金金额降序排序;15-店铺描述评分升序;16-店铺描述评分降序;17-店铺物流评分升序;18-店铺物流评分降序;19-店铺服务评分升序;20-店铺服务评分降序;27-描述评分击败同类店铺百分比升序，28-描述评分击败同类店铺百分比降序，29-物流评分击败同类店铺百分比升序，30-物流评分击败同类店铺百分比降序，31-服务评分击败同类店铺百分比升序，32-服务评分击败同类店铺百分比降序
+    optional int64 page = 3;                  // 默认值1，商品分页数
+    optional int64 page_size = 4;             // 默认100，每页商品数量
+    optional int64 sort_type = 5;             // 排序方式:0-综合排序;1-按佣金比率升序;2-按佣金比例降序;3-按价格升序;4-按价格降序;5-按销量升序;6-按销量降序;7-优惠券金额排序升序;8-优惠券金额排序降序;9-券后价升序排序;10-券后价降序排序;11-按照加入多多进宝时间升序;12-按照加入多多进宝时间降序;13-按佣金金额升序排序;14-按佣金金额降序排序;15-店铺描述评分升序;16-店铺描述评分降序;17-店铺物流评分升序;18-店铺物流评分降序;19-店铺服务评分升序;20-店铺服务评分降序;27-描述评分击败同类店铺百分比升序，28-描述评分击败同类店铺百分比降序，29-物流评分击败同类店铺百分比升序，30-物流评分击败同类店铺百分比降序，31-服务评分击败同类店铺百分比升序，32-服务评分击败同类店铺百分比降序
     optional bool with_coupon = 6;            // 是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
     optional string range_list = 7;           // 筛选范围列表 样例：[{"range_id":0,"range_from":1,"range_to":1500},{"range_id":1,"range_from":1,"range_to":1500}] range_id枚举及描述： 0，最小成团价 1，券后价 2，佣金比例 3，优惠券价格 4，广告创建时间 5，销量 6，佣金金额 7，店铺描述分 8，店铺物流分 9，店铺服务分 10， 店铺描述分击败同行业百分比 11， 店铺物流分击败同行业百分比 12，店铺服务分击败同行业百分比 13，商品分 17 ，优惠券/最小团购价 18，过去两小时pv 19，过去两小时销量
     optional uint64 cat_id = 8;               // 商品类目ID 详见：https://www.dingdanxia.com/doc/85/86
-    optional int32 merchant_type = 9;         // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
+    optional int64 merchant_type = 9;         // 店铺类型，1-个人，2-企业，3-旗舰店，4-专卖店，5-专营店，6-普通店（未传为全部)
     optional string pid = 10;                 // 推广位ID; 和custom_parameters至少传入1个;不传时server侧会使用默认PID
     optional string custom_parameters = 11;   // 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，其中 uid 用户唯一标识，可自行加密后传入，每个用户仅且对应一个标识，必填； sid 上下文信息标识，例如sessionId等，非必填。该json字符串中也可以加入其他自定义的key
-    repeated int32 merchant_type_list = 12;   // 店铺类型数组
+    repeated int64 merchant_type_list = 12;   // 店铺类型数组
     optional bool is_brand_goods = 13;        // 是否为品牌商品
-    repeated int32 activity_tags = 14;        // 商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴 10143-每日必推等
-    repeated int32 block_cat_packages = 15;   // 屏蔽商品类目：1-拼多多小程序屏蔽类目;2-虚拟类目;3-医疗器械;4-处方药;5-非处方药
+    repeated int64 activity_tags = 14;        // 商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴 10143-每日必推等
+    repeated int64 block_cat_packages = 15;   // 屏蔽商品类目：1-拼多多小程序屏蔽类目;2-虚拟类目;3-医疗器械;4-处方药;5-非处方药
     repeated string goods_sign_list = 16;     // goodsSign列表，支持通过goodsSign查询商品
     optional string pdd_auth_id = 17;         // 切换授权参数
 }
 
 message SearchResponse {
-    int32 code = 1;
+    int64 code = 1;
     string msg = 2;
-    int32 total_results = 3; // 返回商品总数
+    int64 total_results = 3; // 返回商品总数
     repeated SearchData data = 4;
 }
 
@@ -305,7 +305,7 @@ message PromotionRequest {
     optional string pdd_auth_id = 20;                // 切换授权参数
 }
 message PromotionResponse {
-    int32 code = 1;
+    int64 code = 1;
     string msg = 2;
     PromotedData data = 3;
 }

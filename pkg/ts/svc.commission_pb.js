@@ -598,7 +598,7 @@ proto.commspb.UserBindOrderRes.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -636,7 +636,7 @@ proto.commspb.UserBindOrderRes.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -652,7 +652,7 @@ proto.commspb.UserBindOrderRes.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.commspb.UserBindOrderRes.prototype.getCode = function() {
@@ -918,7 +918,7 @@ proto.commspb.UserBindPhoneRes.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -956,7 +956,7 @@ proto.commspb.UserBindPhoneRes.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -972,7 +972,7 @@ proto.commspb.UserBindPhoneRes.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.commspb.UserBindPhoneRes.prototype.getCode = function() {
@@ -1093,15 +1093,15 @@ proto.commspb.UserDividendOrder.deserializeBinaryFromReader = function(msg, read
       msg.setOrdersn(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setOrderstatus(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setOrdervendor(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPaystauts(value);
       break;
     case 6:
@@ -1109,11 +1109,11 @@ proto.commspb.UserDividendOrder.deserializeBinaryFromReader = function(msg, read
       msg.setCashreqsn(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setAmount(value);
       break;
     case 8:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setOrderamount(value);
       break;
     case 9:
@@ -1165,21 +1165,21 @@ proto.commspb.UserDividendOrder.serializeBinaryToWriter = function(message, writ
   }
   f = message.getOrderstatus();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
   }
   f = message.getOrdervendor();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
   }
   f = message.getPaystauts();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
@@ -1193,14 +1193,14 @@ proto.commspb.UserDividendOrder.serializeBinaryToWriter = function(message, writ
   }
   f = message.getAmount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
   }
   f = message.getOrderamount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       8,
       f
     );
@@ -1252,7 +1252,7 @@ proto.commspb.UserDividendOrder.prototype.setOrdersn = function(value) {
 
 
 /**
- * optional int32 orderStatus = 3;
+ * optional int64 orderStatus = 3;
  * @return {number}
  */
 proto.commspb.UserDividendOrder.prototype.getOrderstatus = function() {
@@ -1270,7 +1270,7 @@ proto.commspb.UserDividendOrder.prototype.setOrderstatus = function(value) {
 
 
 /**
- * optional int32 orderVendor = 4;
+ * optional int64 orderVendor = 4;
  * @return {number}
  */
 proto.commspb.UserDividendOrder.prototype.getOrdervendor = function() {
@@ -1288,7 +1288,7 @@ proto.commspb.UserDividendOrder.prototype.setOrdervendor = function(value) {
 
 
 /**
- * optional int32 payStauts = 5;
+ * optional int64 payStauts = 5;
  * @return {number}
  */
 proto.commspb.UserDividendOrder.prototype.getPaystauts = function() {
@@ -1324,7 +1324,7 @@ proto.commspb.UserDividendOrder.prototype.setCashreqsn = function(value) {
 
 
 /**
- * optional int32 amount = 7;
+ * optional int64 amount = 7;
  * @return {number}
  */
 proto.commspb.UserDividendOrder.prototype.getAmount = function() {
@@ -1342,7 +1342,7 @@ proto.commspb.UserDividendOrder.prototype.setAmount = function(value) {
 
 
 /**
- * optional int32 orderAmount = 8;
+ * optional int64 orderAmount = 8;
  * @return {number}
  */
 proto.commspb.UserDividendOrder.prototype.getOrderamount = function() {
@@ -1587,7 +1587,7 @@ proto.commspb.UserGetOrdersRes.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -1630,7 +1630,7 @@ proto.commspb.UserGetOrdersRes.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -1654,7 +1654,7 @@ proto.commspb.UserGetOrdersRes.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.commspb.UserGetOrdersRes.prototype.getCode = function() {
@@ -2149,7 +2149,7 @@ proto.commspb.UserQueryBalanceRes.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -2192,7 +2192,7 @@ proto.commspb.UserQueryBalanceRes.serializeBinaryToWriter = function(message, wr
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -2216,7 +2216,7 @@ proto.commspb.UserQueryBalanceRes.serializeBinaryToWriter = function(message, wr
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.commspb.UserQueryBalanceRes.prototype.getCode = function() {
@@ -2680,7 +2680,7 @@ proto.commspb.UserDrawMoneyRes.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -2723,7 +2723,7 @@ proto.commspb.UserDrawMoneyRes.serializeBinaryToWriter = function(message, write
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -2747,7 +2747,7 @@ proto.commspb.UserDrawMoneyRes.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.commspb.UserDrawMoneyRes.prototype.getCode = function() {
@@ -2907,19 +2907,19 @@ proto.commspb.DrawMoneyRecords.deserializeBinaryFromReader = function(msg, reade
       msg.setOrdersns(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setReqamount(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setStatus(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPaidamount(value);
       break;
     case 7:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPaymethod(value);
       break;
     default:
@@ -2974,28 +2974,28 @@ proto.commspb.DrawMoneyRecords.serializeBinaryToWriter = function(message, write
   }
   f = message.getReqamount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
   }
   f = message.getStatus();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       5,
       f
     );
   }
   f = message.getPaidamount();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       6,
       f
     );
   }
   f = message.getPaymethod();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       7,
       f
     );
@@ -3058,7 +3058,7 @@ proto.commspb.DrawMoneyRecords.prototype.setOrdersns = function(value) {
 
 
 /**
- * optional int32 reqAmount = 4;
+ * optional int64 reqAmount = 4;
  * @return {number}
  */
 proto.commspb.DrawMoneyRecords.prototype.getReqamount = function() {
@@ -3076,7 +3076,7 @@ proto.commspb.DrawMoneyRecords.prototype.setReqamount = function(value) {
 
 
 /**
- * optional int32 status = 5;
+ * optional int64 status = 5;
  * @return {number}
  */
 proto.commspb.DrawMoneyRecords.prototype.getStatus = function() {
@@ -3094,7 +3094,7 @@ proto.commspb.DrawMoneyRecords.prototype.setStatus = function(value) {
 
 
 /**
- * optional int32 paidAmount = 6;
+ * optional int64 paidAmount = 6;
  * @return {number}
  */
 proto.commspb.DrawMoneyRecords.prototype.getPaidamount = function() {
@@ -3112,7 +3112,7 @@ proto.commspb.DrawMoneyRecords.prototype.setPaidamount = function(value) {
 
 
 /**
- * optional int32 payMethod = 7;
+ * optional int64 payMethod = 7;
  * @return {number}
  */
 proto.commspb.DrawMoneyRecords.prototype.getPaymethod = function() {
@@ -3339,7 +3339,7 @@ proto.commspb.UserDrawMoneyRecordsRes.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCode(value);
       break;
     case 2:
@@ -3382,7 +3382,7 @@ proto.commspb.UserDrawMoneyRecordsRes.serializeBinaryToWriter = function(message
   var f = undefined;
   f = message.getCode();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -3406,7 +3406,7 @@ proto.commspb.UserDrawMoneyRecordsRes.serializeBinaryToWriter = function(message
 
 
 /**
- * optional int32 code = 1;
+ * optional int64 code = 1;
  * @return {number}
  */
 proto.commspb.UserDrawMoneyRecordsRes.prototype.getCode = function() {
