@@ -133,35 +133,47 @@ message DdxTbApiSearchGoodsRes {
 }
 
 message PromoteURLByIDRequest {
-    string id = 2;                        // mandatory 商品id
-    optional string signature = 3;        // optional  接口签名，查看创建规则，（可在后台开启或关闭，关闭状态可不需要此参数）
-    optional string pid = 4;              // ptional   淘宝联盟推广位pid，必须为在本平台授权淘宝账号下的pid，否则无效。如不传该参数则默认走后台填写的pid
-    optional string relation_id = 5;      // optional  渠道关系ID，即备案到该合作方下面的唯一的渠道关系ID，通过此关系ID进行转链即可实现订单的数据追踪，查看渠道订单数据; 注意：转链时候所传pid参数必须是您“渠道专属推广位”内的专属pid才可以，否则订单接口中无法返回渠道id信息。
-    optional bool tpwd = 6;               // optional  是否生成淘口令，true 或false, 默认不生成，可生成优惠券口令和商品链接口令
-    optional string activity_id = 7;      // optional  阿里妈妈推广券ID，如果传该参数，则高佣链接将展现此券信息，不传会自动查找其它券。
-    optional string logo = 8;             // optional  要生成口令的图片, 默认使用商品主图
-    optional string text = 9;             // optional  要生成口令的标题，默认使用商品标题
-    optional bool item_info = 10;         // optional  true或false，是否返回商品信息，包含标题、一口价、折扣价、券后价、券后佣金，是否天猫, 默认false
-    optional bool extspk = 11;            // optional  true或false，是否同时去查私有券、猫超券，默认false不开启，开启后可能稍微增加转链响应速度，请合理使用。
-    optional string left_symbol = 12;     // optional  淘口令左边符号，默认￥
-    optional string right_symbol = 13;    // optional  淘口令右边符号，默认￥
-    optional bool short_url = 14;         // optional  coupon_click_url 和 item_url 是否生成短连接（默认生成的链接为长链接）
+    string          id              =  1; // mandatory 商品id
+    optional string	pid	            =  2; // 淘宝联盟推广位pid，必须为在本平台授权淘宝账号下的pid，否则无效。如不传该参数则默认走后台填写的pid
+    optional string	relation_id	    =  3; // 渠道关系 ID，即备案到该合作方下面的唯一的渠道关系 ID，通过此关系 ID 进行转链即可实现订单的数据追踪，查看渠道订单数据; 注意：转链时候所传pid参数必须是您“渠道专属推广位”内的专属pid才可以，否则订单接口中无法返回渠道id信息。
+    optional string	special_id	    =  4; // 会员运营ID
+    optional string	external_id	    =  5; // 淘宝客外部用户标记，如自身系统账户ID；微信ID等 详细说明：https://dingdanxia.blog.csdn.net/article/details/107779132
+    optional bool	tpwd	        =  6; // 是否生成淘口令，true 或false, 默认不生成，可生成优惠券口令和商品链接口令 其他注意事项：https://www.dingdanxia.com/article/127.html
+    optional string	activityId	    =  7; // 阿里妈妈推广券ID，如果传该参数，则高佣链接将展现此券信息，不传会自动查找其它券。
+    optional string	logo	        =  8; // 要生成口令的图片, 默认使用商品主图
+    optional string	text	        =  9; // 要生成口令的标题，默认使用商品标题
+    optional bool	itemInfo	    = 10; // true或false，是否返回商品信息，包含标题、一口价、折扣价、券后价、券后佣金，是否天猫, 默认false
+    optional bool	extspk	        = 11; // true或false，是否同时去查私有券、猫超券，默认false不开启，开启后可能稍微增加转链响应速度，请合理使用。
+    optional string	left_symbol	    = 12; // 淘口令左边符号，默认￥
+    optional string	right_symbol	= 13; // 淘口令右边符号，默认￥
+    optional bool	shorturl	    = 14; // coupon_click_url 和 item_url 是否生成短连接
+    optional string	xid	            = 15; // 团长与下游渠道合作的特殊标识，用于统计渠道推广效果
+    optional string	appkey	        = 16; // 自己淘宝开放平台具有口令生成权限的appkey 详细说明 https://www.dingdanxia.com/article/127.html
+    optional string	appsecret	    = 17; // 自己淘宝开放平台具有口令生成权限的appsecret 详细说明 https://www.dingdanxia.com/article/127.html
+    optional int64	tb_auth_id	    = 18; // 多个联盟号授权切换某一个时使用
+    optional string	access_token	= 19; // 多用户授权参数
 }
 
 message PromoteURLByTKLRequest {
-    string tkl = 2;                       // mandatory 商品TKL
-    optional string signature = 3;        // optional  接口签名，查看创建规则，（可在后台开启或关闭，关闭状态可不需要此参数）
-    optional string pid = 4;              // ptional   淘宝联盟推广位pid，必须为在本平台授权淘宝账号下的pid，否则无效。如不传该参数则默认走后台填写的pid
-    optional string relation_id = 5;      // optional  渠道关系ID，即备案到该合作方下面的唯一的渠道关系ID，通过此关系ID进行转链即可实现订单的数据追踪，查看渠道订单数据; 注意：转链时候所传pid参数必须是您“渠道专属推广位”内的专属pid才可以，否则订单接口中无法返回渠道id信息。
-    optional bool tpwd = 6;               // optional  是否生成淘口令，true 或false, 默认不生成，可生成优惠券口令和商品链接口令
-    optional string activity_id = 7;      // optional  阿里妈妈推广券ID，如果传该参数，则高佣链接将展现此券信息，不传会自动查找其它券。
-    optional string logo = 8;             // optional  要生成口令的图片, 默认使用商品主图
-    optional string text = 9;             // optional  要生成口令的标题，默认使用商品标题
-    optional bool item_info = 10;         // optional  true或false，是否返回商品信息，包含标题、一口价、折扣价、券后价、券后佣金，是否天猫, 默认false
-    optional bool extspk = 11;            // optional  true或false，是否同时去查私有券、猫超券，默认false不开启，开启后可能稍微增加转链响应速度，请合理使用。
-    optional string left_symbol = 12;     // optional  淘口令左边符号，默认￥
-    optional string right_symbol = 13;    // optional  淘口令右边符号，默认￥
-    optional bool short_url = 14;         // optional  coupon_click_url 和 item_url 是否生成短连接（默认生成的链接为长链接）
+    string tkl                      =  1; // mandatory 商品TKL
+    optional string	pid	            =  2; // 淘宝联盟推广位pid，必须为在本平台授权淘宝账号下的pid，否则无效。如不传该参数则默认走后台填写的pid
+    optional string	relation_id	    =  3; // 渠道关系 ID，即备案到该合作方下面的唯一的渠道关系 ID，通过此关系 ID 进行转链即可实现订单的数据追踪，查看渠道订单数据; 注意：转链时候所传pid参数必须是您“渠道专属推广位”内的专属pid才可以，否则订单接口中无法返回渠道id信息。
+    optional string	special_id	    =  4; // 会员运营ID
+    optional string	external_id	    =  5; // 淘宝客外部用户标记，如自身系统账户ID；微信ID等 详细说明：https://dingdanxia.blog.csdn.net/article/details/107779132
+    optional bool	tpwd	        =  6; // 是否生成淘口令，true 或false, 默认不生成，可生成优惠券口令和商品链接口令 其他注意事项：https://www.dingdanxia.com/article/127.html
+    optional string	activityId	    =  7; // 阿里妈妈推广券ID，如果传该参数，则高佣链接将展现此券信息，不传会自动查找其它券。
+    optional string	logo	        =  8; // 要生成口令的图片, 默认使用商品主图
+    optional string	text	        =  9; // 要生成口令的标题，默认使用商品标题
+    optional bool	itemInfo	    = 10; // true或false，是否返回商品信息，包含标题、一口价、折扣价、券后价、券后佣金，是否天猫, 默认false
+    optional bool	extspk	        = 11; // true或false，是否同时去查私有券、猫超券，默认false不开启，开启后可能稍微增加转链响应速度，请合理使用。
+    optional string	left_symbol	    = 12; // 淘口令左边符号，默认￥
+    optional string	right_symbol	= 13; // 淘口令右边符号，默认￥
+    optional bool	shorturl	    = 14; // coupon_click_url 和 item_url 是否生成短连接
+    optional string	xid	            = 15; // 团长与下游渠道合作的特殊标识，用于统计渠道推广效果
+    optional string	appkey	        = 16; // 自己淘宝开放平台具有口令生成权限的appkey 详细说明 https://www.dingdanxia.com/article/127.html
+    optional string	appsecret	    = 17; // 自己淘宝开放平台具有口令生成权限的appsecret 详细说明 https://www.dingdanxia.com/article/127.html
+    optional int64	tb_auth_id	    = 18; // 多个联盟号授权切换某一个时使用
+    optional string	access_token	= 19; // 多用户授权参数
 }
 
 message ItemInfo {

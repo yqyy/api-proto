@@ -5159,19 +5159,25 @@ proto.tbpb.PromoteURLByIDRequest.prototype.toObject = function(opt_includeInstan
  */
 proto.tbpb.PromoteURLByIDRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    signature: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    pid: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    relationId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    pid: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    relationId: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    specialId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    externalId: jspb.Message.getFieldWithDefault(msg, 5, ""),
     tpwd: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
-    activityId: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    activityid: jspb.Message.getFieldWithDefault(msg, 7, ""),
     logo: jspb.Message.getFieldWithDefault(msg, 8, ""),
     text: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    itemInfo: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+    iteminfo: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     extspk: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
     leftSymbol: jspb.Message.getFieldWithDefault(msg, 12, ""),
     rightSymbol: jspb.Message.getFieldWithDefault(msg, 13, ""),
-    shortUrl: jspb.Message.getBooleanFieldWithDefault(msg, 14, false)
+    shorturl: jspb.Message.getBooleanFieldWithDefault(msg, 14, false),
+    xid: jspb.Message.getFieldWithDefault(msg, 15, ""),
+    appkey: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    appsecret: jspb.Message.getFieldWithDefault(msg, 17, ""),
+    tbAuthId: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    accessToken: jspb.Message.getFieldWithDefault(msg, 19, "")
   };
 
   if (includeInstance) {
@@ -5208,21 +5214,25 @@ proto.tbpb.PromoteURLByIDRequest.deserializeBinaryFromReader = function(msg, rea
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 2:
+    case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setId(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSignature(value);
-      break;
-    case 4:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setPid(value);
       break;
-    case 5:
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setRelationId(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSpecialId(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExternalId(value);
       break;
     case 6:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -5230,7 +5240,7 @@ proto.tbpb.PromoteURLByIDRequest.deserializeBinaryFromReader = function(msg, rea
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
-      msg.setActivityId(value);
+      msg.setActivityid(value);
       break;
     case 8:
       var value = /** @type {string} */ (reader.readString());
@@ -5242,7 +5252,7 @@ proto.tbpb.PromoteURLByIDRequest.deserializeBinaryFromReader = function(msg, rea
       break;
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setItemInfo(value);
+      msg.setIteminfo(value);
       break;
     case 11:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -5258,7 +5268,27 @@ proto.tbpb.PromoteURLByIDRequest.deserializeBinaryFromReader = function(msg, rea
       break;
     case 14:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setShortUrl(value);
+      msg.setShorturl(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setXid(value);
+      break;
+    case 16:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppkey(value);
+      break;
+    case 17:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppsecret(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setTbAuthId(value);
+      break;
+    case 19:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAccessToken(value);
       break;
     default:
       reader.skipField();
@@ -5291,6 +5321,13 @@ proto.tbpb.PromoteURLByIDRequest.serializeBinaryToWriter = function(message, wri
   var f = undefined;
   f = message.getId();
   if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 2));
+  if (f != null) {
     writer.writeString(
       2,
       f
@@ -5380,15 +5417,50 @@ proto.tbpb.PromoteURLByIDRequest.serializeBinaryToWriter = function(message, wri
       f
     );
   }
+  f = /** @type {string} */ (jspb.Message.getField(message, 15));
+  if (f != null) {
+    writer.writeString(
+      15,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 16));
+  if (f != null) {
+    writer.writeString(
+      16,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 17));
+  if (f != null) {
+    writer.writeString(
+      17,
+      f
+    );
+  }
+  f = /** @type {number} */ (jspb.Message.getField(message, 18));
+  if (f != null) {
+    writer.writeInt64(
+      18,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 19));
+  if (f != null) {
+    writer.writeString(
+      19,
+      f
+    );
+  }
 };
 
 
 /**
- * optional string id = 2;
+ * optional string id = 1;
  * @return {string}
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -5397,52 +5469,16 @@ proto.tbpb.PromoteURLByIDRequest.prototype.getId = function() {
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.setId = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string signature = 3;
- * @return {string}
- */
-proto.tbpb.PromoteURLByIDRequest.prototype.getSignature = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
- */
-proto.tbpb.PromoteURLByIDRequest.prototype.setSignature = function(value) {
-  return jspb.Message.setField(this, 3, value);
-};
-
-
-/**
- * Clears the field making it undefined.
- * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
- */
-proto.tbpb.PromoteURLByIDRequest.prototype.clearSignature = function() {
-  return jspb.Message.setField(this, 3, undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.tbpb.PromoteURLByIDRequest.prototype.hasSignature = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
-
-/**
- * optional string pid = 4;
+ * optional string pid = 2;
  * @return {string}
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.getPid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -5451,7 +5487,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.getPid = function() {
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.setPid = function(value) {
-  return jspb.Message.setField(this, 4, value);
+  return jspb.Message.setField(this, 2, value);
 };
 
 
@@ -5460,7 +5496,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.setPid = function(value) {
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.clearPid = function() {
-  return jspb.Message.setField(this, 4, undefined);
+  return jspb.Message.setField(this, 2, undefined);
 };
 
 
@@ -5469,16 +5505,16 @@ proto.tbpb.PromoteURLByIDRequest.prototype.clearPid = function() {
  * @return {boolean}
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.hasPid = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * optional string relation_id = 5;
+ * optional string relation_id = 3;
  * @return {string}
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.getRelationId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -5487,7 +5523,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.getRelationId = function() {
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.setRelationId = function(value) {
-  return jspb.Message.setField(this, 5, value);
+  return jspb.Message.setField(this, 3, value);
 };
 
 
@@ -5496,7 +5532,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.setRelationId = function(value) {
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.clearRelationId = function() {
-  return jspb.Message.setField(this, 5, undefined);
+  return jspb.Message.setField(this, 3, undefined);
 };
 
 
@@ -5505,6 +5541,78 @@ proto.tbpb.PromoteURLByIDRequest.prototype.clearRelationId = function() {
  * @return {boolean}
  */
 proto.tbpb.PromoteURLByIDRequest.prototype.hasRelationId = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string special_id = 4;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getSpecialId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setSpecialId = function(value) {
+  return jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearSpecialId = function() {
+  return jspb.Message.setField(this, 4, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasSpecialId = function() {
+  return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string external_id = 5;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getExternalId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setExternalId = function(value) {
+  return jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearExternalId = function() {
+  return jspb.Message.setField(this, 5, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasExternalId = function() {
   return jspb.Message.getField(this, 5) != null;
 };
 
@@ -5546,10 +5654,10 @@ proto.tbpb.PromoteURLByIDRequest.prototype.hasTpwd = function() {
 
 
 /**
- * optional string activity_id = 7;
+ * optional string activityId = 7;
  * @return {string}
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.getActivityId = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.getActivityid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
@@ -5558,7 +5666,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.getActivityId = function() {
  * @param {string} value
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.setActivityId = function(value) {
+proto.tbpb.PromoteURLByIDRequest.prototype.setActivityid = function(value) {
   return jspb.Message.setField(this, 7, value);
 };
 
@@ -5567,7 +5675,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.setActivityId = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.clearActivityId = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.clearActivityid = function() {
   return jspb.Message.setField(this, 7, undefined);
 };
 
@@ -5576,7 +5684,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.clearActivityId = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.hasActivityId = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.hasActivityid = function() {
   return jspb.Message.getField(this, 7) != null;
 };
 
@@ -5654,10 +5762,10 @@ proto.tbpb.PromoteURLByIDRequest.prototype.hasText = function() {
 
 
 /**
- * optional bool item_info = 10;
+ * optional bool itemInfo = 10;
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.getItemInfo = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.getIteminfo = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 10, false));
 };
 
@@ -5666,7 +5774,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.getItemInfo = function() {
  * @param {boolean} value
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.setItemInfo = function(value) {
+proto.tbpb.PromoteURLByIDRequest.prototype.setIteminfo = function(value) {
   return jspb.Message.setField(this, 10, value);
 };
 
@@ -5675,7 +5783,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.setItemInfo = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.clearItemInfo = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.clearIteminfo = function() {
   return jspb.Message.setField(this, 10, undefined);
 };
 
@@ -5684,7 +5792,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.clearItemInfo = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.hasItemInfo = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.hasIteminfo = function() {
   return jspb.Message.getField(this, 10) != null;
 };
 
@@ -5798,10 +5906,10 @@ proto.tbpb.PromoteURLByIDRequest.prototype.hasRightSymbol = function() {
 
 
 /**
- * optional bool short_url = 14;
+ * optional bool shorturl = 14;
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.getShortUrl = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.getShorturl = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 14, false));
 };
 
@@ -5810,7 +5918,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.getShortUrl = function() {
  * @param {boolean} value
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.setShortUrl = function(value) {
+proto.tbpb.PromoteURLByIDRequest.prototype.setShorturl = function(value) {
   return jspb.Message.setField(this, 14, value);
 };
 
@@ -5819,7 +5927,7 @@ proto.tbpb.PromoteURLByIDRequest.prototype.setShortUrl = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.clearShortUrl = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.clearShorturl = function() {
   return jspb.Message.setField(this, 14, undefined);
 };
 
@@ -5828,8 +5936,188 @@ proto.tbpb.PromoteURLByIDRequest.prototype.clearShortUrl = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByIDRequest.prototype.hasShortUrl = function() {
+proto.tbpb.PromoteURLByIDRequest.prototype.hasShorturl = function() {
   return jspb.Message.getField(this, 14) != null;
+};
+
+
+/**
+ * optional string xid = 15;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getXid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setXid = function(value) {
+  return jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearXid = function() {
+  return jspb.Message.setField(this, 15, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasXid = function() {
+  return jspb.Message.getField(this, 15) != null;
+};
+
+
+/**
+ * optional string appkey = 16;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getAppkey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setAppkey = function(value) {
+  return jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearAppkey = function() {
+  return jspb.Message.setField(this, 16, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasAppkey = function() {
+  return jspb.Message.getField(this, 16) != null;
+};
+
+
+/**
+ * optional string appsecret = 17;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getAppsecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setAppsecret = function(value) {
+  return jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearAppsecret = function() {
+  return jspb.Message.setField(this, 17, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasAppsecret = function() {
+  return jspb.Message.getField(this, 17) != null;
+};
+
+
+/**
+ * optional int64 tb_auth_id = 18;
+ * @return {number}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getTbAuthId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setTbAuthId = function(value) {
+  return jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearTbAuthId = function() {
+  return jspb.Message.setField(this, 18, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasTbAuthId = function() {
+  return jspb.Message.getField(this, 18) != null;
+};
+
+
+/**
+ * optional string access_token = 19;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.getAccessToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.setAccessToken = function(value) {
+  return jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByIDRequest} returns this
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.clearAccessToken = function() {
+  return jspb.Message.setField(this, 19, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByIDRequest.prototype.hasAccessToken = function() {
+  return jspb.Message.getField(this, 19) != null;
 };
 
 
@@ -5865,19 +6153,25 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.tbpb.PromoteURLByTKLRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    tkl: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    signature: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    pid: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    relationId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    tkl: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    pid: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    relationId: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    specialId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    externalId: jspb.Message.getFieldWithDefault(msg, 5, ""),
     tpwd: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
-    activityId: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    activityid: jspb.Message.getFieldWithDefault(msg, 7, ""),
     logo: jspb.Message.getFieldWithDefault(msg, 8, ""),
     text: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    itemInfo: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+    iteminfo: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     extspk: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
     leftSymbol: jspb.Message.getFieldWithDefault(msg, 12, ""),
     rightSymbol: jspb.Message.getFieldWithDefault(msg, 13, ""),
-    shortUrl: jspb.Message.getBooleanFieldWithDefault(msg, 14, false)
+    shorturl: jspb.Message.getBooleanFieldWithDefault(msg, 14, false),
+    xid: jspb.Message.getFieldWithDefault(msg, 15, ""),
+    appkey: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    appsecret: jspb.Message.getFieldWithDefault(msg, 17, ""),
+    tbAuthId: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    accessToken: jspb.Message.getFieldWithDefault(msg, 19, "")
   };
 
   if (includeInstance) {
@@ -5914,21 +6208,25 @@ proto.tbpb.PromoteURLByTKLRequest.deserializeBinaryFromReader = function(msg, re
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 2:
+    case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setTkl(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSignature(value);
-      break;
-    case 4:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setPid(value);
       break;
-    case 5:
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setRelationId(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSpecialId(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExternalId(value);
       break;
     case 6:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -5936,7 +6234,7 @@ proto.tbpb.PromoteURLByTKLRequest.deserializeBinaryFromReader = function(msg, re
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
-      msg.setActivityId(value);
+      msg.setActivityid(value);
       break;
     case 8:
       var value = /** @type {string} */ (reader.readString());
@@ -5948,7 +6246,7 @@ proto.tbpb.PromoteURLByTKLRequest.deserializeBinaryFromReader = function(msg, re
       break;
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setItemInfo(value);
+      msg.setIteminfo(value);
       break;
     case 11:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -5964,7 +6262,27 @@ proto.tbpb.PromoteURLByTKLRequest.deserializeBinaryFromReader = function(msg, re
       break;
     case 14:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setShortUrl(value);
+      msg.setShorturl(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setXid(value);
+      break;
+    case 16:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppkey(value);
+      break;
+    case 17:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppsecret(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setTbAuthId(value);
+      break;
+    case 19:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAccessToken(value);
       break;
     default:
       reader.skipField();
@@ -5997,6 +6315,13 @@ proto.tbpb.PromoteURLByTKLRequest.serializeBinaryToWriter = function(message, wr
   var f = undefined;
   f = message.getTkl();
   if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 2));
+  if (f != null) {
     writer.writeString(
       2,
       f
@@ -6086,15 +6411,50 @@ proto.tbpb.PromoteURLByTKLRequest.serializeBinaryToWriter = function(message, wr
       f
     );
   }
+  f = /** @type {string} */ (jspb.Message.getField(message, 15));
+  if (f != null) {
+    writer.writeString(
+      15,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 16));
+  if (f != null) {
+    writer.writeString(
+      16,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 17));
+  if (f != null) {
+    writer.writeString(
+      17,
+      f
+    );
+  }
+  f = /** @type {number} */ (jspb.Message.getField(message, 18));
+  if (f != null) {
+    writer.writeInt64(
+      18,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 19));
+  if (f != null) {
+    writer.writeString(
+      19,
+      f
+    );
+  }
 };
 
 
 /**
- * optional string tkl = 2;
+ * optional string tkl = 1;
  * @return {string}
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.getTkl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -6103,52 +6463,16 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.getTkl = function() {
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.setTkl = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string signature = 3;
- * @return {string}
- */
-proto.tbpb.PromoteURLByTKLRequest.prototype.getSignature = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
- */
-proto.tbpb.PromoteURLByTKLRequest.prototype.setSignature = function(value) {
-  return jspb.Message.setField(this, 3, value);
-};
-
-
-/**
- * Clears the field making it undefined.
- * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
- */
-proto.tbpb.PromoteURLByTKLRequest.prototype.clearSignature = function() {
-  return jspb.Message.setField(this, 3, undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.tbpb.PromoteURLByTKLRequest.prototype.hasSignature = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
-
-/**
- * optional string pid = 4;
+ * optional string pid = 2;
  * @return {string}
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.getPid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -6157,7 +6481,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.getPid = function() {
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.setPid = function(value) {
-  return jspb.Message.setField(this, 4, value);
+  return jspb.Message.setField(this, 2, value);
 };
 
 
@@ -6166,7 +6490,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.setPid = function(value) {
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.clearPid = function() {
-  return jspb.Message.setField(this, 4, undefined);
+  return jspb.Message.setField(this, 2, undefined);
 };
 
 
@@ -6175,16 +6499,16 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.clearPid = function() {
  * @return {boolean}
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.hasPid = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * optional string relation_id = 5;
+ * optional string relation_id = 3;
  * @return {string}
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.getRelationId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -6193,7 +6517,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.getRelationId = function() {
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.setRelationId = function(value) {
-  return jspb.Message.setField(this, 5, value);
+  return jspb.Message.setField(this, 3, value);
 };
 
 
@@ -6202,7 +6526,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.setRelationId = function(value) {
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.clearRelationId = function() {
-  return jspb.Message.setField(this, 5, undefined);
+  return jspb.Message.setField(this, 3, undefined);
 };
 
 
@@ -6211,6 +6535,78 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.clearRelationId = function() {
  * @return {boolean}
  */
 proto.tbpb.PromoteURLByTKLRequest.prototype.hasRelationId = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string special_id = 4;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getSpecialId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setSpecialId = function(value) {
+  return jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearSpecialId = function() {
+  return jspb.Message.setField(this, 4, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasSpecialId = function() {
+  return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string external_id = 5;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getExternalId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setExternalId = function(value) {
+  return jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearExternalId = function() {
+  return jspb.Message.setField(this, 5, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasExternalId = function() {
   return jspb.Message.getField(this, 5) != null;
 };
 
@@ -6252,10 +6648,10 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.hasTpwd = function() {
 
 
 /**
- * optional string activity_id = 7;
+ * optional string activityId = 7;
  * @return {string}
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.getActivityId = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.getActivityid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
@@ -6264,7 +6660,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.getActivityId = function() {
  * @param {string} value
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.setActivityId = function(value) {
+proto.tbpb.PromoteURLByTKLRequest.prototype.setActivityid = function(value) {
   return jspb.Message.setField(this, 7, value);
 };
 
@@ -6273,7 +6669,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.setActivityId = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.clearActivityId = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearActivityid = function() {
   return jspb.Message.setField(this, 7, undefined);
 };
 
@@ -6282,7 +6678,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.clearActivityId = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.hasActivityId = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasActivityid = function() {
   return jspb.Message.getField(this, 7) != null;
 };
 
@@ -6360,10 +6756,10 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.hasText = function() {
 
 
 /**
- * optional bool item_info = 10;
+ * optional bool itemInfo = 10;
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.getItemInfo = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.getIteminfo = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 10, false));
 };
 
@@ -6372,7 +6768,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.getItemInfo = function() {
  * @param {boolean} value
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.setItemInfo = function(value) {
+proto.tbpb.PromoteURLByTKLRequest.prototype.setIteminfo = function(value) {
   return jspb.Message.setField(this, 10, value);
 };
 
@@ -6381,7 +6777,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.setItemInfo = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.clearItemInfo = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearIteminfo = function() {
   return jspb.Message.setField(this, 10, undefined);
 };
 
@@ -6390,7 +6786,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.clearItemInfo = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.hasItemInfo = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasIteminfo = function() {
   return jspb.Message.getField(this, 10) != null;
 };
 
@@ -6504,10 +6900,10 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.hasRightSymbol = function() {
 
 
 /**
- * optional bool short_url = 14;
+ * optional bool shorturl = 14;
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.getShortUrl = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.getShorturl = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 14, false));
 };
 
@@ -6516,7 +6912,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.getShortUrl = function() {
  * @param {boolean} value
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.setShortUrl = function(value) {
+proto.tbpb.PromoteURLByTKLRequest.prototype.setShorturl = function(value) {
   return jspb.Message.setField(this, 14, value);
 };
 
@@ -6525,7 +6921,7 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.setShortUrl = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.clearShortUrl = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearShorturl = function() {
   return jspb.Message.setField(this, 14, undefined);
 };
 
@@ -6534,8 +6930,188 @@ proto.tbpb.PromoteURLByTKLRequest.prototype.clearShortUrl = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.tbpb.PromoteURLByTKLRequest.prototype.hasShortUrl = function() {
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasShorturl = function() {
   return jspb.Message.getField(this, 14) != null;
+};
+
+
+/**
+ * optional string xid = 15;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getXid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setXid = function(value) {
+  return jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearXid = function() {
+  return jspb.Message.setField(this, 15, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasXid = function() {
+  return jspb.Message.getField(this, 15) != null;
+};
+
+
+/**
+ * optional string appkey = 16;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getAppkey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setAppkey = function(value) {
+  return jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearAppkey = function() {
+  return jspb.Message.setField(this, 16, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasAppkey = function() {
+  return jspb.Message.getField(this, 16) != null;
+};
+
+
+/**
+ * optional string appsecret = 17;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getAppsecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setAppsecret = function(value) {
+  return jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearAppsecret = function() {
+  return jspb.Message.setField(this, 17, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasAppsecret = function() {
+  return jspb.Message.getField(this, 17) != null;
+};
+
+
+/**
+ * optional int64 tb_auth_id = 18;
+ * @return {number}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getTbAuthId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setTbAuthId = function(value) {
+  return jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearTbAuthId = function() {
+  return jspb.Message.setField(this, 18, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasTbAuthId = function() {
+  return jspb.Message.getField(this, 18) != null;
+};
+
+
+/**
+ * optional string access_token = 19;
+ * @return {string}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.getAccessToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.setAccessToken = function(value) {
+  return jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tbpb.PromoteURLByTKLRequest} returns this
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.clearAccessToken = function() {
+  return jspb.Message.setField(this, 19, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tbpb.PromoteURLByTKLRequest.prototype.hasAccessToken = function() {
+  return jspb.Message.getField(this, 19) != null;
 };
 
 

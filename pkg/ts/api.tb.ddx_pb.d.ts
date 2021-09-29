@@ -613,11 +613,6 @@ export class PromoteURLByIDRequest extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
-  hasSignature(): boolean;
-  clearSignature(): void;
-  getSignature(): string;
-  setSignature(value: string): void;
-
   hasPid(): boolean;
   clearPid(): void;
   getPid(): string;
@@ -628,15 +623,25 @@ export class PromoteURLByIDRequest extends jspb.Message {
   getRelationId(): string;
   setRelationId(value: string): void;
 
+  hasSpecialId(): boolean;
+  clearSpecialId(): void;
+  getSpecialId(): string;
+  setSpecialId(value: string): void;
+
+  hasExternalId(): boolean;
+  clearExternalId(): void;
+  getExternalId(): string;
+  setExternalId(value: string): void;
+
   hasTpwd(): boolean;
   clearTpwd(): void;
   getTpwd(): boolean;
   setTpwd(value: boolean): void;
 
-  hasActivityId(): boolean;
-  clearActivityId(): void;
-  getActivityId(): string;
-  setActivityId(value: string): void;
+  hasActivityid(): boolean;
+  clearActivityid(): void;
+  getActivityid(): string;
+  setActivityid(value: string): void;
 
   hasLogo(): boolean;
   clearLogo(): void;
@@ -648,10 +653,10 @@ export class PromoteURLByIDRequest extends jspb.Message {
   getText(): string;
   setText(value: string): void;
 
-  hasItemInfo(): boolean;
-  clearItemInfo(): void;
-  getItemInfo(): boolean;
-  setItemInfo(value: boolean): void;
+  hasIteminfo(): boolean;
+  clearIteminfo(): void;
+  getIteminfo(): boolean;
+  setIteminfo(value: boolean): void;
 
   hasExtspk(): boolean;
   clearExtspk(): void;
@@ -668,10 +673,35 @@ export class PromoteURLByIDRequest extends jspb.Message {
   getRightSymbol(): string;
   setRightSymbol(value: string): void;
 
-  hasShortUrl(): boolean;
-  clearShortUrl(): void;
-  getShortUrl(): boolean;
-  setShortUrl(value: boolean): void;
+  hasShorturl(): boolean;
+  clearShorturl(): void;
+  getShorturl(): boolean;
+  setShorturl(value: boolean): void;
+
+  hasXid(): boolean;
+  clearXid(): void;
+  getXid(): string;
+  setXid(value: string): void;
+
+  hasAppkey(): boolean;
+  clearAppkey(): void;
+  getAppkey(): string;
+  setAppkey(value: string): void;
+
+  hasAppsecret(): boolean;
+  clearAppsecret(): void;
+  getAppsecret(): string;
+  setAppsecret(value: string): void;
+
+  hasTbAuthId(): boolean;
+  clearTbAuthId(): void;
+  getTbAuthId(): number;
+  setTbAuthId(value: number): void;
+
+  hasAccessToken(): boolean;
+  clearAccessToken(): void;
+  getAccessToken(): string;
+  setAccessToken(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PromoteURLByIDRequest.AsObject;
@@ -686,29 +716,30 @@ export class PromoteURLByIDRequest extends jspb.Message {
 export namespace PromoteURLByIDRequest {
   export type AsObject = {
     id: string,
-    signature: string,
     pid: string,
     relationId: string,
+    specialId: string,
+    externalId: string,
     tpwd: boolean,
-    activityId: string,
+    activityid: string,
     logo: string,
     text: string,
-    itemInfo: boolean,
+    iteminfo: boolean,
     extspk: boolean,
     leftSymbol: string,
     rightSymbol: string,
-    shortUrl: boolean,
+    shorturl: boolean,
+    xid: string,
+    appkey: string,
+    appsecret: string,
+    tbAuthId: number,
+    accessToken: string,
   }
 }
 
 export class PromoteURLByTKLRequest extends jspb.Message {
   getTkl(): string;
   setTkl(value: string): void;
-
-  hasSignature(): boolean;
-  clearSignature(): void;
-  getSignature(): string;
-  setSignature(value: string): void;
 
   hasPid(): boolean;
   clearPid(): void;
@@ -720,15 +751,25 @@ export class PromoteURLByTKLRequest extends jspb.Message {
   getRelationId(): string;
   setRelationId(value: string): void;
 
+  hasSpecialId(): boolean;
+  clearSpecialId(): void;
+  getSpecialId(): string;
+  setSpecialId(value: string): void;
+
+  hasExternalId(): boolean;
+  clearExternalId(): void;
+  getExternalId(): string;
+  setExternalId(value: string): void;
+
   hasTpwd(): boolean;
   clearTpwd(): void;
   getTpwd(): boolean;
   setTpwd(value: boolean): void;
 
-  hasActivityId(): boolean;
-  clearActivityId(): void;
-  getActivityId(): string;
-  setActivityId(value: string): void;
+  hasActivityid(): boolean;
+  clearActivityid(): void;
+  getActivityid(): string;
+  setActivityid(value: string): void;
 
   hasLogo(): boolean;
   clearLogo(): void;
@@ -740,10 +781,10 @@ export class PromoteURLByTKLRequest extends jspb.Message {
   getText(): string;
   setText(value: string): void;
 
-  hasItemInfo(): boolean;
-  clearItemInfo(): void;
-  getItemInfo(): boolean;
-  setItemInfo(value: boolean): void;
+  hasIteminfo(): boolean;
+  clearIteminfo(): void;
+  getIteminfo(): boolean;
+  setIteminfo(value: boolean): void;
 
   hasExtspk(): boolean;
   clearExtspk(): void;
@@ -760,10 +801,35 @@ export class PromoteURLByTKLRequest extends jspb.Message {
   getRightSymbol(): string;
   setRightSymbol(value: string): void;
 
-  hasShortUrl(): boolean;
-  clearShortUrl(): void;
-  getShortUrl(): boolean;
-  setShortUrl(value: boolean): void;
+  hasShorturl(): boolean;
+  clearShorturl(): void;
+  getShorturl(): boolean;
+  setShorturl(value: boolean): void;
+
+  hasXid(): boolean;
+  clearXid(): void;
+  getXid(): string;
+  setXid(value: string): void;
+
+  hasAppkey(): boolean;
+  clearAppkey(): void;
+  getAppkey(): string;
+  setAppkey(value: string): void;
+
+  hasAppsecret(): boolean;
+  clearAppsecret(): void;
+  getAppsecret(): string;
+  setAppsecret(value: string): void;
+
+  hasTbAuthId(): boolean;
+  clearTbAuthId(): void;
+  getTbAuthId(): number;
+  setTbAuthId(value: number): void;
+
+  hasAccessToken(): boolean;
+  clearAccessToken(): void;
+  getAccessToken(): string;
+  setAccessToken(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PromoteURLByTKLRequest.AsObject;
@@ -778,18 +844,24 @@ export class PromoteURLByTKLRequest extends jspb.Message {
 export namespace PromoteURLByTKLRequest {
   export type AsObject = {
     tkl: string,
-    signature: string,
     pid: string,
     relationId: string,
+    specialId: string,
+    externalId: string,
     tpwd: boolean,
-    activityId: string,
+    activityid: string,
     logo: string,
     text: string,
-    itemInfo: boolean,
+    iteminfo: boolean,
     extspk: boolean,
     leftSymbol: string,
     rightSymbol: string,
-    shortUrl: boolean,
+    shorturl: boolean,
+    xid: string,
+    appkey: string,
+    appsecret: string,
+    tbAuthId: number,
+    accessToken: string,
   }
 }
 
