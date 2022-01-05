@@ -19,8 +19,8 @@ make ts
 ```shell
 git add .
 git commit -m "description"
-git tag v0.x.x
-git push
+git tag v0.x.y
+git push origin v0.x.y
 ```
 
 Refer to: https://github.com/improbable-eng/ts-protoc-gen
