@@ -19,6 +19,7 @@ make ts
 ```shell
 git add .
 git commit -m "description"
+git push
 git tag v0.x.y
 git push origin v0.x.y
 ```
