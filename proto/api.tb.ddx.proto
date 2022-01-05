@@ -386,14 +386,28 @@ message OrderDetailRequest {
 }
 
 message OrderDetailResponse {
+    int64 code                = 1;
+    string msg                = 2;
+    bool   has_pre            = 3; // 是否还有上一页     
+    bool   has_next           = 4; // 是否还有下一页
+    int64  page_no            = 5; // 页码
+    int64  page_size          = 6; // 页大小
+    string position_index     = 7; // 位点字段，由调用方原样传递
+    repeated OrderDetail data = 8;
+}
+
+message DecodeShortUrlRequest {
+    string url = 1; // 要解析的淘宝m.tb.cn短连接
+}
+
+message DecodedShortUrl {
+    string url = 1; // 解析后的url
+}
+
+message DecodeShortUrlResponse {
     int64 code            = 1;
     string msg            = 2;
-    bool   has_pre        = 3; // 是否还有上一页     
-    bool   has_next       = 4; // 是否还有下一页
-    int64  page_no        = 5; // 页码
-    int64  page_size      = 6; // 页大小
-    string position_index = 7; // 位点字段，由调用方原样传递
-    repeated OrderDetail data      = 8;
+    DecodedShortUrl data  = 3;
 }
 
 // RPC service
@@ -404,4 +418,5 @@ service TbApiService {
     rpc PublisherGet(PublisherGetRequest) returns (PublisherGetResponse) {}
     rpc PublisherSave(PublisherSaveRequest) returns (PublisherSaveResponse) {}
     rpc SyncOrderDetail(OrderDetailRequest) returns (OrderDetailResponse) {}
+    rpc DecodeShortUrl(DecodeShortUrlRequest) returns (DecodeShortUrlResponse) {}
 }

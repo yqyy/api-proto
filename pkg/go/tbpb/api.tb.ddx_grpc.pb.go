@@ -24,6 +24,7 @@ type TbApiServiceClient interface {
 	PublisherGet(ctx context.Context, in *PublisherGetRequest, opts ...grpc.CallOption) (*PublisherGetResponse, error)
 	PublisherSave(ctx context.Context, in *PublisherSaveRequest, opts ...grpc.CallOption) (*PublisherSaveResponse, error)
 	SyncOrderDetail(ctx context.Context, in *OrderDetailRequest, opts ...grpc.CallOption) (*OrderDetailResponse, error)
+	DecodeShortUrl(ctx context.Context, in *DecodeShortUrlRequest, opts ...grpc.CallOption) (*DecodeShortUrlResponse, error)
 }
 
 type tbApiServiceClient struct {
@@ -88,6 +89,15 @@ func (c *tbApiServiceClient) SyncOrderDetail(ctx context.Context, in *OrderDetai
 	return out, nil
 }
 
+func (c *tbApiServiceClient) DecodeShortUrl(ctx context.Context, in *DecodeShortUrlRequest, opts ...grpc.CallOption) (*DecodeShortUrlResponse, error) {
+	out := new(DecodeShortUrlResponse)
+	err := c.cc.Invoke(ctx, "/tbpb.TbApiService/DecodeShortUrl", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TbApiServiceServer is the server API for TbApiService service.
 // All implementations must embed UnimplementedTbApiServiceServer
 // for forward compatibility
@@ -98,6 +108,7 @@ type TbApiServiceServer interface {
 	PublisherGet(context.Context, *PublisherGetRequest) (*PublisherGetResponse, error)
 	PublisherSave(context.Context, *PublisherSaveRequest) (*PublisherSaveResponse, error)
 	SyncOrderDetail(context.Context, *OrderDetailRequest) (*OrderDetailResponse, error)
+	DecodeShortUrl(context.Context, *DecodeShortUrlRequest) (*DecodeShortUrlResponse, error)
 	mustEmbedUnimplementedTbApiServiceServer()
 }
 
@@ -122,6 +133,9 @@ func (UnimplementedTbApiServiceServer) PublisherSave(context.Context, *Publisher
 }
 func (UnimplementedTbApiServiceServer) SyncOrderDetail(context.Context, *OrderDetailRequest) (*OrderDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SyncOrderDetail not implemented")
+}
+func (UnimplementedTbApiServiceServer) DecodeShortUrl(context.Context, *DecodeShortUrlRequest) (*DecodeShortUrlResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DecodeShortUrl not implemented")
 }
 func (UnimplementedTbApiServiceServer) mustEmbedUnimplementedTbApiServiceServer() {}
 
@@ -244,6 +258,24 @@ func _TbApiService_SyncOrderDetail_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TbApiService_DecodeShortUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DecodeShortUrlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TbApiServiceServer).DecodeShortUrl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/tbpb.TbApiService/DecodeShortUrl",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TbApiServiceServer).DecodeShortUrl(ctx, req.(*DecodeShortUrlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TbApiService_ServiceDesc is the grpc.ServiceDesc for TbApiService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -274,6 +306,10 @@ var TbApiService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SyncOrderDetail",
 			Handler:    _TbApiService_SyncOrderDetail_Handler,
+		},
+		{
+			MethodName: "DecodeShortUrl",
+			Handler:    _TbApiService_DecodeShortUrl_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

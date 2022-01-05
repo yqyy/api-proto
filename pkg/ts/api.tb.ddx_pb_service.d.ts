@@ -58,6 +58,15 @@ type TbApiServiceSyncOrderDetail = {
   readonly responseType: typeof api_tb_ddx_pb.OrderDetailResponse;
 };
 
+type TbApiServiceDecodeShortUrl = {
+  readonly methodName: string;
+  readonly service: typeof TbApiService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof api_tb_ddx_pb.DecodeShortUrlRequest;
+  readonly responseType: typeof api_tb_ddx_pb.DecodeShortUrlResponse;
+};
+
 export class TbApiService {
   static readonly serviceName: string;
   static readonly SearchGoods: TbApiServiceSearchGoods;
@@ -66,6 +75,7 @@ export class TbApiService {
   static readonly PublisherGet: TbApiServicePublisherGet;
   static readonly PublisherSave: TbApiServicePublisherSave;
   static readonly SyncOrderDetail: TbApiServiceSyncOrderDetail;
+  static readonly DecodeShortUrl: TbApiServiceDecodeShortUrl;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -153,6 +163,15 @@ export class TbApiServiceClient {
   syncOrderDetail(
     requestMessage: api_tb_ddx_pb.OrderDetailRequest,
     callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.OrderDetailResponse|null) => void
+  ): UnaryResponse;
+  decodeShortUrl(
+    requestMessage: api_tb_ddx_pb.DecodeShortUrlRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.DecodeShortUrlResponse|null) => void
+  ): UnaryResponse;
+  decodeShortUrl(
+    requestMessage: api_tb_ddx_pb.DecodeShortUrlRequest,
+    callback: (error: ServiceError|null, responseMessage: api_tb_ddx_pb.DecodeShortUrlResponse|null) => void
   ): UnaryResponse;
 }
 

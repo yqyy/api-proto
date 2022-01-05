@@ -1883,3 +1883,73 @@ export namespace OrderDetailResponse {
   }
 }
 
+export class DecodeShortUrlRequest extends jspb.Message {
+  getUrl(): string;
+  setUrl(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DecodeShortUrlRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: DecodeShortUrlRequest): DecodeShortUrlRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DecodeShortUrlRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DecodeShortUrlRequest;
+  static deserializeBinaryFromReader(message: DecodeShortUrlRequest, reader: jspb.BinaryReader): DecodeShortUrlRequest;
+}
+
+export namespace DecodeShortUrlRequest {
+  export type AsObject = {
+    url: string,
+  }
+}
+
+export class DecodedShortUrl extends jspb.Message {
+  getUrl(): string;
+  setUrl(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DecodedShortUrl.AsObject;
+  static toObject(includeInstance: boolean, msg: DecodedShortUrl): DecodedShortUrl.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DecodedShortUrl, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DecodedShortUrl;
+  static deserializeBinaryFromReader(message: DecodedShortUrl, reader: jspb.BinaryReader): DecodedShortUrl;
+}
+
+export namespace DecodedShortUrl {
+  export type AsObject = {
+    url: string,
+  }
+}
+
+export class DecodeShortUrlResponse extends jspb.Message {
+  getCode(): number;
+  setCode(value: number): void;
+
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  hasData(): boolean;
+  clearData(): void;
+  getData(): DecodedShortUrl | undefined;
+  setData(value?: DecodedShortUrl): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DecodeShortUrlResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: DecodeShortUrlResponse): DecodeShortUrlResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DecodeShortUrlResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DecodeShortUrlResponse;
+  static deserializeBinaryFromReader(message: DecodeShortUrlResponse, reader: jspb.BinaryReader): DecodeShortUrlResponse;
+}
+
+export namespace DecodeShortUrlResponse {
+  export type AsObject = {
+    code: number,
+    msg: string,
+    data?: DecodedShortUrl.AsObject,
+  }
+}
+

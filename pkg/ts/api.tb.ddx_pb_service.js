@@ -64,6 +64,15 @@ TbApiService.SyncOrderDetail = {
   responseType: api_tb_ddx_pb.OrderDetailResponse
 };
 
+TbApiService.DecodeShortUrl = {
+  methodName: "DecodeShortUrl",
+  service: TbApiService,
+  requestStream: false,
+  responseStream: false,
+  requestType: api_tb_ddx_pb.DecodeShortUrlRequest,
+  responseType: api_tb_ddx_pb.DecodeShortUrlResponse
+};
+
 exports.TbApiService = TbApiService;
 
 function TbApiServiceClient(serviceHost, options) {
@@ -231,6 +240,37 @@ TbApiServiceClient.prototype.syncOrderDetail = function syncOrderDetail(requestM
     callback = arguments[1];
   }
   var client = grpc.unary(TbApiService.SyncOrderDetail, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+TbApiServiceClient.prototype.decodeShortUrl = function decodeShortUrl(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(TbApiService.DecodeShortUrl, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,
